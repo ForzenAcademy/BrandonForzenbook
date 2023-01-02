@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">ForzenBook</string>
+
+
+
+
+
+
+
+    <string name="loginTitle">forzenbook</string>
+    <string name="loginImageDescription">Forzen Lion Logo</string>
+    <string name="loginButtonText">Login!</string>
+    <string name="loginUserNameHint">Username</string>
+    <string name="loginUserNameError">Please Enter Username.</string>
+    <string name="loginPasswordHint">Password</string>
+    <string name="loginPasswordError">Please Enter Password.</string>
+    <string name="loginCharLengthLimit">Max Character Limit Reached.</string>
+    <string name="loginInvalidCredentials">Invalid Credentials.</string>
+    <string name="loginResetPassword">Reset Password</string>
+    <string name="loginCreateAccount">Create Account</string>
+
+    <string name="createAccountFirstNameHint">First Name</string>
+    <string name="createAccountLastNameHint">Last Name</string>
+    <string name="createAccountBirthDateHint">Date of Birth</string>
+    <string name="createAccountBirthDateFormatHint">MM/DD/YYYY</string>
+    <string name="createAccountPasswordHint">Password</string>
+    <string name="createAccountEmailHint">Email</string>
+    <string name="createAccountLocationHint">Location</string>
+    <string name="createAccountCreateButtonText">Create Account!</string>
+    <string name="createAccountTitleText">Create Account</string>
+    <string name="createAccountSuccess">Success</string>
+    <string name="createAccountToLogin">To Login</string>
+    <string name="createAccountLocationError">Invalid Location</string>
+    <string name="createAccountEmailError">Invalid Email</string>
+    <string name="createAccountPasswordError">Invalid Password</string>
+    <string name="createAccountDateError">Invalid Date of Birth</string>
+
+    <string name="resetPasswordEmailTitle">Please Enter Email</string>
+    <string name="resetPasswordEmailHint">Please Enter Email for Password Reset</string>
+    <string name="resetPasswordEmailButtonText">Send Email</string>
+    <string name="resetPasswordNotification">Check Email for Password Reset Instructions</string>
+    <string name="resetPasswordEmailButtonDismissText">Dismiss</string>
+
+    <string name="requiredFieldsError">All Fields Required</string>
+
+</resources>
