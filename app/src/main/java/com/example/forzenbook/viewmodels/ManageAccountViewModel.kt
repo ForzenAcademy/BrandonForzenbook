@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.forzenbook.usecase.CreateUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.sql.Date
 import java.text.SimpleDateFormat
@@ -22,6 +23,7 @@ class ManageAccountViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var resetPasswordTimestamp: Long = 0L
+    private var resetTimeRemaining: Int = 0
     private var isPasswordResetAvailable: Boolean = true
 
     private val _passwordState: MutableState<ResetPasswordState> =
@@ -32,13 +34,19 @@ class ManageAccountViewModel @Inject constructor(
     sealed interface ResetPasswordState {
         data class Idle(
             val isOnCoolDown: Boolean = false,
+            val timeRemaining: Int = 0
         ) : ResetPasswordState
         object Done : ResetPasswordState
     }
 
-    fun checkEmailTimeRemaining(): Int {
-        viewModelScope.launch {}
-        return ((System.currentTimeMillis() - resetPasswordTimestamp)/1000).toInt()
+    fun calculateResetTimeRemaining() {
+        viewModelScope.launch {
+            while ((System.currentTimeMillis() - resetPasswordTimestamp) >= RESET_PASSWORD_TIMER) {
+                delay(1000)
+                passwordState.value = ResetPasswordState.Idle(timeRemaining = ((System.currentTimeMillis() - resetPasswordTimestamp)/1000).toInt())
+            }
+            isPasswordResetAvailable = true
+        }
     }
 
     fun emailSent() {
@@ -64,12 +72,17 @@ class ManageAccountViewModel @Inject constructor(
             val isPasswordError: Boolean = false,
             val isLocationError: Boolean = false,
             val isDateError: Boolean = false,
+            val isServiceError: Boolean = false,
+            val isNetworkError: Boolean = false,
+            val isDataError: Boolean = false,
         ) : CreateAccountUiState
 
         object Loading : CreateAccountUiState
-
         object Loaded : CreateAccountUiState
+    }
 
+    fun dismissErrorNotification() {
+        state.value = CreateAccountUiState.Idle
     }
 
     fun createUser(
@@ -82,13 +95,14 @@ class ManageAccountViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             state.value = CreateAccountUiState.Loading
+            delay(5000)
             val validPass = isValidPassword(password)
             val validMail = isValidEmail(email)
             val validLoc = isValidLocation(location)
             val validDob = isValidDateOfBirth(date)
             if (validPass && validMail && validLoc && validDob && sqlDate != null) {
                 sqlDate?.let { sqlDate ->
-                    createUserUseCase(
+                    val outcome = createUserUseCase(
                         firstName = firstName,
                         lastName = lastName,
                         password = password,
@@ -96,8 +110,17 @@ class ManageAccountViewModel @Inject constructor(
                         date = sqlDate,
                         location = location
                     )
+                    if (outcome.isDataError) {
+                        state.value = CreateAccountUiState.Error(isDataError = true)
+                    }
+                    else if (outcome.isNetworkError) {
+                        state.value = CreateAccountUiState.Error(isNetworkError = true)
+                    } else if (outcome.isServiceError) {
+                        state.value = CreateAccountUiState.Error(isServiceError = true)
+                    } else {
+                        state.value = CreateAccountUiState.Loaded
+                    }
                 }
-                state.value = CreateAccountUiState.Loaded
             } else {
                 state.value = CreateAccountUiState.Error(
                     isEmailError = validMail,
@@ -110,7 +133,7 @@ class ManageAccountViewModel @Inject constructor(
     }
 
     private fun isValidLocation(location: String): Boolean {
-        return location.length >= LOCATION_CHAR_LIMIT
+        return location.length <= LOCATION_CHAR_LIMIT
     }
 
     private fun isValidEmail(email: String): Boolean {
@@ -131,7 +154,7 @@ class ManageAccountViewModel @Inject constructor(
             sqlDate = Date.valueOf(dateString)
             true
         } catch (e: Exception) {
-            println("Invalid Date Provided.")
+            println("Brandon_Test_ViewModel Invalid Date Provided.")
             false
         }
     }

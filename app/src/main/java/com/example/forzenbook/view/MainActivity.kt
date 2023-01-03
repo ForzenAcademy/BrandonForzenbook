@@ -13,7 +13,9 @@ import com.example.forzenbook.view.composables.LoginContent
 import com.example.forzenbook.view.composables.ResetPasswordContent
 import com.example.forzenbook.view.navigation.LocalNavController
 import com.example.forzenbook.view.navigation.NavigationDestinations
+import com.example.forzenbook.view.theme.DpProvider
 import com.example.forzenbook.view.theme.ForzenBookTheme
+import com.example.forzenbook.view.theme.LocalSizeController
 import com.example.forzenbook.viewmodels.ForzenTopLevelViewModel
 import com.example.forzenbook.viewmodels.ManageAccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,48 +26,60 @@ class MainActivity : ComponentActivity() {
     private val topLevelViewModel: ForzenTopLevelViewModel by viewModels()
     private val accountViewModel: ManageAccountViewModel by viewModels()
 
-    // No Internet Error UI response (There is a class for this)
-    // Bad Response Code Error
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ForzenBookTheme {
-                val navController = rememberNavController()
-                CompositionLocalProvider(LocalNavController provides navController) {
-                    NavHost(
-                        navController = navController,
-                        startDestination = NavigationDestinations.LOGIN_INPUT
-                    ) {
-                        composable(NavigationDestinations.LOGIN_INPUT) {
-                            LoginContent(state = topLevelViewModel.state.value) { username, password ->
-                                topLevelViewModel.login(username, password)
-                            }
-                        }
-                        composable(NavigationDestinations.CREATE_ACCOUNT) {
-                            CreateAccountContent(state = accountViewModel.state.value) { first, last, password, dob, email, location ->
-                                accountViewModel.createUser(
-                                    first,
-                                    last,
-                                    password,
-                                    dob,
-                                    email,
-                                    location
+                val sizes = DpProvider()
+                CompositionLocalProvider(LocalSizeController provides sizes) {
+                    val navController = rememberNavController()
+                    CompositionLocalProvider(LocalNavController provides navController) {
+                        NavHost(
+                            navController = navController,
+                            startDestination = NavigationDestinations.LOGIN_INPUT
+                        ) {
+                            composable(NavigationDestinations.LOGIN_INPUT) {
+                                LoginContent(
+                                    state = topLevelViewModel.state.value,
+                                    onDismiss = {
+                                        topLevelViewModel.dismissNotification()
+                                    },
+                                    onSubmit = { username, password ->
+                                        topLevelViewModel.login(username, password)
+                                    }
                                 )
                             }
-                        }
-                        composable(NavigationDestinations.FORGOT_PASSWORD) {
-                            ResetPasswordContent(
-                                state = accountViewModel.passwordState.value,
-                                onDismiss = {
-                                    navController.navigate(NavigationDestinations.LOGIN_INPUT) {
-                                        popUpTo(NavigationDestinations.LOGIN_INPUT) {
-                                            inclusive = true
-                                        }
+                            composable(NavigationDestinations.CREATE_ACCOUNT) {
+                                CreateAccountContent(
+                                    state = accountViewModel.state.value,
+                                    onDismiss = {
+                                        accountViewModel.dismissErrorNotification()
+                                    },
+                                    onSubmit = { firstName, lastName, password, dateOfBirth, email, location ->
+                                        accountViewModel.createUser(
+                                            firstName = firstName,
+                                            lastName = lastName,
+                                            password = password,
+                                            date = dateOfBirth,
+                                            email = email,
+                                            location = location,
+                                        )
                                     }
-                                },
-                                onSubmit = { accountViewModel.emailSent() },
-                            )
+                                )
+                            }
+                            composable(NavigationDestinations.FORGOT_PASSWORD) {
+                                ResetPasswordContent(
+                                    state = accountViewModel.passwordState.value,
+                                    onDismiss = {
+                                        navController.navigate(NavigationDestinations.LOGIN_INPUT) {
+                                            popUpTo(NavigationDestinations.LOGIN_INPUT) {
+                                                inclusive = true
+                                            }
+                                        }
+                                    },
+                                    onSubmit = { accountViewModel.emailSent() },
+                                )
+                            }
                         }
                     }
                 }

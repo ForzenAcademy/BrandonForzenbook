@@ -28,9 +28,13 @@ class ForzenTopLevelViewModel @Inject constructor(
         object Idle: LoginUiState
 
         data class Error(
+            val isGenericError: Boolean = false,
             val isUserNameError: Boolean = false,
             val isPasswordError: Boolean = false,
             val isInvalidCredentialsError: Boolean = false,
+            val isNetworkError: Boolean = false,
+            val isDataError: Boolean = false,
+            val isServiceError: Boolean = false,
         ): LoginUiState
 
         object Loading: LoginUiState
@@ -41,36 +45,54 @@ class ForzenTopLevelViewModel @Inject constructor(
 
     }
 
+    fun dismissNotification() {
+        state.value = LoginUiState.Idle
+    }
+
     fun login(userName: String, password: String) {
-        loginUserName = userName
-        loginPassword = password
         viewModelScope.launch {
             state.value = LoginUiState.Loading
+            loginUserName = userName
+            loginPassword = password
             delay(5000)
-            val isValidName = isValidUserName(userName)
-            val isValidPass = isValidPassword(password)
-            if (isValidName || isValidPass) {
-                state.value = LoginUiState.Error(
-                    isUserNameError = isValidName,
-                    isPasswordError = isValidPass,
-                )
-                cancel()
-            }
-            val token = loginUseCase(
-                "Brandon_Test_Network Login Request Mock.",
-                "Brandon_Test_Network Login Request Mock.",
-            )
-            if (token == null) {
+            if (userName.isEmpty() || password.isEmpty()) {
                 state.value = LoginUiState.Error(
                     isInvalidCredentialsError = true,
                 )
                 cancel()
-            } else {
-                state.value = LoginUiState.Loaded(
-                    loginToken = token.token
-                )
             }
-            println("Brandon_Test_ViewModel $token")
+            if (!isValidUserName(userName)) {
+                state.value = LoginUiState.Error(
+                    isUserNameError = true,
+                )
+                cancel()
+            }
+            if (!isValidPassword(password)) {
+                state.value = LoginUiState.Error(
+                    isPasswordError = true,
+                )
+                cancel()
+            }
+            val token = loginUseCase(userName, password)
+            if (token != null) {
+                if (token.isDatabaseError && token.isServiceError) {
+                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
+                }
+                else if (token.isNetworkError) {
+                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
+                }
+                else if (token.isServiceError) {
+                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
+                }
+                else if (token.isDatabaseError) {
+                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
+                } else {
+                    if (token.token != null) {
+                        state.value = LoginUiState.Loaded(loginToken = token.token)
+                    }
+                    else { state.value = LoginUiState.Error(isGenericError = true) }
+                }
+            }
             println("Brandon_Test_ViewModel ${state.value}")
         }
     }
@@ -93,5 +115,3 @@ class ForzenTopLevelViewModel @Inject constructor(
         const val PASSWORD_CHAR_LIMIT = 30
     }
 }
-
-//(Regex("[A-Za-z0-9]"))

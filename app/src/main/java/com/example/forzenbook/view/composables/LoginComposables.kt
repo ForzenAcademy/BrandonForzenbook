@@ -23,6 +23,7 @@ import com.example.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState.*
 @Composable
 fun LoginContent(
     state: LoginUiState,
+    onDismiss: () -> Unit,
     onSubmit: (String, String) -> Unit
 ) {
     when (state) {
@@ -30,7 +31,15 @@ fun LoginContent(
             LoginScreen(onSubmit = onSubmit)
         }
         is Error -> {
-            LoginScreen(state = state, onSubmit = onSubmit)
+            if (state.isServiceError) {
+                FakeLoginScreen()
+                ServiceIssue(onDismiss = onDismiss)
+            } else if (state.isNetworkError) {
+                FakeLoginScreen()
+                InternetIssue(onDismiss = onDismiss)
+            } else {
+                LoginScreen(state = state, onSubmit = onSubmit)
+            }
         }
         is Loading -> {
             FakeLoginScreen()

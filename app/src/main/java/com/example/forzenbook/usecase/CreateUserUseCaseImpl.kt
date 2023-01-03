@@ -1,6 +1,7 @@
 package com.example.forzenbook.usecase
 
 import com.example.forzenbook.repository.CreateUserData
+import com.example.forzenbook.repository.CreateUserErrors
 import com.example.forzenbook.repository.ForzenRepository
 import java.sql.Date
 
@@ -15,7 +16,7 @@ class CreateUserUseCaseImpl(
         email: String,
         date: Date,
         location: String
-    ): Boolean {
+    ): CreateUserErrors {
         val createUserData = CreateUserData(
             firstName = firstName,
             lastName = lastName,

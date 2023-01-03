@@ -1,5 +1,6 @@
 package com.example.forzenbook.usecase
 
+import com.example.forzenbook.repository.CreateUserErrors
 import java.sql.Date
 
 interface CreateUserUseCase {
@@ -11,6 +12,6 @@ interface CreateUserUseCase {
         email: String,
         date: Date,
         location: String
-    ): Boolean
+    ): CreateUserErrors
 
 }

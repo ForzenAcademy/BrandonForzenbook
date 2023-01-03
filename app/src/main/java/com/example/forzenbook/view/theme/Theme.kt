@@ -25,7 +25,8 @@ fun ForzenBookTheme(
 
     MaterialTheme(
         colorScheme = forzenColorScheme,
-        typography = Typography
+        typography = Typography,
+        shapes = Shapes,
     ) {
         ProvideTextStyle(
             value = TextStyle(color = forzenColorScheme.onPrimaryContainer),
