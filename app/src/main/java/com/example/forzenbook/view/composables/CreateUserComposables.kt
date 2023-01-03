@@ -11,13 +11,15 @@ import com.example.forzenbook.view.navigation.LocalNavController
 import com.example.forzenbook.view.navigation.NavigationDestinations
 import com.example.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.PASSWORD_CHAR_LIMIT
 import com.example.forzenbook.viewmodels.ManageAccountViewModel
-import com.example.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState.*
 import com.example.forzenbook.viewmodels.ManageAccountViewModel.Companion.EMAIL_CHAR_LIMIT
 import com.example.forzenbook.viewmodels.ManageAccountViewModel.Companion.LOCATION_CHAR_LIMIT
+import com.example.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState
+import com.example.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState.*
 
 @Composable
 fun CreateAccountContent(
-    state: ManageAccountViewModel.CreateAccountUiState,
+    state: CreateAccountUiState,
+    onDismiss: () -> Unit,
     onSubmit: (String, String, String, String, String, String) -> Unit,
 ) {
     when (state) {
@@ -25,17 +27,24 @@ fun CreateAccountContent(
             CreateAccount(onSubmit = onSubmit)
         }
         is Error -> {
-            CreateAccount(state = state, onSubmit = onSubmit)
+            if (state.isServiceError) {
+                FakeCreateAccountScreen()
+                ServiceIssue(onDismiss = onDismiss)
+            } else if (state.isNetworkError) {
+                FakeCreateAccountScreen()
+                InternetIssue(onDismiss = onDismiss)
+            } else {
+                CreateAccount(state = state, onSubmit = onSubmit)
+            }
         }
         is Loading -> {
-            CreateAccount(onSubmit = onSubmit)
+            FakeCreateAccountScreen()
             DimBackgroundLoading()
         }
         is Loaded -> {
             CreateSuccess()
         }
     }
-    CreateAccount(onSubmit = onSubmit)
 }
 
 @Composable

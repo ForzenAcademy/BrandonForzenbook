@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -22,13 +21,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.forzenbook.view.theme.LocalSizeController
 
 @Composable
 fun TextFieldErrorText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(LocalSizeController.current.small),
         text = text,
         style = MaterialTheme.typography.bodyMedium,
         color = MaterialTheme.colorScheme.error,
@@ -52,6 +52,23 @@ fun YellowColumn(
 }
 
 @Composable
+fun YellowWrapColumn(
+    content: @Composable () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+            .background(color = MaterialTheme.colorScheme.tertiary, shape = MaterialTheme.shapes.large)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        content()
+    }
+}
+
+@Composable
 fun BlackButton(
     text: String,
     isEnabled: Boolean = true,
@@ -59,20 +76,63 @@ fun BlackButton(
 ) {
     Box(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(LocalSizeController.current.small)
             .height(40.dp)
-            .width(200.dp)
-            .alpha( if (isEnabled) { 1f } else { 0.5f } )
+            .fillMaxWidth(0.75f)
+            .alpha(
+                if (isEnabled) {
+                    1f
+                } else {
+                    0.5f
+                }
+            )
             .background(
                 color = Color.Black,
-                shape = RoundedCornerShape(12.dp)
+                shape = MaterialTheme.shapes.large,
             )
-            .clip(RoundedCornerShape(12.dp))
+            .clip(MaterialTheme.shapes.large)
             .clickable { onClick() },
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = text,
+            color = Color.White,
+            maxLines = 1,
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
+fun ReducedWidthBlackButton(
+    text: String,
+    modifier: Modifier,
+    isEnabled: Boolean = true,
+    onClick: () -> Unit = {},
+) {
+    Box(
+        modifier = modifier
+            .padding(LocalSizeController.current.small)
+            .height(40.dp)
+            .fillMaxWidth(0.375f)
+            .alpha(
+                if (isEnabled) {
+                    1f
+                } else {
+                    0.5f
+                }
+            )
+            .background(
+                color = Color.Black,
+                shape = MaterialTheme.shapes.large,
+            )
+            .clip(MaterialTheme.shapes.large)
+            .clickable { onClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            maxLines = 1,
             color = Color.White,
             style = MaterialTheme.typography.bodyLarge
         )
@@ -84,7 +144,7 @@ fun HintText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(LocalSizeController.current.small),
         text = text,
         style = MaterialTheme.typography.bodyLarge,
         color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -96,7 +156,7 @@ fun NotificationText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(LocalSizeController.current.small),
         text = text,
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -117,7 +177,7 @@ fun InputInfoTextField(
     }
     TextField(
         value = currentText,
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(LocalSizeController.current.small).fillMaxWidth(0.75f).imePadding(),
         onValueChange = {
             if (currentText.length == characterLimit) {
                 onMaxCharacterLength(true)
@@ -148,7 +208,7 @@ fun RedirectText(
 ) {
     Text(
         modifier = Modifier
-            .padding(4.dp)
+            .padding(LocalSizeController.current.small)
             .clickable { onClick() },
         text = text,
         style = MaterialTheme.typography.bodyMedium,
@@ -196,7 +256,7 @@ fun TitleText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(12.dp),
+        modifier = Modifier.padding(LocalSizeController.current.large),
         text = text,
         style = MaterialTheme.typography.displayMedium,
     )

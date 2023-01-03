@@ -28,11 +28,25 @@ class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
 
     override suspend fun login(request: LoginRequest): Response<LoginResponse> {
         println("Brandon_Test_Network Always Fail Mock")
-        return Response.error(404, ResponseBody.create(null,"Not Found."))
+        return Response.error(404, ResponseBody.create(null, "Not Found."))
     }
 
     override suspend fun createUser(request: CreateAccountRequest): Response<Any> {
-        return Response.error(404, ResponseBody.create(null,"Not Found."))
+        return Response.error(404, ResponseBody.create(null, "Not Found."))
+    }
+
+}
+
+class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
+
+    override suspend fun login(request: LoginRequest): Response<LoginResponse> {
+        println("Brandon_Test_Network Always Throw Mock")
+        throw Exception("Brandon_Test_Network Always Throw Mock")
+    }
+
+    override suspend fun createUser(request: CreateAccountRequest): Response<Any> {
+        println("Brandon_Test_Network Always Throw Mock")
+        throw Exception("Brandon_Test_Network Always Throw Mock")
     }
 
 }

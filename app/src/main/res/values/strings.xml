@@ -1,12 +1,6 @@
 <resources>
     <string name="app_name">ForzenBook</string>
 
-
-
-
-
-
-
     <string name="loginTitle">forzenbook</string>
     <string name="loginImageDescription">Forzen Lion Logo</string>
     <string name="loginButtonText">Login!</string>
@@ -36,11 +30,16 @@
     <string name="createAccountDateError">Invalid Date of Birth</string>
 
     <string name="resetPasswordEmailTitle">Please Enter Email</string>
-    <string name="resetPasswordEmailHint">Please Enter Email for Password Reset</string>
+    <string name="resetPasswordEmailHint">Email</string>
     <string name="resetPasswordEmailButtonText">Send Email</string>
+    <string name="resetPasswordEmailCancel">Cancel</string>
+    <string name="resetPasswordEmailEmptyError">Field Required</string>
     <string name="resetPasswordNotification">Check Email for Password Reset Instructions</string>
     <string name="resetPasswordEmailButtonDismissText">Dismiss</string>
 
     <string name="requiredFieldsError">All Fields Required</string>
+
+    <string name="errorNoInternetConnection">No Internet Connection.</string>
+    <string name="errorNoServiceConnection">Could not connect to Service.</string>
 
 </resources>

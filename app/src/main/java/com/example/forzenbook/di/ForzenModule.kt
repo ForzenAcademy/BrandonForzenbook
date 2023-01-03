@@ -51,8 +51,8 @@ object ForzenModule {
     }
 
     @Provides
-    fun providesForzenRepo(apiService: ForzenApiService, forzenDao: ForzenDao): ForzenRepository {
-        return ForzenRepositoryImpl(apiService, forzenDao)
+    fun providesForzenRepo(apiService: ForzenApiService, forzenDao: ForzenDao, @ApplicationContext context: Context): ForzenRepository {
+        return ForzenRepositoryImpl(apiService, forzenDao, context)
     }
 
     @Provides
