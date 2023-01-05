@@ -1,6 +1,6 @@
 package com.brandon.forzenbook.usecase
 
-import com.brandon.forzenbook.repository.CreateUserErrors
+import com.brandon.forzenbook.viewmodels.CreateUserOutcome
 import java.sql.Date
 
 interface CreateUserUseCase {
@@ -11,6 +11,6 @@ interface CreateUserUseCase {
         email: String,
         date: Date,
         location: String
-    ): Boolean
+    ): CreateUserOutcome
 
 }

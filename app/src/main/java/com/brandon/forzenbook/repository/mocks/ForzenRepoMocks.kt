@@ -3,39 +3,44 @@ package com.brandon.forzenbook.repository.mocks
 import android.util.Log
 import com.brandon.forzenbook.repository.CreateUserData
 import com.brandon.forzenbook.repository.ForzenRepository
-import com.brandon.forzenbook.repository.LoginToken
 import com.brandon.forzenbook.repository.mocks.ForzenRepositoryAlwaysReturnsMock.Companion.REPOSITORY_MOCK_TAG
 
 class ForzenRepositoryAlwaysReturnsMock() : ForzenRepository {
-
-    override suspend fun getToken(userName: String, code: String): LoginToken {
+    override suspend fun getCode(email: String) {
         Log.e(REPOSITORY_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return LoginToken(token = SUCCESS_MOCK_TOKEN)
+        return
     }
 
-    override suspend fun createUser(createUserData: CreateUserData): Boolean {
+    override suspend fun getToken(email: String, code: String) {
         Log.e(REPOSITORY_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return true
+        return
+    }
+
+    override suspend fun createUser(createUserData: CreateUserData) {
+        Log.e(REPOSITORY_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
+        return
     }
 
     companion object {
         const val REPOSITORY_MOCK_TAG = "Brandon_Test_Data"
         const val SUCCESS_MOCK_MESSAGE = "Always Success Data Mock."
-        const val SUCCESS_MOCK_TOKEN =
-            "ThisIsASixtyFour(64)CharacterLongStringForTestingNetworkResponse"
     }
 }
 
 class ForzenRepositoryNeverReturnsMock() : ForzenRepository {
-
-    override suspend fun getToken(userName: String, code: String): LoginToken {
+    override suspend fun getCode(email: String) {
         Log.e(REPOSITORY_MOCK_TAG, FAILURE_MOCK_MESSAGE)
-        return LoginToken(null)
+        throw Exception(FAILURE_MOCK_MESSAGE)
     }
 
-    override suspend fun createUser(createUserData: CreateUserData): Boolean {
+    override suspend fun getToken(email: String, code: String) {
         Log.e(REPOSITORY_MOCK_TAG, FAILURE_MOCK_MESSAGE)
-        return false
+        throw Exception(FAILURE_MOCK_MESSAGE)
+    }
+
+    override suspend fun createUser(createUserData: CreateUserData) {
+        Log.e(REPOSITORY_MOCK_TAG, FAILURE_MOCK_MESSAGE)
+        throw Exception(FAILURE_MOCK_MESSAGE)
     }
 
     companion object {
@@ -44,17 +49,21 @@ class ForzenRepositoryNeverReturnsMock() : ForzenRepository {
 }
 
 class ForzenRepositoryAlwaysThrowsMock() : ForzenRepository {
-
-    override suspend fun getToken(userName: String, code: String): LoginToken? {
+    override suspend fun getCode(email: String) {
         Log.e(REPOSITORY_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
 
-    override suspend fun createUser(createUserData: CreateUserData): Boolean {
+    override suspend fun getToken(email: String, code: String) {
         Log.e(REPOSITORY_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
-    
+
+    override suspend fun createUser(createUserData: CreateUserData) {
+        Log.e(REPOSITORY_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
+        throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
+    }
+
     companion object {
         const val ALWAYS_THROWS_MOCK_MESSAGE = "Always Throws Exception Mock."
     }

@@ -1,40 +1,50 @@
 package com.brandon.forzenbook.view.composables
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.window.Dialog
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
 import com.example.forzenbook.R
 
 @Composable
-fun InternetIssue(
+fun GenericErrorDialog(
+    titleErrorText: String,
     onDismiss: () -> Unit
 ) {
-    val resources = LocalContext.current.resources
-    DimBackgroundNotification(onDismiss = onDismiss) {
+    // TODO FA-81 redesign UI for New States
+    Dialog(onDismissRequest = onDismiss) {
         YellowWrapColumn {
-            Spacer(modifier = Modifier.fillMaxHeight(0.15f))
-            NotificationText(text = resources.getString(R.string.errorNoInternetConnection))
-            Spacer(modifier = Modifier.fillMaxHeight(0.15f))
+            TitleText(text = titleErrorText)
+            DialogBodyText(text = """
+                This is a long winded test body of text intended to test
+                my dialog text area. I want this to be able to contain 3 lines at
+                most
+            """.trimIndent())
         }
     }
 }
 
 @Composable
-fun ServiceIssue(
+fun InternetErrorDialog(
+    titleErrorText: String,
     onDismiss: () -> Unit
 ) {
-    val resources = LocalContext.current.resources
-    DimBackgroundNotification(onDismiss = onDismiss) {
+    // TODO FA-81 redesign UI for New States
+    Dialog(onDismissRequest = onDismiss) {
         YellowWrapColumn {
-            Spacer(modifier = Modifier.fillMaxHeight(0.15f))
-            NotificationText(text = resources.getString(R.string.errorNoServiceConnection))
-            Spacer(modifier = Modifier.fillMaxHeight(0.15f))
+            TitleText(text = titleErrorText)
         }
     }
+}
+
+@Composable
+fun DialogBodyText(
+    text: String
+) {
+    // TODO FA-81 redesign UI for New States
+    Text(text = text)
 }
 
 @Composable
@@ -46,7 +56,7 @@ fun FakeLoginScreen(
         InputInfoTextField(
             hint = resources.getString(R.string.loginUserNameHint),
             onTextChange = {},
-            characterLimit = ForzenTopLevelViewModel.USERNAME_CHAR_LIMIT,
+            characterLimit = ForzenTopLevelViewModel.EMAIL_CHAR_LIMIT,
             onMaxCharacterLength = {},
         )
         InputInfoTextField(

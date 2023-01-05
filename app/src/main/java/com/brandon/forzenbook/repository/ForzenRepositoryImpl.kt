@@ -2,62 +2,66 @@ package com.brandon.forzenbook.repository
 
 import android.util.Log
 import com.brandon.forzenbook.data.ForzenDao
-import com.brandon.forzenbook.data.ForzenEntity
 import com.brandon.forzenbook.data.toForzenEntity
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.LoginRequest
 import com.brandon.forzenbook.network.toCreateAccountRequest
+import com.brandon.forzenbook.viewmodels.CreateUserOutcome
 
 class ForzenRepositoryImpl(
     private val forzenApiService: ForzenApiService,
     private val forzenDao: ForzenDao,
 ) : ForzenRepository {
 
-    override suspend fun getToken(userName: String, code: String): LoginToken? {
-        var entityData: ForzenEntity?
-        var token: LoginToken
+    override suspend fun getCode(email: String) {
         try {
-            entityData = forzenDao.getLoginToken()
-            if (entityData != null) {
-                entityData.token?.let {
-                    token = LoginToken(it)
-                    return token
-                }
+            val response = forzenApiService.getCode(email)
+            if (response.isSuccessful) {
+                return
             } else {
-                forzenDao.deleteLoginToken()
-                val loginRequest = LoginRequest(userName, code)
-                try {
-                    val response = forzenApiService.login(loginRequest)
-                    if (response.isSuccessful) {
-                        try {
-                            entityData = response.body()?.toForzenEntity()
-                            if (entityData != null) {
-                                forzenDao.insert(entityData)
-                                token = entityData.toLoginToken()
-                                return token
-                            }
-                        } catch (e: Exception) {
-                            Log.e(DATA_ERROR_TAG, "$FAILED_ENTITY_CONVERT ${response.body()}")
-                            return null
+                Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR ${response.code()}")
+                throw Exception(RESPONSE_CODE_ERROR)
+            }
+        } catch (e: Exception) {
+            Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
+            throw Exception(API_CALL_FAILED)
+        }
+    }
+
+    override suspend fun getToken(email: String, code: String) {
+        try {
+            forzenDao.deleteLoginToken()
+            val loginRequest = LoginRequest(email, code)
+            try {
+                val response = forzenApiService.login(loginRequest)
+                if (response.isSuccessful) {
+                    try {
+                        val entityData = response.body()?.toForzenEntity()
+                        if (entityData != null) {
+                            forzenDao.insert(entityData)
+                            return
                         }
-                    } else {
-                        Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR ${response.code()}")
-                        return null
+                    } catch (e: Exception) {
+                        Log.e(DATA_ERROR_TAG, "$FAILED_ENTITY_CONVERT ${response.body()}")
+                        throw Exception(FAILED_ENTITY_CONVERT)
                     }
-                } catch (e: Exception) {
-                    Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
-                    return null
+                } else {
+                    Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR ${response.code()}")
+                    throw Exception(RESPONSE_CODE_ERROR)
                 }
+            } catch (e: Exception) {
+                Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
+                throw Exception(API_CALL_FAILED)
             }
         } catch (e: Exception) {
             Log.e(DATA_ERROR_TAG, "$DATABASE_ERROR_ACCESS $e")
-            return null
+            throw Exception(DATABASE_ERROR_ACCESS)
         }
         Log.e(DATA_ERROR_TAG, END_OF_BRANCH)
-        return null
+        throw Exception(END_OF_BRANCH)
     }
 
-    override suspend fun createUser(createUserData: CreateUserData): Boolean {
+    override suspend fun createUser(createUserData: CreateUserData) {
         val data = createUserData.toCreateAccountRequest()
         try {
             val response = forzenApiService.createUser(
@@ -70,14 +74,17 @@ class ForzenRepositoryImpl(
             Log.e(DATA_ERROR_TAG, "$response")
             Log.e(DATA_ERROR_TAG, "${response.code()}")
             if (response.isSuccessful) {
-                return true
-            }
+                return
+            } else if (response.code() == USER_DUPLICATE_CODE) {
+                Log.e(DATA_ERROR_TAG, USER_DUPLICATE_LOG_MESSAGE)
+                throw UserAlreadyExistsException(USER_DUPLICATE_LOG_MESSAGE)
+            } else CreateUserOutcome.CREATE_USER_FAILURE
         } catch (e: Exception) {
             Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
-            return false
+            throw Exception(API_CALL_FAILED)
         }
         Log.e(DATA_ERROR_TAG, END_OF_BRANCH)
-        return false
+        throw Exception(END_OF_BRANCH)
     }
 
     companion object {
@@ -87,5 +94,10 @@ class ForzenRepositoryImpl(
         const val DATABASE_ERROR_ACCESS = "Error Accessing Database."
         const val FAILED_ENTITY_CONVERT = "Could Not Convert Response to Entity."
         const val RESPONSE_CODE_ERROR = "Unexpected Response Code."
+
+        const val USER_DUPLICATE_CODE = 409
+
+        // TODO will determine how error is shown to user in FA-81, this is a log message for the thrown exception
+        const val USER_DUPLICATE_LOG_MESSAGE = "User Already Exists."
     }
 }
