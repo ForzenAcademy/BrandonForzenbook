@@ -1,50 +1,44 @@
 package com.brandon.forzenbook.view.composables
 
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.unit.dp
 import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
+import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
+import com.brandon.forzenbook.view.composables.ComposableConstants.TEXT_FIELD_DEFAULT_TEXT
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.EMAIL_CHAR_LIMIT
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState.*
+import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState
+import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState.*
 import com.example.forzenbook.R
 
 @Composable
 fun LoginContent(
     state: LoginUiState,
-    onSubmit: (String, String) -> Unit
+    onCheckConnection: () -> Boolean,
+    onGetCode: (String) -> Unit,
+    onLogin: (String, String) -> Unit,
 ) {
     when (state) {
-        is PreCode -> {
-            // TODO FA-81 redesign UI for New States
-            GenericErrorDialog("Test") {
-            }
-//            LoginScreen(onSubmit = onSubmit)
-        }
-        is CodeSent -> {
-            // TODO this is where I show the code field FA-81
-        }
-        is Error -> {
-            LoginScreen(state = state, onSubmit = onSubmit)
+        is Idle -> {
+            LoginScreen(
+                state = state,
+                onGetCode = onGetCode,
+                onLogin = onLogin,
+                onCheckConnection = onCheckConnection,
+            )
         }
         is Loading -> {
-            FakeLoginScreen()
-            DimBackgroundLoading()
+            LoadingLoginScreen(state = state)
         }
-        is LoginWithCode -> {
-            // TODO navigate to next app screen FA-81
+        is LoggedIn -> {
+            // TODO redirect to a new screen FA-83
             Log.e(VIEW_LOG_TAG, "Login Success")
         }
     }
@@ -53,85 +47,98 @@ fun LoginContent(
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginScreen(
-    state: Error = Error(),
-    onSubmit: (String, String) -> Unit,
+    state: Idle = Idle(),
+    onCheckConnection: () -> Boolean,
+    onGetCode: (String) -> Unit,
+    onLogin: (String, String) -> Unit,
 ) {
-    var username by rememberSaveable {
-        mutableStateOf("")
-    }
-    var code by rememberSaveable {
-        mutableStateOf("")
-    }
-    var emailError by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var codeError by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var emptyFieldError by rememberSaveable {
-        mutableStateOf(false)
-    }
+    var email by rememberSaveable { mutableStateOf(state.email) }
+    var code by rememberSaveable { mutableStateOf(TEXT_FIELD_DEFAULT_TEXT) }
+    var emailError by rememberSaveable { mutableStateOf(false) }
+    var emptyFieldError by rememberSaveable { mutableStateOf(false) }
+    var isDialogOpen by rememberSaveable { mutableStateOf(false) }
     val navController = LocalNavController.current
     val resources = LocalContext.current.resources
     val keyboardController = LocalSoftwareKeyboardController.current
     YellowColumn {
-        LoginTitle()
+        ImageTitle(
+            imageId = R.drawable.forzenlogo,
+            text = resources.getString(R.string.login_title),
+        )
         InputInfoTextField(
-            hint = resources.getString(R.string.loginUserNameHint),
-            onTextChange = {
-                username = it
-            },
+            hint = resources.getString(R.string.login_email_hint),
+            currentText = email,
+            onTextChange = { email = it },
             characterLimit = EMAIL_CHAR_LIMIT,
-            onMaxCharacterLength = {
-                emailError = it
-            },
+            onMaxCharacterLength = { emailError = it },
         )
-        if (emailError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
+        if (emailError) TextFieldErrorText(text = resources.getString(R.string.login_char_length_limit))
+        if (state.isEmailError) TextFieldErrorText(text = resources.getString(R.string.login_email_error))
+        if (state.isCodeSent) {
+            var codeError by rememberSaveable { mutableStateOf(false) }
+            InputInfoTextField(
+                hint = resources.getString(R.string.login_code_hint),
+                onTextChange = { code = it },
+                onMaxCharacterLength = { codeError = it },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
+            )
+            if (codeError) TextFieldErrorText(text = resources.getString(R.string.login_char_length_limit))
         }
-        if (state.isEmailError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginUserNameError))
-        }
-        InputInfoTextField(
-            hint = resources.getString(R.string.logincodeHint),
-            onTextChange = {
-                code = it
-            },
-            onMaxCharacterLength = {
-                codeError = it
-            },
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
-        )
-        if (codeError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
-        }
-        BlackButton(text = resources.getString(R.string.loginButtonText)) {
+        BlackButton(
+            text = if (state.isCodeSent) resources.getString(R.string.login_button_text) else resources.getString(
+                R.string.login_get_code_text
+            )
+        ) {
             keyboardController?.hide()
-            if (username.isNotEmpty() && code.isNotEmpty()) {
-                onSubmit(username, code)
-            } else {
-                emptyFieldError = true
-            }
+            emptyFieldError = false
+            if (onCheckConnection()) {
+                if (state.isCodeSent) {
+                    if (email.isNotEmpty() && code.isNotEmpty()) onLogin(email, code)
+                    else emptyFieldError = true
+                } else {
+                    if (email.isNotEmpty()) onGetCode(email)
+                    else emptyFieldError = true
+                }
+            } else isDialogOpen = true
         }
-        if (emptyFieldError) {
-            TextFieldErrorText(text = resources.getString(R.string.requiredFieldsError))
-        }
-        RedirectText(text = resources.getString(R.string.loginCreateAccount)) {
+        if (emptyFieldError) TextFieldErrorText(text = resources.getString(R.string.required_fields_error))
+        RedirectText(text = resources.getString(R.string.login_create_account)) {
             navController?.navigate(NavigationDestinations.CREATE_ACCOUNT) {
                 popUpTo(NavigationDestinations.CREATE_ACCOUNT) { inclusive = true }
             }
         }
     }
+    if (isDialogOpen) {
+        AlertDialog(
+            title = resources.getString(R.string.error_no_internet_connection),
+            body = resources.getString(R.string.error_connect_and_try_again),
+            onDismissRequest = { isDialogOpen = false },
+        )
+    }
 }
 
 @Composable
-fun LoginTitle() {
-    Image(
-        painter = painterResource(id = R.drawable.forzenlogo),
-        contentDescription = LocalContext.current.getString(R.string.loginImageDescription),
-        modifier = Modifier.size(250.dp)
-    )
-    TitleText(
-        text = LocalContext.current.getString(R.string.loginTitle)
-    )
+fun LoadingLoginScreen(
+    state: Loading
+) {
+    val resources = LocalContext.current.resources
+    YellowColumn {
+        ImageTitle(
+            imageId = R.drawable.forzenlogo,
+            text = resources.getString(R.string.login_title),
+        )
+        InputInfoTextField(
+            hint = resources.getString(R.string.login_email_hint),
+            currentText = state.email,
+            isEnabled = false,
+        )
+        if (state.isCodeSent) {
+            InputInfoTextField(
+                hint = resources.getString(R.string.login_code_hint),
+                isEnabled = false,
+            )
+        }
+        LoadingBlackButton()
+        RedirectText(text = resources.getString(R.string.login_create_account))
+    }
 }

@@ -6,7 +6,6 @@ import com.brandon.forzenbook.data.toForzenEntity
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.LoginRequest
 import com.brandon.forzenbook.network.toCreateAccountRequest
-import com.brandon.forzenbook.viewmodels.CreateUserOutcome
 
 class ForzenRepositoryImpl(
     private val forzenApiService: ForzenApiService,
@@ -76,15 +75,13 @@ class ForzenRepositoryImpl(
             if (response.isSuccessful) {
                 return
             } else if (response.code() == USER_DUPLICATE_CODE) {
-                Log.e(DATA_ERROR_TAG, USER_DUPLICATE_LOG_MESSAGE)
-                throw UserAlreadyExistsException(USER_DUPLICATE_LOG_MESSAGE)
-            } else CreateUserOutcome.CREATE_USER_FAILURE
+                Log.e(DATA_ERROR_TAG, USER_DUPLICATE_ERROR_LOG_MESSAGE)
+                throw UserAlreadyExistsException(USER_DUPLICATE_ERROR_LOG_MESSAGE)
+            } else throw Exception(ACCOUNT_CREATION_FAILED)
         } catch (e: Exception) {
             Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
             throw Exception(API_CALL_FAILED)
         }
-        Log.e(DATA_ERROR_TAG, END_OF_BRANCH)
-        throw Exception(END_OF_BRANCH)
     }
 
     companion object {
@@ -94,10 +91,8 @@ class ForzenRepositoryImpl(
         const val DATABASE_ERROR_ACCESS = "Error Accessing Database."
         const val FAILED_ENTITY_CONVERT = "Could Not Convert Response to Entity."
         const val RESPONSE_CODE_ERROR = "Unexpected Response Code."
-
+        const val ACCOUNT_CREATION_FAILED = "Failed to Create Account."
         const val USER_DUPLICATE_CODE = 409
-
-        // TODO will determine how error is shown to user in FA-81, this is a log message for the thrown exception
-        const val USER_DUPLICATE_LOG_MESSAGE = "User Already Exists."
+        const val USER_DUPLICATE_ERROR_LOG_MESSAGE = "User Already Exists."
     }
 }

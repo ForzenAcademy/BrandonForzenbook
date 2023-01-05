@@ -1,14 +1,14 @@
 package com.brandon.forzenbook.usecase.mocks
 
 import android.util.Log
-import com.brandon.forzenbook.repository.LoginToken
 import com.brandon.forzenbook.usecase.LoginUseCase
+import com.brandon.forzenbook.usecase.LoginValidationState
 import com.brandon.forzenbook.usecase.mocks.LoginUseCaseAlwaysReturns.Companion.USECASE_MOCK_TAG
 
 class LoginUseCaseAlwaysReturns() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): Boolean {
+    override suspend fun invoke(email: String, code: String?): LoginValidationState {
         Log.e(USECASE_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return true
+        return LoginValidationState.Success
     }
 
     companion object {
@@ -18,9 +18,9 @@ class LoginUseCaseAlwaysReturns() : LoginUseCase {
 }
 
 class LoginUseCaseNeverReturns() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): Boolean {
+    override suspend fun invoke(email: String, code: String?): LoginValidationState {
         Log.e(USECASE_MOCK_TAG, FAILURE_MOCK_MESSAGE)
-        return false
+        return LoginValidationState.LoginError(true, true, true)
     }
 
     companion object {
@@ -29,7 +29,7 @@ class LoginUseCaseNeverReturns() : LoginUseCase {
 }
 
 class LoginUseCaseAlwaysThrows() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): Boolean {
+    override suspend fun invoke(email: String, code: String?): LoginValidationState {
         Log.e(USECASE_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
