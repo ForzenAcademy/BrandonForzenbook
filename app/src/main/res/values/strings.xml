@@ -6,18 +6,18 @@
     <string name="loginButtonText">Login!</string>
     <string name="loginUserNameHint">Username</string>
     <string name="loginUserNameError">Please Enter Username.</string>
-    <string name="loginPasswordHint">Password</string>
-    <string name="loginPasswordError">Please Enter Password.</string>
+    <string name="logincodeHint">code</string>
+    <string name="logincodeError">Please Enter code.</string>
     <string name="loginCharLengthLimit">Max Character Limit Reached.</string>
     <string name="loginInvalidCredentials">Invalid Credentials.</string>
-    <string name="loginResetPassword">Reset Password</string>
+    <string name="loginResetcode">Reset code</string>
     <string name="loginCreateAccount">Create Account</string>
 
     <string name="createAccountFirstNameHint">First Name</string>
     <string name="createAccountLastNameHint">Last Name</string>
     <string name="createAccountBirthDateHint">Date of Birth</string>
     <string name="createAccountBirthDateFormatHint">MM/DD/YYYY</string>
-    <string name="createAccountPasswordHint">Password</string>
+    <string name="createAccountcodeHint">code</string>
     <string name="createAccountEmailHint">Email</string>
     <string name="createAccountLocationHint">Location</string>
     <string name="createAccountCreateButtonText">Create Account!</string>
@@ -26,16 +26,16 @@
     <string name="createAccountToLogin">To Login</string>
     <string name="createAccountLocationError">Invalid Location</string>
     <string name="createAccountEmailError">Invalid Email</string>
-    <string name="createAccountPasswordError">Invalid Password</string>
+    <string name="createAccountcodeError">Invalid code</string>
     <string name="createAccountDateError">Invalid Date of Birth</string>
 
-    <string name="resetPasswordEmailTitle">Please Enter Email</string>
-    <string name="resetPasswordEmailHint">Email</string>
-    <string name="resetPasswordEmailButtonText">Send Email</string>
-    <string name="resetPasswordEmailCancel">Cancel</string>
-    <string name="resetPasswordEmailEmptyError">Field Required</string>
-    <string name="resetPasswordNotification">Check Email for Password Reset Instructions</string>
-    <string name="resetPasswordEmailButtonDismissText">Dismiss</string>
+    <string name="resetcodeEmailTitle">Please Enter Email</string>
+    <string name="resetcodeEmailHint">Email</string>
+    <string name="resetcodeEmailButtonText">Send Email</string>
+    <string name="resetcodeEmailCancel">Cancel</string>
+    <string name="resetcodeEmailEmptyError">Field Required</string>
+    <string name="resetcodeNotification">Check Email for code Reset Instructions</string>
+    <string name="resetcodeEmailButtonDismissText">Dismiss</string>
 
     <string name="requiredFieldsError">All Fields Required</string>
 

@@ -1,52 +1,79 @@
 package com.brandon.forzenbook.network.mocks
 
-import com.brandon.forzenbook.network.CreateAccountRequest
+import android.util.Log
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.LoginRequest
 import com.brandon.forzenbook.network.LoginResponse
+import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysSuccessMock.Companion.NETWORK_MOCK_TAG
 import okhttp3.ResponseBody
 import retrofit2.Response
+import java.sql.Date
 
 class ForzenApiServiceAlwaysSuccessMock : ForzenApiService {
 
     override suspend fun login(request: LoginRequest): Response<LoginResponse> {
-        println("Brandon_Test_Network Always Success Mock")
-        return Response.success(
-            LoginResponse(
-                token = "ThisIsASixtyFour(64)CharacterLongStringForTestingNetworkResponse"
-            )
-        )
+        Log.v(NETWORK_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
+        return Response.success(LoginResponse(token = SUCCESS_MOCK_TOKEN))
     }
 
-    override suspend fun createUser(request: CreateAccountRequest): Response<Any> {
-        return Response.success(200)
+    override suspend fun createUser(
+        firstname: String,
+        lastname: String,
+        dateOfBirth: Date,
+        location: String,
+        email: String
+    ): Response<Void> {
+        TODO("WILL BE ADDED IN FA-79")
     }
 
+    companion object {
+        const val NETWORK_MOCK_TAG = "Brandon_Test_Network"
+        const val SUCCESS_MOCK_MESSAGE = "Always Success Network Mock."
+        const val SUCCESS_MOCK_TOKEN =
+            "ThisIsASixtyFour(64)CharacterLongStringForTestingNetworkResponse"
+    }
 }
 
 class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
 
     override suspend fun login(request: LoginRequest): Response<LoginResponse> {
-        println("Brandon_Test_Network Always Fail Mock")
-        return Response.error(404, ResponseBody.create(null, "Not Found."))
+        Log.v(NETWORK_MOCK_TAG, FAILURE_MOCK_MESSAGE)
+        return Response.error(404, ResponseBody.create(null, FAILURE_MOCK_MESSAGE))
     }
 
-    override suspend fun createUser(request: CreateAccountRequest): Response<Any> {
-        return Response.error(404, ResponseBody.create(null, "Not Found."))
+    override suspend fun createUser(
+        firstname: String,
+        lastname: String,
+        dateOfBirth: Date,
+        location: String,
+        email: String
+    ): Response<Void> {
+        TODO("WILL BE ADDED IN FA-79")
     }
 
+    companion object {
+        const val FAILURE_MOCK_MESSAGE = "Always Fails Network Mock."
+    }
 }
 
 class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
 
     override suspend fun login(request: LoginRequest): Response<LoginResponse> {
-        println("Brandon_Test_Network Always Throw Mock")
-        throw Exception("Brandon_Test_Network Always Throw Mock")
+        Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
+        throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
 
-    override suspend fun createUser(request: CreateAccountRequest): Response<Any> {
-        println("Brandon_Test_Network Always Throw Mock")
-        throw Exception("Brandon_Test_Network Always Throw Mock")
+    override suspend fun createUser(
+        firstname: String,
+        lastname: String,
+        dateOfBirth: Date,
+        location: String,
+        email: String
+    ): Response<Void> {
+        TODO("WILL BE ADDED IN FA-79")
     }
 
+    companion object {
+        const val ALWAYS_THROWS_MOCK_MESSAGE = "Always Throws Exception Mock."
+    }
 }

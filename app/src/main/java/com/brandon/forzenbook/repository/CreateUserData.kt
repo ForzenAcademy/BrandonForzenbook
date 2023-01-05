@@ -1,12 +1,12 @@
 package com.brandon.forzenbook.repository
 
+import com.google.gson.annotations.SerializedName
 import java.sql.Date
 
 data class CreateUserData(
-    val firstName: String,
-    val lastName: String,
-    val password: String,
+    @SerializedName("first_name") val firstName: String,
+    @SerializedName("last_name") val lastName: String,
     val email: String,
-    val date: Date,
+    @SerializedName("birth_date") val dateOfBirth: Date,
     val location: String,
 )

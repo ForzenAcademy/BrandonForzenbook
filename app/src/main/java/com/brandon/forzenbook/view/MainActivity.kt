@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandon.forzenbook.view.composables.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LoginContent
-import com.brandon.forzenbook.view.composables.ResetPasswordContent
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
 import com.brandon.forzenbook.view.theme.DpProvider
@@ -44,8 +43,8 @@ class MainActivity : ComponentActivity() {
                                     onDismiss = {
                                         topLevelViewModel.dismissNotification()
                                     },
-                                    onSubmit = { username, password ->
-                                        topLevelViewModel.login(username, password)
+                                    onSubmit = { username, code ->
+                                        topLevelViewModel.loginClicked(username, code)
                                     }
                                 )
                             }
@@ -55,11 +54,10 @@ class MainActivity : ComponentActivity() {
                                     onDismiss = {
                                         accountViewModel.dismissErrorNotification()
                                     },
-                                    onSubmit = { firstName, lastName, password, dateOfBirth, email, location ->
+                                    onSubmit = { firstName, lastName, dateOfBirth, email, location ->
                                         accountViewModel.createUser(
                                             firstName = firstName,
                                             lastName = lastName,
-                                            password = password,
                                             date = dateOfBirth,
                                             email = email,
                                             location = location,
@@ -67,23 +65,14 @@ class MainActivity : ComponentActivity() {
                                     }
                                 )
                             }
-                            composable(NavigationDestinations.FORGOT_PASSWORD) {
-                                ResetPasswordContent(
-                                    state = accountViewModel.passwordState.value,
-                                    onDismiss = {
-                                        navController.navigate(NavigationDestinations.LOGIN_INPUT) {
-                                            popUpTo(NavigationDestinations.LOGIN_INPUT) {
-                                                inclusive = true
-                                            }
-                                        }
-                                    },
-                                    onSubmit = { accountViewModel.emailSent() },
-                                )
-                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    companion object {
+        const val VIEW_LOG_TAG = "Brandon_Test_View"
     }
 }

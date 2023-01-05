@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.example.forzenbook.R
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
+import com.example.forzenbook.R
 
 @Composable
 fun InternetIssue(
@@ -50,15 +50,15 @@ fun FakeLoginScreen(
             onMaxCharacterLength = {},
         )
         InputInfoTextField(
-            hint = resources.getString(R.string.loginPasswordHint),
+            hint = resources.getString(R.string.logincodeHint),
             onTextChange = {
             },
-            characterLimit = ForzenTopLevelViewModel.PASSWORD_CHAR_LIMIT,
+            characterLimit = ForzenTopLevelViewModel.CODE_CHAR_LIMIT,
             onMaxCharacterLength = {
             },
         )
         BlackButton(text = resources.getString(R.string.loginButtonText)) {}
-        RedirectText(text = resources.getString(R.string.loginResetPassword)) {}
+        RedirectText(text = resources.getString(R.string.loginResetcode)) {}
         RedirectText(text = resources.getString(R.string.loginCreateAccount)) {}
     }
 }
@@ -77,9 +77,9 @@ fun FakeCreateAccountScreen() {
             onTextChange = { },
         )
         InputInfoTextField(
-            hint = resources.getString(R.string.createAccountPasswordHint),
+            hint = resources.getString(R.string.createAccountcodeHint),
             onTextChange = { },
-            characterLimit = ForzenTopLevelViewModel.PASSWORD_CHAR_LIMIT,
+            characterLimit = ForzenTopLevelViewModel.CODE_CHAR_LIMIT,
             onMaxCharacterLength = { },
         )
         InputInfoTextField(

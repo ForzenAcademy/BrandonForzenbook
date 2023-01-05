@@ -12,17 +12,15 @@ class CreateUserUseCaseImpl(
     override suspend fun invoke(
         firstName: String,
         lastName: String,
-        password: String,
         email: String,
         date: Date,
         location: String
-    ): CreateUserErrors {
+    ): Boolean {
         val createUserData = CreateUserData(
             firstName = firstName,
             lastName = lastName,
-            password = password,
             email = email,
-            date = date,
+            dateOfBirth = date,
             location = location
         )
         return repository.createUser(createUserData)

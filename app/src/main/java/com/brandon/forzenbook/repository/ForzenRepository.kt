@@ -2,8 +2,8 @@ package com.brandon.forzenbook.repository
 
 interface ForzenRepository {
 
-    suspend fun getToken(userName: String, password: String): LoginToken?
+    suspend fun getToken(userName: String, code: String): LoginToken?
 
-    suspend fun createUser(createUserData: CreateUserData): CreateUserErrors
+    suspend fun createUser(createUserData: CreateUserData): Boolean
 
 }

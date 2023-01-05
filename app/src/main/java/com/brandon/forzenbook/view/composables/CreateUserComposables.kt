@@ -6,31 +6,27 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import com.example.forzenbook.R
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.PASSWORD_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.Companion.EMAIL_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.Companion.LOCATION_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState.*
+import com.example.forzenbook.R
 
 @Composable
 fun CreateAccountContent(
     state: CreateAccountUiState,
     onDismiss: () -> Unit,
-    onSubmit: (String, String, String, String, String, String) -> Unit,
+    onSubmit: (String, String, String, String, String) -> Unit,
 ) {
     when (state) {
         is Idle -> {
             CreateAccount(onSubmit = onSubmit)
         }
         is Error -> {
-            if (state.isServiceError) {
-                FakeCreateAccountScreen()
-                ServiceIssue(onDismiss = onDismiss)
-            } else if (state.isNetworkError) {
+            if (state.isNetworkError) {
                 FakeCreateAccountScreen()
                 InternetIssue(onDismiss = onDismiss)
             } else {
@@ -65,7 +61,7 @@ fun CreateSuccess() {
 @Composable
 fun CreateAccount(
     state: Error = Error(),
-    onSubmit: (String, String, String, String, String, String) -> Unit
+    onSubmit: (String, String, String, String, String) -> Unit
 ) {
     var firstName by rememberSaveable {
         mutableStateOf("")
@@ -73,7 +69,7 @@ fun CreateAccount(
     var lastName by rememberSaveable {
         mutableStateOf("")
     }
-    var password by rememberSaveable {
+    var code by rememberSaveable {
         mutableStateOf("")
     }
     var dateOfBirth by rememberSaveable {
@@ -85,7 +81,7 @@ fun CreateAccount(
     var location by rememberSaveable {
         mutableStateOf("")
     }
-    var passwordError by rememberSaveable {
+    var codeError by rememberSaveable {
         mutableStateOf(false)
     }
     var emailError by rememberSaveable {
@@ -111,18 +107,6 @@ fun CreateAccount(
             hint = resources.getString(R.string.createAccountLastNameHint),
             onTextChange = { lastName = it },
         )
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountPasswordHint),
-            onTextChange = { password = it },
-            characterLimit = PASSWORD_CHAR_LIMIT,
-            onMaxCharacterLength = { passwordError = it },
-        )
-        if (passwordError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
-        }
-        if (state.isPasswordError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginPasswordError))
-        }
         InputInfoTextField(
             hint = resources.getString(R.string.createAccountBirthDateFormatHint),
             onTextChange = { dateOfBirth = it },
@@ -153,8 +137,8 @@ fun CreateAccount(
             text = resources.getString(R.string.createAccountCreateButtonText),
         ) {
             keyboardController?.hide()
-            if (firstName.isNotEmpty() && lastName.isNotEmpty() && password.isNotEmpty() && dateOfBirth.isNotEmpty() && email.isNotEmpty() && location.isNotEmpty()) {
-                onSubmit(firstName, lastName, password, dateOfBirth, email, location)
+            if (firstName.isNotEmpty() && lastName.isNotEmpty() && dateOfBirth.isNotEmpty() && email.isNotEmpty() && location.isNotEmpty()) {
+                onSubmit(firstName, lastName, dateOfBirth, email, location)
             } else {
                 emptyFieldError = true
             }
