@@ -1,5 +1,6 @@
 package com.brandon.forzenbook.view.composables
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -12,13 +13,13 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.example.forzenbook.R
+import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.PASSWORD_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.USERNAME_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState.*
+import com.example.forzenbook.R
 
 @Composable
 fun LoginContent(
@@ -27,14 +28,11 @@ fun LoginContent(
     onSubmit: (String, String) -> Unit
 ) {
     when (state) {
-        is Idle -> {
+        is PreCode -> {
             LoginScreen(onSubmit = onSubmit)
         }
         is Error -> {
-            if (state.isServiceError) {
-                FakeLoginScreen()
-                ServiceIssue(onDismiss = onDismiss)
-            } else if (state.isNetworkError) {
+            if (state.isNetworkError) {
                 FakeLoginScreen()
                 InternetIssue(onDismiss = onDismiss)
             } else {
@@ -45,8 +43,8 @@ fun LoginContent(
             FakeLoginScreen()
             DimBackgroundLoading()
         }
-        is Loaded -> {
-            println("Brandon_Test_View Login Success")
+        is PostCodeSent -> {
+            Log.e(VIEW_LOG_TAG, "Login Success.")
         }
     }
 }
@@ -60,13 +58,13 @@ fun LoginScreen(
     var username by rememberSaveable {
         mutableStateOf("")
     }
-    var password by rememberSaveable {
+    var code by rememberSaveable {
         mutableStateOf("")
     }
     var nameError by rememberSaveable {
         mutableStateOf(false)
     }
-    var passwordError by rememberSaveable {
+    var codeError by rememberSaveable {
         mutableStateOf(false)
     }
     var emptyFieldError by rememberSaveable {
@@ -90,24 +88,20 @@ fun LoginScreen(
         if (nameError) {
             TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
         }
-        if (state.isUserNameError) {
+        if (state.isEmailError) {
             TextFieldErrorText(text = resources.getString(R.string.loginUserNameError))
         }
         InputInfoTextField(
-            hint = resources.getString(R.string.loginPasswordHint),
+            hint = resources.getString(R.string.logincodeHint),
             onTextChange = {
-                password = it
+                code = it
             },
-            characterLimit = PASSWORD_CHAR_LIMIT,
             onMaxCharacterLength = {
-                passwordError = it
+                codeError = it
             },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
         )
-        if (state.isPasswordError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginPasswordError))
-        }
-        if (passwordError) {
+        if (codeError) {
             TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
         }
         if (state.isInvalidCredentialsError) {
@@ -115,19 +109,14 @@ fun LoginScreen(
         }
         BlackButton(text = resources.getString(R.string.loginButtonText)) {
             keyboardController?.hide()
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                onSubmit(username, password)
+            if (username.isNotEmpty() && code.isNotEmpty()) {
+                onSubmit(username, code)
             } else {
                 emptyFieldError = true
             }
         }
         if (emptyFieldError) {
             TextFieldErrorText(text = resources.getString(R.string.requiredFieldsError))
-        }
-        RedirectText(text = resources.getString(R.string.loginResetPassword)) {
-            navController?.navigate(NavigationDestinations.FORGOT_PASSWORD) {
-                popUpTo(NavigationDestinations.FORGOT_PASSWORD) { inclusive = true }
-            }
         }
         RedirectText(text = resources.getString(R.string.loginCreateAccount)) {
             navController?.navigate(NavigationDestinations.CREATE_ACCOUNT) {

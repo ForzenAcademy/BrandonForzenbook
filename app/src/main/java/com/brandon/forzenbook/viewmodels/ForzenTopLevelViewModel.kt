@@ -1,7 +1,13 @@
 package com.brandon.forzenbook.viewmodels
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.forzenbook.usecase.LoginUseCase
@@ -17,101 +23,97 @@ class ForzenTopLevelViewModel @Inject constructor(
 ) : ViewModel() {
 
     var loginUserName: String = ""
-    var loginPassword: String = ""
+    var logincode: String = ""
 
-    private val _state: MutableState<LoginUiState> = mutableStateOf(LoginUiState.Idle)
+    private val _state: MutableState<LoginUiState> = mutableStateOf(LoginUiState.PreCode)
     val state: MutableState<LoginUiState>
         get() = _state
 
     sealed interface LoginUiState {
 
-        object Idle: LoginUiState
+        object PreCode : LoginUiState
 
         data class Error(
             val isGenericError: Boolean = false,
-            val isUserNameError: Boolean = false,
-            val isPasswordError: Boolean = false,
+            val isEmailError: Boolean = false,
+            val isCodeError: Boolean = false,
             val isInvalidCredentialsError: Boolean = false,
             val isNetworkError: Boolean = false,
-            val isDataError: Boolean = false,
-            val isServiceError: Boolean = false,
-        ): LoginUiState
+        ) : LoginUiState
 
-        object Loading: LoginUiState
+        object Loading : LoginUiState
 
-        data class Loaded(
+        data class PostCodeSent(
             val loginToken: String,
-        ): LoginUiState
+        ) : LoginUiState
 
     }
 
     fun dismissNotification() {
-        state.value = LoginUiState.Idle
+        state.value = LoginUiState.PreCode
     }
 
-    fun login(userName: String, password: String) {
+    fun loginClicked(userName: String, code: String) {
         viewModelScope.launch {
             state.value = LoginUiState.Loading
             loginUserName = userName
-            loginPassword = password
+            logincode = code
             delay(5000)
-            if (userName.isEmpty() || password.isEmpty()) {
+            if (userName.isEmpty() || code.isEmpty()) {
                 state.value = LoginUiState.Error(
                     isInvalidCredentialsError = true,
                 )
                 cancel()
             }
-            if (!isValidUserName(userName)) {
-                state.value = LoginUiState.Error(
-                    isUserNameError = true,
-                )
-                cancel()
-            }
-            if (!isValidPassword(password)) {
-                state.value = LoginUiState.Error(
-                    isPasswordError = true,
-                )
-                cancel()
-            }
-            val token = loginUseCase(userName, password)
+            val token = loginUseCase(userName, code)
             if (token != null) {
-                if (token.isDatabaseError && token.isServiceError) {
-                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
-                }
-                else if (token.isNetworkError) {
-                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
-                }
-                else if (token.isServiceError) {
-                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
-                }
-                else if (token.isDatabaseError) {
-                    state.value = LoginUiState.Error(isServiceError = true, isDataError = true)
+                if (token.token != null) {
+                    state.value = LoginUiState.PostCodeSent(loginToken = token.token)
                 } else {
-                    if (token.token != null) {
-                        state.value = LoginUiState.Loaded(loginToken = token.token)
-                    }
-                    else { state.value = LoginUiState.Error(isGenericError = true) }
+                    state.value = LoginUiState.Error(isGenericError = true)
                 }
             }
-            println("Brandon_Test_ViewModel ${state.value}")
+            Log.e(VIEWMODEL_ERROR_TAG, "${state.value}")
         }
     }
 
-    private fun isValidUserName(name: String): Boolean {
-        return if(name.length > 20) {
-            false
-        }
-        else if(!name.matches((Regex("[A-Za-z0-9]")))) {
-            false
-        } else name.matches((Regex("[A-Za-z0-9]")))
+    fun isValidCode(code: String): Boolean {
+        return code.isDigitsOnly()
     }
 
-    private fun isValidPassword(password: String): Boolean {
-        return password.length <= 30
+    suspend fun isNetworkAvailable(context: Context?): Boolean {
+        if (context == null) return false
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                        return true
+                    }
+                }
+            }
+        } else {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
+                return true
+            }
+        }
+        return false
     }
 
     companion object {
         const val USERNAME_CHAR_LIMIT = 20
-        const val PASSWORD_CHAR_LIMIT = 30
+        const val CODE_CHAR_LIMIT = 30
+
+        const val VIEWMODEL_ERROR_TAG = "Brandon_Test_ViewModel"
     }
 }

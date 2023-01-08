@@ -4,6 +4,6 @@ import com.brandon.forzenbook.repository.LoginToken
 
 interface LoginUseCase {
 
-    suspend operator fun invoke(userName: String, password: String): LoginToken?
+    suspend operator fun invoke(email: String, code: String): LoginToken?
 
 }

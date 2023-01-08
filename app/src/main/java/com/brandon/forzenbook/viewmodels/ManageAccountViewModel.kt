@@ -1,5 +1,6 @@
 package com.brandon.forzenbook.viewmodels
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.text.AnnotatedString
@@ -10,6 +11,7 @@ import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.forzenbook.usecase.CreateUserUseCase
+import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.VIEWMODEL_ERROR_TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,40 +23,6 @@ import javax.inject.Inject
 class ManageAccountViewModel @Inject constructor(
     private val createUserUseCase: CreateUserUseCase
 ) : ViewModel() {
-
-    private var resetPasswordTimestamp: Long = 0L
-    private var resetTimeRemaining: Int = 0
-    private var isPasswordResetAvailable: Boolean = true
-
-    private val _passwordState: MutableState<ResetPasswordState> =
-        mutableStateOf(ResetPasswordState.Idle())
-    val passwordState: MutableState<ResetPasswordState>
-        get() = _passwordState
-
-    sealed interface ResetPasswordState {
-        data class Idle(
-            val isOnCoolDown: Boolean = false,
-            val timeRemaining: Int = 0
-        ) : ResetPasswordState
-        object Done : ResetPasswordState
-    }
-
-    fun calculateResetTimeRemaining() {
-        viewModelScope.launch {
-            while ((System.currentTimeMillis() - resetPasswordTimestamp) >= RESET_PASSWORD_TIMER) {
-                delay(1000)
-                passwordState.value = ResetPasswordState.Idle(timeRemaining = ((System.currentTimeMillis() - resetPasswordTimestamp)/1000).toInt())
-            }
-            isPasswordResetAvailable = true
-        }
-    }
-
-    fun emailSent() {
-        if (System.currentTimeMillis() - resetPasswordTimestamp >= RESET_PASSWORD_TIMER) {
-            resetPasswordTimestamp = System.currentTimeMillis()
-            passwordState.value = ResetPasswordState.Done
-        }
-    }
 
     private var sqlDate: Date? = null
 
@@ -69,12 +37,9 @@ class ManageAccountViewModel @Inject constructor(
 
         data class Error(
             val isEmailError: Boolean = false,
-            val isPasswordError: Boolean = false,
             val isLocationError: Boolean = false,
             val isDateError: Boolean = false,
-            val isServiceError: Boolean = false,
             val isNetworkError: Boolean = false,
-            val isDataError: Boolean = false,
         ) : CreateAccountUiState
 
         object Loading : CreateAccountUiState
@@ -88,7 +53,6 @@ class ManageAccountViewModel @Inject constructor(
     fun createUser(
         firstName: String,
         lastName: String,
-        password: String,
         email: String,
         date: String,
         location: String
@@ -96,27 +60,20 @@ class ManageAccountViewModel @Inject constructor(
         viewModelScope.launch {
             state.value = CreateAccountUiState.Loading
             delay(5000)
-            val validPass = isValidPassword(password)
             val validMail = isValidEmail(email)
             val validLoc = isValidLocation(location)
             val validDob = isValidDateOfBirth(date)
-            if (validPass && validMail && validLoc && validDob && sqlDate != null) {
+            if (validMail && validLoc && validDob && sqlDate != null) {
                 sqlDate?.let { sqlDate ->
                     val outcome = createUserUseCase(
                         firstName = firstName,
                         lastName = lastName,
-                        password = password,
                         email = email,
                         date = sqlDate,
                         location = location
                     )
-                    if (outcome.isDataError) {
-                        state.value = CreateAccountUiState.Error(isDataError = true)
-                    }
-                    else if (outcome.isNetworkError) {
+                    if (!outcome) {
                         state.value = CreateAccountUiState.Error(isNetworkError = true)
-                    } else if (outcome.isServiceError) {
-                        state.value = CreateAccountUiState.Error(isServiceError = true)
                     } else {
                         state.value = CreateAccountUiState.Loaded
                     }
@@ -125,7 +82,6 @@ class ManageAccountViewModel @Inject constructor(
                 state.value = CreateAccountUiState.Error(
                     isEmailError = validMail,
                     isLocationError = validLoc,
-                    isPasswordError = validPass,
                     isDateError = validDob,
                 )
             }
@@ -154,23 +110,10 @@ class ManageAccountViewModel @Inject constructor(
             sqlDate = Date.valueOf(dateString)
             true
         } catch (e: Exception) {
-            println("Brandon_Test_ViewModel Invalid Date Provided.")
+            Log.e(VIEWMODEL_ERROR_TAG, "Invalid Date of Birth Provided.")
             false
         }
     }
-
-    private fun isValidUserName(name: String): Boolean {
-        return if (name.length > 20) {
-            false
-        } else if (!name.matches((Regex("[A-Za-z0-9]")))) {
-            false
-        } else name.matches((Regex("[A-Za-z0-9]")))
-    }
-
-    private fun isValidPassword(password: String): Boolean {
-        return password.length <= 30
-    }
-
 
     class DateTransformation() : VisualTransformation {
         override fun filter(text: AnnotatedString): TransformedText {
@@ -209,6 +152,5 @@ class ManageAccountViewModel @Inject constructor(
     companion object {
         const val EMAIL_CHAR_LIMIT = 30
         const val LOCATION_CHAR_LIMIT = 64
-        const val RESET_PASSWORD_TIMER = 30000
     }
 }
