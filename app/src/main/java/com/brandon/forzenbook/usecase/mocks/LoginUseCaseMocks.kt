@@ -6,23 +6,21 @@ import com.brandon.forzenbook.usecase.LoginUseCase
 import com.brandon.forzenbook.usecase.mocks.LoginUseCaseAlwaysReturns.Companion.USECASE_MOCK_TAG
 
 class LoginUseCaseAlwaysReturns() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): LoginToken? {
+    override suspend fun invoke(email: String, code: String): Boolean {
         Log.e(USECASE_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return LoginToken(SUCCESS_MOCK_TOKEN)
+        return true
     }
 
     companion object {
         const val USECASE_MOCK_TAG = "Brandon_Test_Usecase"
         const val SUCCESS_MOCK_MESSAGE = "Always Success Usecase Mock."
-        const val SUCCESS_MOCK_TOKEN =
-            "ThisIsASixtyFour(64)CharacterLongStringForTestingNetworkResponse"
     }
 }
 
 class LoginUseCaseNeverReturns() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): LoginToken? {
+    override suspend fun invoke(email: String, code: String): Boolean {
         Log.e(USECASE_MOCK_TAG, FAILURE_MOCK_MESSAGE)
-        return null
+        return false
     }
 
     companion object {
@@ -31,7 +29,7 @@ class LoginUseCaseNeverReturns() : LoginUseCase {
 }
 
 class LoginUseCaseAlwaysThrows() : LoginUseCase {
-    override suspend fun invoke(email: String, code: String): LoginToken? {
+    override suspend fun invoke(email: String, code: String): Boolean {
         Log.e(USECASE_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }

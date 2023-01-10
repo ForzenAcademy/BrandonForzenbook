@@ -6,6 +6,11 @@ import java.sql.Date
 
 interface ForzenApiService {
 
+    @GET(LOGIN_ENDPOINT)
+    suspend fun getCode(
+        @Query("email") email: String
+    ): Response<Any>
+
     @POST(LOGIN_ENDPOINT)
     suspend fun login(
         @Body request: LoginRequest

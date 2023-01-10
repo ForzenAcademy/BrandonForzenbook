@@ -40,6 +40,7 @@ class ManageAccountViewModel @Inject constructor(
             val isLocationError: Boolean = false,
             val isDateError: Boolean = false,
             val isNetworkError: Boolean = false,
+            val isUserAlreadyMade: Boolean = false,
         ) : CreateAccountUiState
 
         object Loading : CreateAccountUiState
@@ -72,10 +73,16 @@ class ManageAccountViewModel @Inject constructor(
                         date = sqlDate,
                         location = location
                     )
-                    if (!outcome) {
-                        state.value = CreateAccountUiState.Error(isNetworkError = true)
-                    } else {
-                        state.value = CreateAccountUiState.Loaded
+                    when (outcome) {
+                        CreateUserOutcome.CREATE_USER_SUCCESS -> {
+                            state.value = CreateAccountUiState.Loaded
+                        }
+                        CreateUserOutcome.CREATE_USER_FAILURE -> {
+                            state.value = CreateAccountUiState.Error(isNetworkError = true)
+                        }
+                        CreateUserOutcome.CREATE_USER_DUPLICATE -> {
+                            state.value = CreateAccountUiState.Error(isUserAlreadyMade = true)
+                        }
                     }
                 }
             } else {

@@ -1,8 +1,9 @@
 package com.brandon.forzenbook.usecase
 
 import com.brandon.forzenbook.repository.CreateUserData
-import com.brandon.forzenbook.repository.CreateUserErrors
 import com.brandon.forzenbook.repository.ForzenRepository
+import com.brandon.forzenbook.repository.UserAlreadyExistsException
+import com.brandon.forzenbook.viewmodels.CreateUserOutcome
 import java.sql.Date
 
 class CreateUserUseCaseImpl(
@@ -15,7 +16,7 @@ class CreateUserUseCaseImpl(
         email: String,
         date: Date,
         location: String
-    ): Boolean {
+    ): CreateUserOutcome {
         val createUserData = CreateUserData(
             firstName = firstName,
             lastName = lastName,
@@ -23,7 +24,13 @@ class CreateUserUseCaseImpl(
             dateOfBirth = date,
             location = location
         )
-        return repository.createUser(createUserData)
+        return try {
+            repository.createUser(createUserData)
+            CreateUserOutcome.CREATE_USER_SUCCESS
+        } catch (e: UserAlreadyExistsException) {
+            CreateUserOutcome.CREATE_USER_DUPLICATE
+        } catch (e: Exception) {
+            CreateUserOutcome.CREATE_USER_FAILURE
+        }
     }
-
 }

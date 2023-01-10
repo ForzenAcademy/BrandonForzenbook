@@ -6,13 +6,11 @@ import com.brandon.forzenbook.data.ForzenDao
 import com.brandon.forzenbook.data.ForzenDatabase
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.ForzenApiService.Companion.FORZEN_BASE_URL
+import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysFailsMock
 import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysSuccessMock
 import com.brandon.forzenbook.repository.ForzenRepository
 import com.brandon.forzenbook.repository.ForzenRepositoryImpl
-import com.brandon.forzenbook.usecase.CreateUserUseCase
-import com.brandon.forzenbook.usecase.CreateUserUseCaseImpl
-import com.brandon.forzenbook.usecase.LoginUseCase
-import com.brandon.forzenbook.usecase.LoginUseCaseImpl
+import com.brandon.forzenbook.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,8 +34,8 @@ object ForzenModule {
     @Provides
     fun providesForzenApiService(): ForzenApiService {
         val retrofit = providesRetrofit(FORZEN_BASE_URL)
-//        return retrofit.create(ForzenApiService::class.java)
-        return ForzenApiServiceAlwaysSuccessMock()
+        return retrofit.create(ForzenApiService::class.java)
+//        return ForzenApiServiceAlwaysFailsMock()
     }
 
     @Provides
@@ -67,6 +65,13 @@ object ForzenModule {
         repository: ForzenRepository
     ): CreateUserUseCase {
         return CreateUserUseCaseImpl(repository)
+    }
+
+    @Provides
+    fun forzenGetLoginCodeUseCase(
+        repository: ForzenRepository
+    ): GetLoginCodeUseCase {
+        return GetLoginCodeUseCaseImpl(repository)
     }
 
 }

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.USERNAME_CHAR_LIMIT
+import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.Companion.EMAIL_CHAR_LIMIT
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel.LoginUiState.*
 import com.example.forzenbook.R
@@ -24,27 +24,28 @@ import com.example.forzenbook.R
 @Composable
 fun LoginContent(
     state: LoginUiState,
-    onDismiss: () -> Unit,
     onSubmit: (String, String) -> Unit
 ) {
     when (state) {
         is PreCode -> {
-            LoginScreen(onSubmit = onSubmit)
+            // TODO FA-81 redesign UI for New States
+            GenericErrorDialog("Test") {
+            }
+//            LoginScreen(onSubmit = onSubmit)
+        }
+        is CodeSent -> {
+            // TODO this is where I show the code field FA-81
         }
         is Error -> {
-            if (state.isNetworkError) {
-                FakeLoginScreen()
-                InternetIssue(onDismiss = onDismiss)
-            } else {
-                LoginScreen(state = state, onSubmit = onSubmit)
-            }
+            LoginScreen(state = state, onSubmit = onSubmit)
         }
         is Loading -> {
             FakeLoginScreen()
             DimBackgroundLoading()
         }
-        is PostCodeSent -> {
-            Log.e(VIEW_LOG_TAG, "Login Success.")
+        is LoginWithCode -> {
+            // TODO navigate to next app screen FA-81
+            Log.e(VIEW_LOG_TAG, "Login Success")
         }
     }
 }
@@ -61,7 +62,7 @@ fun LoginScreen(
     var code by rememberSaveable {
         mutableStateOf("")
     }
-    var nameError by rememberSaveable {
+    var emailError by rememberSaveable {
         mutableStateOf(false)
     }
     var codeError by rememberSaveable {
@@ -80,12 +81,12 @@ fun LoginScreen(
             onTextChange = {
                 username = it
             },
-            characterLimit = USERNAME_CHAR_LIMIT,
+            characterLimit = EMAIL_CHAR_LIMIT,
             onMaxCharacterLength = {
-                nameError = it
+                emailError = it
             },
         )
-        if (nameError) {
+        if (emailError) {
             TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
         }
         if (state.isEmailError) {
@@ -103,9 +104,6 @@ fun LoginScreen(
         )
         if (codeError) {
             TextFieldErrorText(text = resources.getString(R.string.loginCharLengthLimit))
-        }
-        if (state.isInvalidCredentialsError) {
-            TextFieldErrorText(text = resources.getString(R.string.loginInvalidCredentials))
         }
         BlackButton(text = resources.getString(R.string.loginButtonText)) {
             keyboardController?.hide()

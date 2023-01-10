@@ -12,9 +12,9 @@ import com.brandon.forzenbook.view.composables.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LoginContent
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.view.theme.DpProvider
+import com.brandon.forzenbook.view.theme.Dimens
 import com.brandon.forzenbook.view.theme.ForzenBookTheme
-import com.brandon.forzenbook.view.theme.LocalSizeController
+import com.brandon.forzenbook.view.theme.LocalDimens
 import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel
 import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,8 +29,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ForzenBookTheme {
-                val sizes = DpProvider()
-                CompositionLocalProvider(LocalSizeController provides sizes) {
+                val sizes = Dimens()
+                CompositionLocalProvider(LocalDimens provides sizes) {
                     val navController = rememberNavController()
                     CompositionLocalProvider(LocalNavController provides navController) {
                         NavHost(
@@ -40,9 +40,6 @@ class MainActivity : ComponentActivity() {
                             composable(NavigationDestinations.LOGIN_INPUT) {
                                 LoginContent(
                                     state = topLevelViewModel.state.value,
-                                    onDismiss = {
-                                        topLevelViewModel.dismissNotification()
-                                    },
                                     onSubmit = { username, code ->
                                         topLevelViewModel.loginClicked(username, code)
                                     }
@@ -71,7 +68,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
     companion object {
         const val VIEW_LOG_TAG = "Brandon_Test_View"
     }

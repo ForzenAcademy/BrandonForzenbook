@@ -28,7 +28,6 @@ fun CreateAccountContent(
         is Error -> {
             if (state.isNetworkError) {
                 FakeCreateAccountScreen()
-                InternetIssue(onDismiss = onDismiss)
             } else {
                 CreateAccount(state = state, onSubmit = onSubmit)
             }
