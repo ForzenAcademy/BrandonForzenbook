@@ -11,7 +11,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
 import com.brandon.forzenbook.view.navigation.LocalNavController
-import com.brandon.forzenbook.view.navigation.NavigationDestinations
+import com.brandon.forzenbook.view.navigation.NavDestinations
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState.*
 import com.example.forzenbook.R
@@ -22,6 +22,7 @@ fun LoginContent(
     onCheckConnection: () -> Boolean,
     onGetCode: (String) -> Unit,
     onLogin: (String, String) -> Unit,
+    onLoggedIn: () -> Unit,
 ) {
     when (state) {
         is Idle -> {
@@ -36,6 +37,7 @@ fun LoginContent(
             LoadingLoginScreen(state = state)
         }
         is LoggedIn -> {
+            onLoggedIn()
         }
     }
 }
@@ -103,8 +105,8 @@ fun LoginScreen(
         }
         if (emptyFieldError) TextFieldErrorText(text = resources.getString(R.string.required_fields_error))
         RedirectText(text = resources.getString(R.string.login_create_account)) {
-            navController?.navigate(NavigationDestinations.CREATE_ACCOUNT) {
-                popUpTo(NavigationDestinations.CREATE_ACCOUNT) { inclusive = true }
+            navController?.navigate(NavDestinations.CREATE_ACCOUNT) {
+                popUpTo(NavDestinations.CREATE_ACCOUNT) { inclusive = true }
             }
         }
     }
