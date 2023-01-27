@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import androidx.room.Room
 import com.brandon.forzenbook.data.ForzenDao
 import com.brandon.forzenbook.data.ForzenDatabase
-import com.brandon.forzenbook.di.ForzenModule.isConnected
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.ForzenApiService.Companion.FORZEN_BASE_URL
 import com.brandon.forzenbook.repository.ForzenRepository

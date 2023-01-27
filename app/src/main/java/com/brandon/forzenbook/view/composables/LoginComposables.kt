@@ -38,7 +38,6 @@ fun LoginContent(
             LoadingLoginScreen(state = state)
         }
         is LoggedIn -> {
-            // TODO redirect to a new screen FA-83
             Log.e(VIEW_LOG_TAG, "Login Success")
         }
     }

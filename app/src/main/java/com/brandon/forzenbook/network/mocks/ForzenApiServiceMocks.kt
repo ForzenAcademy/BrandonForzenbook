@@ -10,9 +10,9 @@ import retrofit2.Response
 import java.sql.Date
 
 class ForzenApiServiceAlwaysSuccessMock : ForzenApiService {
-    override suspend fun getCode(email: String): Response<Any> {
+    override suspend fun getCode(email: String): Response<Unit> {
         Log.v(NETWORK_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return Response.success(200)
+        return Response.success(null)
     }
 
     override suspend fun login(request: LoginRequest): Response<LoginResponse> {
@@ -40,7 +40,7 @@ class ForzenApiServiceAlwaysSuccessMock : ForzenApiService {
 }
 
 class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
-    override suspend fun getCode(email: String): Response<Any> {
+    override suspend fun getCode(email: String): Response<Unit> {
         Log.v(NETWORK_MOCK_TAG, FAILURE_MOCK_MESSAGE)
         return Response.error(404, ResponseBody.create(null, FAILURE_MOCK_MESSAGE))
     }
@@ -67,7 +67,7 @@ class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
 }
 
 class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
-    override suspend fun getCode(email: String): Response<Any> {
+    override suspend fun getCode(email: String): Response<Unit> {
         Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
