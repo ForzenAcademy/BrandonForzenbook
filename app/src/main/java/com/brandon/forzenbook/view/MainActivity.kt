@@ -1,6 +1,7 @@
 package com.brandon.forzenbook.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -12,63 +13,59 @@ import com.brandon.forzenbook.view.composables.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LoginContent
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.view.theme.Dimens
 import com.brandon.forzenbook.view.theme.ForzenBookTheme
-import com.brandon.forzenbook.view.theme.LocalDimens
-import com.brandon.forzenbook.viewmodels.ForzenTopLevelViewModel
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
+import com.brandon.forzenbook.viewmodels.CreateAccountViewModel
+import com.brandon.forzenbook.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val topLevelViewModel: ForzenTopLevelViewModel by viewModels()
-    private val accountViewModel: ManageAccountViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
+    private val createViewModel: CreateAccountViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ForzenBookTheme {
-                val sizes = Dimens()
-                CompositionLocalProvider(LocalDimens provides sizes) {
-                    val navController = rememberNavController()
-                    CompositionLocalProvider(LocalNavController provides navController) {
-                        NavHost(
-                            navController = navController,
-                            startDestination = NavigationDestinations.LOGIN_INPUT
-                        ) {
-                            composable(NavigationDestinations.LOGIN_INPUT) {
-                                LoginContent(
-                                    state = topLevelViewModel.state.value,
-                                    onSubmit = { username, code ->
-                                        topLevelViewModel.loginClicked(username, code)
-                                    }
-                                )
-                            }
-                            composable(NavigationDestinations.CREATE_ACCOUNT) {
-                                CreateAccountContent(
-                                    state = accountViewModel.state.value,
-                                    onDismiss = {
-                                        accountViewModel.dismissErrorNotification()
-                                    },
-                                    onSubmit = { firstName, lastName, dateOfBirth, email, location ->
-                                        accountViewModel.createUser(
-                                            firstName = firstName,
-                                            lastName = lastName,
-                                            date = dateOfBirth,
-                                            email = email,
-                                            location = location,
-                                        )
-                                    }
-                                )
-                            }
+                val navController = rememberNavController()
+                CompositionLocalProvider(LocalNavController provides navController) {
+                    NavHost(
+                        navController = navController,
+                        startDestination = NavigationDestinations.LOGIN_INPUT
+                    ) {
+                        composable(NavigationDestinations.LOGIN_INPUT) {
+                            Log.e(VIEW_LOG_TAG, "${loginViewModel.uiState}")
+                            LoginContent(
+                                state = loginViewModel.uiState.value,
+                                onGetCode = { loginViewModel.loginClicked(it) },
+                                onLogin = { email, code -> loginViewModel.loginClicked(email, code) },
+                                onCheckConnection = { loginViewModel.checkInternetConnection() }
+                            )
+                        }
+                        composable(NavigationDestinations.CREATE_ACCOUNT) {
+                            CreateAccountContent(
+                                state = createViewModel.createAccountState.value,
+                                onSubmit = { firstName, lastName, dateOfBirth, email, location ->
+                                    createViewModel.createAccountClicked(
+                                        firstName = firstName,
+                                        lastName = lastName,
+                                        date = dateOfBirth,
+                                        email = email,
+                                        location = location,
+                                    )
+                                },
+                                onCheckConnection = { loginViewModel.checkInternetConnection() }
+                            )
                         }
                     }
                 }
             }
         }
     }
+
     companion object {
         const val VIEW_LOG_TAG = "Brandon_Test_View"
+        const val KEYBOARD_ERROR = "Error Hiding Keyboard"
     }
 }

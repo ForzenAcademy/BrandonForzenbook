@@ -1,13 +1,13 @@
 package com.brandon.forzenbook.di
 
 import android.content.Context
+import android.net.ConnectivityManager
 import androidx.room.Room
 import com.brandon.forzenbook.data.ForzenDao
 import com.brandon.forzenbook.data.ForzenDatabase
+import com.brandon.forzenbook.di.ForzenModule.isConnected
 import com.brandon.forzenbook.network.ForzenApiService
 import com.brandon.forzenbook.network.ForzenApiService.Companion.FORZEN_BASE_URL
-import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysFailsMock
-import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysSuccessMock
 import com.brandon.forzenbook.repository.ForzenRepository
 import com.brandon.forzenbook.repository.ForzenRepositoryImpl
 import com.brandon.forzenbook.usecase.*
@@ -35,12 +35,12 @@ object ForzenModule {
     fun providesForzenApiService(): ForzenApiService {
         val retrofit = providesRetrofit(FORZEN_BASE_URL)
         return retrofit.create(ForzenApiService::class.java)
-//        return ForzenApiServiceAlwaysFailsMock()
     }
 
     @Provides
     fun providesForzenDatabase(@ApplicationContext context: Context): ForzenDatabase {
-        return Room.databaseBuilder(context, ForzenDatabase::class.java, ForzenDatabase.NAME).build()
+        return Room.databaseBuilder(context, ForzenDatabase::class.java, ForzenDatabase.NAME)
+            .build()
     }
 
     @Provides
@@ -68,10 +68,10 @@ object ForzenModule {
     }
 
     @Provides
-    fun forzenGetLoginCodeUseCase(
-        repository: ForzenRepository
-    ): GetLoginCodeUseCase {
-        return GetLoginCodeUseCaseImpl(repository)
+    fun providesConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
+        return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
+
+    fun ConnectivityManager.isConnected(): Boolean = activeNetworkInfo?.isConnected() ?: false
 
 }

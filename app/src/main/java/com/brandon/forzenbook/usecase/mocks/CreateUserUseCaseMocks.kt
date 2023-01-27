@@ -1,10 +1,9 @@
 package com.brandon.forzenbook.usecase.mocks
 
 import android.util.Log
+import com.brandon.forzenbook.usecase.CreateAccountValidationState
 import com.brandon.forzenbook.usecase.CreateUserUseCase
 import com.brandon.forzenbook.usecase.mocks.CreateUserUseCaseAlwaysSuccess.Companion.USECASE_MOCK_TAG
-import com.brandon.forzenbook.viewmodels.CreateUserOutcome
-import java.sql.Date
 
 class CreateUserUseCaseAlwaysSuccess() : CreateUserUseCase {
 
@@ -12,17 +11,18 @@ class CreateUserUseCaseAlwaysSuccess() : CreateUserUseCase {
         firstName: String,
         lastName: String,
         email: String,
-        date: Date,
+        date: String,
         location: String
-    ): CreateUserOutcome {
+    ): CreateAccountValidationState {
         Log.e(USECASE_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
-        return CreateUserOutcome.CREATE_USER_SUCCESS
+        return CreateAccountValidationState.Success
     }
 
     companion object {
         const val USECASE_MOCK_TAG = "Brandon_Test_UseCase"
         const val SUCCESS_MOCK_MESSAGE = "Always Success Usecase Mock."
     }
+
 }
 
 class CreateUserUseCaseNeverSuccess() : CreateUserUseCase {
@@ -31,11 +31,11 @@ class CreateUserUseCaseNeverSuccess() : CreateUserUseCase {
         firstName: String,
         lastName: String,
         email: String,
-        date: Date,
+        date: String,
         location: String
-    ): CreateUserOutcome {
+    ): CreateAccountValidationState {
         Log.e(USECASE_MOCK_TAG, FAILURE_MOCK_MESSAGE)
-        return CreateUserOutcome.CREATE_USER_FAILURE
+        return CreateAccountValidationState.CreateAccountError(true, true, true, true)
     }
 
     companion object {
@@ -49,9 +49,9 @@ class CreateUserUseCaseAlwaysThrows() : CreateUserUseCase {
         firstName: String,
         lastName: String,
         email: String,
-        date: Date,
+        date: String,
         location: String
-    ): CreateUserOutcome {
+    ): CreateAccountValidationState {
         Log.e(USECASE_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }

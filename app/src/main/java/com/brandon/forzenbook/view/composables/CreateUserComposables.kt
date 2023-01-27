@@ -1,40 +1,55 @@
 package com.brandon.forzenbook.view.composables
 
+import android.app.DatePickerDialog
+import android.content.Context
+import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextOverflow
+import com.brandon.forzenbook.view.MainActivity.Companion.KEYBOARD_ERROR
+import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
+import com.brandon.forzenbook.view.composables.ComposableConstants.CREATE_ACCOUNT_TITLE_WEIGHT
+import com.brandon.forzenbook.view.composables.ComposableConstants.DEFAULT_WEIGHT
+import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
+import com.brandon.forzenbook.view.composables.ComposableConstants.TEXT_FIELD_MAX_LINES
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.Companion.EMAIL_CHAR_LIMIT
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.Companion.LOCATION_CHAR_LIMIT
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState
-import com.brandon.forzenbook.viewmodels.ManageAccountViewModel.CreateAccountUiState.*
+import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState
+import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState.*
 import com.example.forzenbook.R
+import java.util.*
+
 
 @Composable
 fun CreateAccountContent(
     state: CreateAccountUiState,
-    onDismiss: () -> Unit,
+    onCheckConnection: () -> Boolean,
     onSubmit: (String, String, String, String, String) -> Unit,
 ) {
     when (state) {
         is Idle -> {
-            CreateAccount(onSubmit = onSubmit)
-        }
-        is Error -> {
-            if (state.isNetworkError) {
-                FakeCreateAccountScreen()
-            } else {
-                CreateAccount(state = state, onSubmit = onSubmit)
-            }
+            CreateAccount(state = state, onSubmit = onSubmit, onCheckConnection = onCheckConnection)
         }
         is Loading -> {
-            FakeCreateAccountScreen()
-            DimBackgroundLoading()
+            CreateAccountLoading(state = state)
         }
         is Loaded -> {
             CreateSuccess()
@@ -46,104 +61,211 @@ fun CreateAccountContent(
 fun CreateSuccess() {
     val navController = LocalNavController.current
     val resources = LocalContext.current.resources
-    YellowColumn {
-        TitleText(text = resources.getString(R.string.createAccountSuccess))
-        BlackButton(text = resources.getString(R.string.createAccountToLogin)) {
-            navController?.navigate(NavigationDestinations.LOGIN_INPUT) {
-                popUpTo(NavigationDestinations.LOGIN_INPUT) { inclusive = true }
+    SuccessDialog(
+        title = resources.getString(R.string.create_account_success),
+        body = resources.getString(R.string.create_account_success_body),
+        buttonText = resources.getString(R.string.create_account_to_login)
+    ) {
+        navController?.navigate(NavigationDestinations.LOGIN_INPUT) {
+            popUpTo(NavigationDestinations.LOGIN_INPUT) { inclusive = true }
+        }
+    }
+}
+
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
+@Composable
+fun CreateAccount(
+    state: Idle = Idle(),
+    onCheckConnection: () -> Boolean,
+    onSubmit: (String, String, String, String, String) -> Unit,
+) {
+    var firstName by rememberSaveable { mutableStateOf(state.firstName) }
+    var lastName by rememberSaveable { mutableStateOf(state.lastName) }
+    var dateOfBirth by rememberSaveable { mutableStateOf(state.dateOfBirth) }
+    var email by rememberSaveable { mutableStateOf(state.email) }
+    var location by rememberSaveable { mutableStateOf(state.location) }
+    var isDialogOpen by rememberSaveable { mutableStateOf(false) }
+    var emailError by rememberSaveable { mutableStateOf(false) }
+    var locationError by rememberSaveable { mutableStateOf(false) }
+    var emptyFieldError by rememberSaveable { mutableStateOf(false) }
+    var datePickerOpen by rememberSaveable { mutableStateOf(false) }
+    val resources = LocalContext.current.resources
+    val context = LocalContext.current
+    val keyboardController = LocalSoftwareKeyboardController.current
+    Scaffold(
+        modifier = Modifier,
+        topBar = { CreateAccountTopBar() },
+        content = { padding ->
+            YellowColumn(
+                modifier = Modifier.padding(padding)
+            ) {
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_first_name_hint),
+                    currentText = firstName,
+                    onTextChange = { firstName = it },
+                )
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_last_name_hint),
+                    currentText = lastName,
+                    onTextChange = { lastName = it },
+                )
+                ReadOnlyDateTextField(
+                    hint = resources.getString(R.string.create_account_birth_date_format_hint),
+                    currentText = dateOfBirth,
+                    onTextChange = { dateOfBirth = it },
+                    onClickEvent = { datePickerOpen = true }
+                )
+                if (state.isDateError) TextFieldErrorText(text = resources.getString(R.string.create_account_date_error))
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_email_hint),
+                    onTextChange = { email = it },
+                    currentText = email,
+                    characterLimit = EMAIL_CHAR_LIMIT,
+                    onMaxCharacterLength = { emailError = it },
+                )
+                if (state.isEmailError) TextFieldErrorText(text = resources.getString(R.string.create_account_email_error))
+                if (state.isDuplicateUser) TextFieldErrorText(text = resources.getString(R.string.create_account_duplicate_user_error))
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_location_hint),
+                    onTextChange = { location = it },
+                    currentText = location,
+                    onMaxCharacterLength = { locationError = it },
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
+                )
+                if (state.isLocationError) TextFieldErrorText(text = resources.getString(R.string.create_account_location_error))
+                BlackButton(text = resources.getString(R.string.create_account_create_button_text)) {
+                    try {
+                        keyboardController?.hide()
+                    } catch (_: Exception) {
+                        Log.v(VIEW_LOG_TAG, KEYBOARD_ERROR)
+                    }
+                    if (onCheckConnection()) {
+                        if (firstName.isNotEmpty() && lastName.isNotEmpty() && dateOfBirth.isNotEmpty() && email.isNotEmpty() && location.isNotEmpty()) {
+                            onSubmit(firstName, lastName, dateOfBirth, email, location)
+                        } else emptyFieldError = true
+                    } else isDialogOpen = true
+                }
+                if (emptyFieldError) TextFieldErrorText(text = resources.getString(R.string.required_fields_error))
+            }
+        }
+    )
+    if (isDialogOpen) {
+        AlertDialog(
+            title = resources.getString(R.string.error_no_internet_connection),
+            body = resources.getString(R.string.error_connect_and_try_again),
+            onDismissRequest = {
+                isDialogOpen = false
+            },
+        )
+    }
+    if (datePickerOpen) {
+        LaunchedEffect(Unit) {
+            dateDialog(context, onDismiss = { datePickerOpen = false }) {
+                dateOfBirth = it
+                datePickerOpen = false
             }
         }
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CreateAccount(
-    state: Error = Error(),
-    onSubmit: (String, String, String, String, String) -> Unit
+fun CreateAccountLoading(
+    state: Loading = Loading(),
 ) {
-    var firstName by rememberSaveable {
-        mutableStateOf("")
-    }
-    var lastName by rememberSaveable {
-        mutableStateOf("")
-    }
-    var code by rememberSaveable {
-        mutableStateOf("")
-    }
-    var dateOfBirth by rememberSaveable {
-        mutableStateOf("")
-    }
-    var email by rememberSaveable {
-        mutableStateOf("")
-    }
-    var location by rememberSaveable {
-        mutableStateOf("")
-    }
-    var codeError by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var emailError by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var locationError by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var emptyFieldError by rememberSaveable {
-        mutableStateOf(false)
-    }
     val resources = LocalContext.current.resources
-    val keyboardController = LocalSoftwareKeyboardController.current
-    YellowColumn {
-        TitleText(
-            text = resources.getString(R.string.createAccountTitleText)
-        )
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountFirstNameHint),
-            onTextChange = { firstName = it },
-        )
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountLastNameHint),
-            onTextChange = { lastName = it },
-        )
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountBirthDateFormatHint),
-            onTextChange = { dateOfBirth = it },
-            visualTransformation = ManageAccountViewModel.DateTransformation()
-        )
-        if (state.isDateError) {
-            TextFieldErrorText(text = resources.getString(R.string.createAccountDateError))
-        }
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountEmailHint),
-            onTextChange = { email = it },
-            characterLimit = EMAIL_CHAR_LIMIT,
-            onMaxCharacterLength = { emailError = it },
-        )
-        if (state.isEmailError) {
-            TextFieldErrorText(text = resources.getString(R.string.createAccountEmailError))
-        }
-        InputInfoTextField(
-            hint = resources.getString(R.string.createAccountLocationHint),
-            onTextChange = { location = it },
-            characterLimit = LOCATION_CHAR_LIMIT,
-            onMaxCharacterLength = { locationError = it },
-        )
-        if (state.isLocationError) {
-            TextFieldErrorText(text = resources.getString(R.string.createAccountLocationError))
-        }
-        BlackButton(
-            text = resources.getString(R.string.createAccountCreateButtonText),
-        ) {
-            keyboardController?.hide()
-            if (firstName.isNotEmpty() && lastName.isNotEmpty() && dateOfBirth.isNotEmpty() && email.isNotEmpty() && location.isNotEmpty()) {
-                onSubmit(firstName, lastName, dateOfBirth, email, location)
-            } else {
-                emptyFieldError = true
+    Scaffold(
+        modifier = Modifier,
+        topBar = { CreateAccountTopBar() },
+        content = { padding ->
+            YellowColumn(
+                modifier = Modifier.padding(padding)
+            ) {
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_first_name_hint),
+                    isEnabled = false,
+                    currentText = state.firstName
+                )
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_last_name_hint),
+                    isEnabled = false,
+                    currentText = state.lastName
+                )
+                ReadOnlyDateTextField(
+                    hint = resources.getString(R.string.create_account_birth_date_format_hint),
+                    isEnabled = false,
+                    currentText = state.dateOfBirth,
+                )
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_email_hint),
+                    isEnabled = false,
+                    currentText = state.email
+                )
+                InputInfoTextField(
+                    hint = resources.getString(R.string.create_account_location_hint),
+                    isEnabled = false,
+                    currentText = state.location
+                )
+                LoadingBlackButton()
             }
         }
-        if (emptyFieldError) {
-            TextFieldErrorText(text = resources.getString(R.string.requiredFieldsError))
+    )
+}
+
+fun dateDialog(
+    context: Context,
+    onDismiss: () -> Unit,
+    onDateChange: (String) -> Unit,
+) {
+    val calendar = Calendar.getInstance()
+    DatePickerDialog(
+        context,
+        R.style.MySpinnerStyle,
+        null,
+        calendar.get(Calendar.YEAR),
+        calendar.get(Calendar.MONTH),
+        calendar.get(Calendar.DAY_OF_MONTH)
+    ).apply {
+        setOnDateSetListener { _, year, month, dayOfMonth ->
+            onDateChange("${month + 1}/$dayOfMonth/$year")
+            hide()
         }
+        setOnDismissListener {
+            onDismiss()
+        }
+    }.show()
+}
+
+@Composable
+fun CreateAccountTopBar() {
+    val navController = LocalNavController.current
+    val resources = LocalContext.current.resources
+    Row(
+        modifier = Modifier.background(color = MaterialTheme.colorScheme.tertiary),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Start,
+    ) {
+        Icon(
+            modifier = Modifier
+                .weight(DEFAULT_WEIGHT)
+                .clickable {
+                    navController?.navigate(NavigationDestinations.LOGIN_INPUT) {
+                        popUpTo(NavigationDestinations.LOGIN_INPUT) { inclusive = true }
+                    }
+                },
+            imageVector = Icons.Filled.ArrowBack,
+            contentDescription = resources.getString(R.string.create_account_back_arrow),
+            tint = MaterialTheme.colorScheme.primary,
+        )
+        Text(
+            modifier = Modifier
+                .weight(CREATE_ACCOUNT_TITLE_WEIGHT),
+            text = resources.getString(R.string.create_account_title_text),
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.Black,
+            maxLines = TEXT_FIELD_MAX_LINES,
+            overflow = TextOverflow.Ellipsis,
+        )
+        Spacer(modifier = Modifier.weight(DEFAULT_WEIGHT))
     }
 }
