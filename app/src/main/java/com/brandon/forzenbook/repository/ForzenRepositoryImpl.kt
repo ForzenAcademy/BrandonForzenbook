@@ -4,7 +4,6 @@ import android.util.Log
 import com.brandon.forzenbook.data.ForzenDao
 import com.brandon.forzenbook.data.toForzenEntity
 import com.brandon.forzenbook.network.ForzenApiService
-import com.brandon.forzenbook.network.LoginRequest
 import com.brandon.forzenbook.network.toCreateAccountRequest
 
 class ForzenRepositoryImpl(
@@ -18,7 +17,7 @@ class ForzenRepositoryImpl(
             if (response.isSuccessful) {
                 return
             } else {
-                Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR ${response.code()}")
+                Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR $response")
                 throw Exception(RESPONSE_CODE_ERROR)
             }
         } catch (e: Exception) {
@@ -30,9 +29,8 @@ class ForzenRepositoryImpl(
     override suspend fun getToken(email: String, code: String) {
         try {
             forzenDao.deleteLoginToken()
-            val loginRequest = LoginRequest(email, code)
             try {
-                val response = forzenApiService.login(loginRequest)
+                val response = forzenApiService.login(email, code)
                 if (response.isSuccessful) {
                     try {
                         val entityData = response.body()?.toForzenEntity()
@@ -41,11 +39,11 @@ class ForzenRepositoryImpl(
                             return
                         }
                     } catch (e: Exception) {
-                        Log.e(DATA_ERROR_TAG, "$FAILED_ENTITY_CONVERT ${response.body()}")
+                        Log.e(DATA_ERROR_TAG, "$FAILED_ENTITY_CONVERT $response")
                         throw Exception(FAILED_ENTITY_CONVERT)
                     }
                 } else {
-                    Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR ${response.code()}")
+                    Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR $response")
                     throw Exception(RESPONSE_CODE_ERROR)
                 }
             } catch (e: Exception) {
@@ -71,7 +69,6 @@ class ForzenRepositoryImpl(
                 dateOfBirth = data.date,
             )
             Log.e(DATA_ERROR_TAG, "$response")
-            Log.e(DATA_ERROR_TAG, "${response.code()}")
             if (response.isSuccessful) {
                 return
             } else if (response.code() == USER_DUPLICATE_CODE) {
