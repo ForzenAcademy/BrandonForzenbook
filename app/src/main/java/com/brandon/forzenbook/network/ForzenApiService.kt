@@ -9,7 +9,7 @@ interface ForzenApiService {
     @GET(LOGIN_ENDPOINT)
     suspend fun getCode(
         @Query("email") email: String
-    ): Response<Any>
+    ): Response<Unit>
 
     @POST(LOGIN_ENDPOINT)
     suspend fun login(

@@ -161,7 +161,7 @@ fun InputInfoTextField(
             .fillMaxWidth()
             .imePadding(),
         onValueChange = {
-            if (currentText.length == characterLimit) {
+            if (it.length >= characterLimit) {
                 onMaxCharacterLength(true)
             } else {
                 onTextChange(it)
