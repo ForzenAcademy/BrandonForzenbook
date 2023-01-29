@@ -90,3 +90,32 @@ class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
         const val ALWAYS_THROWS_MOCK_MESSAGE = "Always Throws Exception Mock."
     }
 }
+
+class ForzenApiServiceDuplicateUserMock : ForzenApiService {
+    override suspend fun requestEmailCode(email: String): Response<Unit> {
+        Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
+        throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
+    }
+
+    override suspend fun loginWithEmailCode(email: String, code: String): Response<LoginResponse> {
+        Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
+        throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
+    }
+
+    override suspend fun createUser(
+        firstname: String,
+        lastname: String,
+        dateOfBirth: Date,
+        location: String,
+        email: String
+    ): Response<Void> {
+        Log.v(NETWORK_MOCK_TAG, USER_DUPLICATE_ERROR_LOG_MESSAGE)
+        return Response.error(USER_DUPLICATE_CODE, ResponseBody.create(null, ""))
+    }
+
+    companion object {
+        const val ALWAYS_THROWS_MOCK_MESSAGE = "Always Throws Exception Mock."
+        const val USER_DUPLICATE_CODE = 409
+        const val USER_DUPLICATE_ERROR_LOG_MESSAGE = "User Already Exists."
+    }
+}
