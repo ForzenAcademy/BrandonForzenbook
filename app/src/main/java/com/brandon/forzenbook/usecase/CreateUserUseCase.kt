@@ -1,5 +1,7 @@
 package com.brandon.forzenbook.usecase
 
+import com.brandon.utilities.CreateAccountValidationState
+
 interface CreateUserUseCase {
 
     suspend operator fun invoke(

@@ -1,7 +1,7 @@
 package com.brandon.forzenbook.usecase.mocks
 
 import android.util.Log
-import com.brandon.forzenbook.usecase.CreateAccountValidationState
+import com.brandon.utilities.CreateAccountValidationState
 import com.brandon.forzenbook.usecase.CreateUserUseCase
 import com.brandon.forzenbook.usecase.mocks.CreateUserUseCaseAlwaysSuccess.Companion.USECASE_MOCK_TAG
 
