@@ -10,6 +10,7 @@ import com.brandon.forzenbook.network.ForzenApiService.Companion.FORZEN_BASE_URL
 import com.brandon.forzenbook.repository.ForzenRepository
 import com.brandon.forzenbook.repository.ForzenRepositoryImpl
 import com.brandon.forzenbook.usecase.*
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,9 +25,10 @@ object ForzenModule {
 
     @Provides
     fun providesRetrofit(baseUrl: String): Retrofit {
+        val gson = GsonConverterFactory.create(GsonBuilder().setLenient().create())
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(gson)
             .build()
     }
 

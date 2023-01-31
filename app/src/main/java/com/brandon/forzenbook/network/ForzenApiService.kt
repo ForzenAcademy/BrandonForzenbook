@@ -8,12 +8,14 @@ interface ForzenApiService {
 
     @GET(LOGIN_ENDPOINT)
     suspend fun getCode(
-        @Query("email") email: String
+        @Query(EMAIL) email: String
     ): Response<Unit>
 
+    @FormUrlEncoded
     @POST(LOGIN_ENDPOINT)
     suspend fun login(
-        @Body request: LoginRequest
+        @Field(EMAIL) email: String,
+        @Field(CODE) code: String
     ): Response<LoginResponse>
 
     @FormUrlEncoded
@@ -36,5 +38,6 @@ interface ForzenApiService {
         const val BIRTH_DATE = "birth_date"
         const val LOCATION = "location"
         const val EMAIL = "email"
+        const val CODE = "code"
     }
 }

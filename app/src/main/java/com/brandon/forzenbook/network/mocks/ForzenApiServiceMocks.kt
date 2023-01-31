@@ -2,7 +2,6 @@ package com.brandon.forzenbook.network.mocks
 
 import android.util.Log
 import com.brandon.forzenbook.network.ForzenApiService
-import com.brandon.forzenbook.network.LoginRequest
 import com.brandon.forzenbook.network.LoginResponse
 import com.brandon.forzenbook.network.mocks.ForzenApiServiceAlwaysSuccessMock.Companion.NETWORK_MOCK_TAG
 import okhttp3.ResponseBody
@@ -15,7 +14,7 @@ class ForzenApiServiceAlwaysSuccessMock : ForzenApiService {
         return Response.success(null)
     }
 
-    override suspend fun login(request: LoginRequest): Response<LoginResponse> {
+    override suspend fun login(email: String, code: String): Response<LoginResponse> {
         Log.v(NETWORK_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
         return Response.success(LoginResponse(token = SUCCESS_MOCK_TOKEN))
     }
@@ -45,7 +44,7 @@ class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
         return Response.error(404, ResponseBody.create(null, FAILURE_MOCK_MESSAGE))
     }
 
-    override suspend fun login(request: LoginRequest): Response<LoginResponse> {
+    override suspend fun login(email: String, code: String): Response<LoginResponse> {
         Log.v(NETWORK_MOCK_TAG, FAILURE_MOCK_MESSAGE)
         return Response.error(404, ResponseBody.create(null, FAILURE_MOCK_MESSAGE))
     }
@@ -72,7 +71,7 @@ class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
 
-    override suspend fun login(request: LoginRequest): Response<LoginResponse> {
+    override suspend fun login(email: String, code: String): Response<LoginResponse> {
         Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }

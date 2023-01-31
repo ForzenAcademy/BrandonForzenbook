@@ -1,7 +1,6 @@
 package com.brandon.forzenbook.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -35,12 +34,13 @@ class MainActivity : ComponentActivity() {
                         startDestination = NavigationDestinations.LOGIN_INPUT
                     ) {
                         composable(NavigationDestinations.LOGIN_INPUT) {
-                            Log.e(VIEW_LOG_TAG, "${loginViewModel.uiState}")
                             LoginContent(
                                 state = loginViewModel.uiState.value,
                                 onGetCode = { loginViewModel.loginClicked(it) },
-                                onLogin = { email, code -> loginViewModel.loginClicked(email, code) },
-                                onCheckConnection = { loginViewModel.checkInternetConnection() }
+                                onLogin = { email, code ->
+                                    loginViewModel.loginClicked(email, code)
+                                },
+                                onCheckConnection = { loginViewModel.checkInternetConnection() },
                             )
                         }
                         composable(NavigationDestinations.CREATE_ACCOUNT) {

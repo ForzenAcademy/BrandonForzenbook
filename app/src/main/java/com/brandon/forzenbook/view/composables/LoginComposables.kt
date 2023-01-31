@@ -1,6 +1,5 @@
 package com.brandon.forzenbook.view.composables
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.*
@@ -9,9 +8,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
-import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
+import androidx.compose.ui.text.input.KeyboardType
 import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
-import com.brandon.forzenbook.view.composables.ComposableConstants.TEXT_FIELD_DEFAULT_TEXT
 import com.brandon.forzenbook.view.navigation.LocalNavController
 import com.brandon.forzenbook.view.navigation.NavigationDestinations
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState
@@ -38,7 +36,6 @@ fun LoginContent(
             LoadingLoginScreen(state = state)
         }
         is LoggedIn -> {
-            Log.e(VIEW_LOG_TAG, "Login Success")
         }
     }
 }
@@ -52,7 +49,7 @@ fun LoginScreen(
     onLogin: (String, String) -> Unit,
 ) {
     var email by rememberSaveable { mutableStateOf(state.email) }
-    var code by rememberSaveable { mutableStateOf(TEXT_FIELD_DEFAULT_TEXT) }
+    var code by rememberSaveable { mutableStateOf("") }
     var emailError by rememberSaveable { mutableStateOf(false) }
     var emptyFieldError by rememberSaveable { mutableStateOf(false) }
     var isDialogOpen by rememberSaveable { mutableStateOf(false) }
@@ -78,8 +75,12 @@ fun LoginScreen(
             InputInfoTextField(
                 hint = resources.getString(R.string.login_code_hint),
                 onTextChange = { code = it },
+                currentText = code,
                 onMaxCharacterLength = { codeError = it },
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Go,
+                    keyboardType = KeyboardType.Number
+                )
             )
             if (codeError) TextFieldErrorText(text = resources.getString(R.string.login_char_length_limit))
         }
