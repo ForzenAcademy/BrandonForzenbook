@@ -31,7 +31,7 @@ import com.brandon.forzenbook.view.composables.ComposableConstants.DEFAULT_WEIGH
 import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
 import com.brandon.forzenbook.view.composables.ComposableConstants.TEXT_FIELD_MAX_LINES
 import com.brandon.forzenbook.view.navigation.LocalNavController
-import com.brandon.forzenbook.view.navigation.NavigationDestinations
+import com.brandon.forzenbook.view.navigation.NavDestinations
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState.*
 import com.example.forzenbook.R
@@ -66,8 +66,8 @@ fun CreateSuccess() {
         body = resources.getString(R.string.create_account_success_body),
         buttonText = resources.getString(R.string.create_account_to_login)
     ) {
-        navController?.navigate(NavigationDestinations.LOGIN_INPUT) {
-            popUpTo(NavigationDestinations.LOGIN_INPUT) { inclusive = true }
+        navController?.navigate(NavDestinations.LOGIN_INPUT) {
+            popUpTo(NavDestinations.LOGIN_INPUT) { inclusive = true }
         }
     }
 }
@@ -249,8 +249,8 @@ fun CreateAccountTopBar() {
             modifier = Modifier
                 .weight(DEFAULT_WEIGHT)
                 .clickable {
-                    navController?.navigate(NavigationDestinations.LOGIN_INPUT) {
-                        popUpTo(NavigationDestinations.LOGIN_INPUT) { inclusive = true }
+                    navController?.navigate(NavDestinations.LOGIN_INPUT) {
+                        popUpTo(NavDestinations.LOGIN_INPUT) { inclusive = true }
                     }
                 },
             imageVector = Icons.Filled.ArrowBack,

@@ -9,9 +9,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandon.forzenbook.view.composables.CreateAccountContent
+import com.brandon.forzenbook.view.composables.LandingScreen
 import com.brandon.forzenbook.view.composables.LoginContent
 import com.brandon.forzenbook.view.navigation.LocalNavController
-import com.brandon.forzenbook.view.navigation.NavigationDestinations
+import com.brandon.forzenbook.view.navigation.NavDestinations
 import com.brandon.forzenbook.view.theme.ForzenBookTheme
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel
 import com.brandon.forzenbook.viewmodels.LoginViewModel
@@ -31,9 +32,9 @@ class MainActivity : ComponentActivity() {
                 CompositionLocalProvider(LocalNavController provides navController) {
                     NavHost(
                         navController = navController,
-                        startDestination = NavigationDestinations.LOGIN_INPUT
+                        startDestination = NavDestinations.LOGIN_INPUT
                     ) {
-                        composable(NavigationDestinations.LOGIN_INPUT) {
+                        composable(NavDestinations.LOGIN_INPUT) {
                             LoginContent(
                                 state = loginViewModel.uiState.value,
                                 onGetCode = { loginViewModel.loginClicked(it) },
@@ -41,9 +42,14 @@ class MainActivity : ComponentActivity() {
                                     loginViewModel.loginClicked(email, code)
                                 },
                                 onCheckConnection = { loginViewModel.checkInternetConnection() },
+                                onLoggedIn = {
+                                    navController.navigate(NavDestinations.LANDING_SCREEN) {
+                                        popUpTo(NavDestinations.LANDING_SCREEN) { inclusive = true }
+                                    }
+                                }
                             )
                         }
-                        composable(NavigationDestinations.CREATE_ACCOUNT) {
+                        composable(NavDestinations.CREATE_ACCOUNT) {
                             CreateAccountContent(
                                 state = createViewModel.createAccountState.value,
                                 onSubmit = { firstName, lastName, dateOfBirth, email, location ->
@@ -57,6 +63,9 @@ class MainActivity : ComponentActivity() {
                                 },
                                 onCheckConnection = { loginViewModel.checkInternetConnection() }
                             )
+                        }
+                        composable(NavDestinations.LANDING_SCREEN) {
+                            LandingScreen()
                         }
                     }
                 }
