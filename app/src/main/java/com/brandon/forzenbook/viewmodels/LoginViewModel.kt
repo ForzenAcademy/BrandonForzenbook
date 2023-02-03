@@ -7,8 +7,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.forzenbook.di.ForzenModule.isConnected
-import com.brandon.forzenbook.usecase.LoginUseCase
-import com.brandon.forzenbook.usecase.LoginValidationState
+import com.brandon.logincore.usecase.LoginUseCase
+import com.brandon.utilities.LoginValidationState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

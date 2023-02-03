@@ -1,11 +1,13 @@
 package com.brandon.forzenbook.usecase
 
 import com.brandon.forzenbook.repository.CreateUserData
-import com.brandon.forzenbook.repository.ForzenRepository
+import com.brandon.forzenbook.repository.CreateUserRepository
 import com.brandon.forzenbook.repository.UserAlreadyExistsException
+import com.brandon.utilities.AccountValidation
+import com.brandon.utilities.CreateAccountValidationState
 
 class CreateUserUseCaseImpl(
-    private val repository: ForzenRepository,
+    private val repository: CreateUserRepository,
 ) : CreateUserUseCase, AccountValidation() {
 
     override suspend fun invoke(
