@@ -1,14 +1,12 @@
 package com.brandon.di
 
 import android.content.Context
+import android.net.ConnectivityManager
 import androidx.room.Room
 import com.brandon.data.ForzenDao
 import com.brandon.data.ForzenDatabase
 import com.brandon.network.ForzenApiService
 import com.brandon.network.ForzenApiService.Companion.FORZEN_BASE_URL
-import com.brandon.network.ForzenApiServiceAlwaysFailsMock
-import com.brandon.network.ForzenApiServiceAlwaysSuccessMock
-import com.brandon.network.ForzenApiServiceAlwaysThrowsMock
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,6 +42,11 @@ object NetworkModule {
     @Provides
     fun providesForzenDao(forzenDatabase: ForzenDatabase): ForzenDao {
         return forzenDatabase.forzenDao()
+    }
+
+    @Provides
+    fun providesConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
+        return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
 
 }

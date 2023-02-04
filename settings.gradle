@@ -16,3 +16,4 @@ rootProject.name = "ForzenBook"
 include ':app'
 include ':core'
 include ':loginCore'
+include ':createAccountCore'
