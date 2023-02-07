@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7754fbee-128d-40bf-8c4b-cecff4063bce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,20 +16,34 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/repository/CreateUserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/repository/CreateUserRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/LoginViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/di/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/di/NetworkModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/test/java/com/brandon/network/NetworkUnitTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/com/brandon/network/NetworkUnitTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/brandon/network/UnitTestLog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/android/util/Log.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/data/LoginRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/data/LoginRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/androidTest/java/com/brandon/createaccountcore/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/androidTest/java/com/brandon/createaccount/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateAccountRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateAccountRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/UserAlreadyExistsException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/UserAlreadyExistsException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/mocks/CreateUserRepoMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/mocks/CreateUserRepoMocks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/di/CreateAccountModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/di/CreateAccountModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/CreateUserUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/CreateUserUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/CreateUserUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/CreateUserUseCaseImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/mocks/CreateUserUseCaseMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/mocks/CreateUserUseCaseMocks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/test/java/com/brandon/createaccountcore/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/test/java/com/brandon/createaccount/ExampleUnitTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/brandon/.android/avd/4_WVGA_Nexus_S_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -57,8 +73,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -69,6 +85,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2L4cBxHDpYU6IuaJZMkKUcNlzEE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -78,9 +97,22 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Gradle.NetworkUnitTests (1)">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.brandon.di" />
+      <recent name="com.brandon.createaccountcore.di" />
+      <recent name="com.brandon.createaccountcore.usecase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="ForzenBook.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
