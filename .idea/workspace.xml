@@ -8,7 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7754fbee-128d-40bf-8c4b-cecff4063bce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,34 +15,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/LoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/di/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/di/NetworkModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/brandon/network/NetworkUnitTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/com/brandon/network/NetworkUnitTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/androidTest/java/com/brandon/createaccountcore/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/androidTest/java/com/brandon/createaccount/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateAccountRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateAccountRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/CreateUserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/UserAlreadyExistsException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/UserAlreadyExistsException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/data/mocks/CreateUserRepoMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/mocks/CreateUserRepoMocks.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/di/CreateAccountModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/di/CreateAccountModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/CreateUserUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/CreateUserUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/CreateUserUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/CreateUserUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccountcore/usecase/mocks/CreateUserUseCaseMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/usecase/mocks/CreateUserUseCaseMocks.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/test/java/com/brandon/createaccountcore/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/test/java/com/brandon/createaccount/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/AccountValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/AccountValidation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/brandon/.android/avd/4_WVGA_Nexus_S_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -111,7 +90,7 @@
       <recent name="com.brandon.createaccountcore.usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Gradle.LoginUserUnitTests (1)">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="ForzenBook.app.main" />
       <option name="DEPLOY" value="true" />
@@ -171,6 +150,98 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateAccountUnitTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":createAccountCore:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.brandon.createaccount.CreateAccountUnitTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateAccountUnitTests.createUserUseCaseSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":createAccountCore:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.brandon.createaccount.CreateAccountUnitTests.createUserUseCaseSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoginUserUnitTests (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":loginCore:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.brandon.logincore.LoginUserUnitTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoginUserUnitTests.testInline (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":loginCore:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.brandon.logincore.LoginUserUnitTests.testInline&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="NetworkUnitTests (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -185,98 +256,6 @@
             <option value=":core:testDebugUnitTest" />
             <option value="--tests" />
             <option value="&quot;com.brandon.network.NetworkUnitTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NetworkUnitTests.testCreateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":core:testDebugUnitTest" />
-            <option value="--tests" />
-            <option value="&quot;com.brandon.network.NetworkUnitTests.testCreateUser&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NetworkUnitTests.testCreateUserFails (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":core:testDebugUnitTest" />
-            <option value="--tests" />
-            <option value="&quot;com.brandon.network.NetworkUnitTests.testCreateUserFails&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NetworkUnitTests.testCreateUserThrowsApiCall" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":core:testDebugUnitTest" />
-            <option value="--tests" />
-            <option value="&quot;com.brandon.network.NetworkUnitTests.testCreateUserThrowsApiCall&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NetworkUnitTests.testCreateUserThrowsDuplicateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":core:testDebugUnitTest" />
-            <option value="--tests" />
-            <option value="&quot;com.brandon.network.NetworkUnitTests.testCreateUserThrowsDuplicateUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -301,11 +280,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LoginUserUnitTests (1)" />
+        <item itemvalue="Gradle.LoginUserUnitTests.testInline (1)" />
+        <item itemvalue="Gradle.CreateAccountUnitTests.createUserUseCaseSuccess" />
+        <item itemvalue="Gradle.CreateAccountUnitTests" />
         <item itemvalue="Gradle.NetworkUnitTests (1)" />
-        <item itemvalue="Gradle.NetworkUnitTests.testCreateUserThrowsDuplicateUser" />
-        <item itemvalue="Gradle.NetworkUnitTests.testCreateUserThrowsApiCall" />
-        <item itemvalue="Gradle.NetworkUnitTests.testCreateUserFails (1)" />
-        <item itemvalue="Gradle.NetworkUnitTests.testCreateUser" />
       </list>
     </recent_temporary>
   </component>
