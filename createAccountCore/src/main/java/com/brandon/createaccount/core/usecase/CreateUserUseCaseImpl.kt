@@ -38,9 +38,9 @@ class CreateUserUseCaseImpl(
             }
         } else {
             CreateAccountValidationState.CreateAccountError(
-                emailError = validEmail,
-                locationError = validLocation,
-                dateOfBirthError = formattedDate != null,
+                emailError = !validEmail,
+                locationError = !validLocation,
+                dateOfBirthError = formattedDate == null,
             )
         }
     }

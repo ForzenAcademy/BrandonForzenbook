@@ -1,6 +1,5 @@
 package com.brandon.utilities
 
-import androidx.core.text.isDigitsOnly
 import androidx.core.util.PatternsCompat
 import java.sql.Date
 import java.text.SimpleDateFormat
@@ -12,7 +11,7 @@ abstract class AccountValidation {
     }
 
     protected fun isValidCode(code: String): Boolean {
-        return code.isDigitsOnly() && code.length == CODE_CHAR_LIMIT
+        return code.isNumeric() && code.length == CODE_CHAR_LIMIT
     }
 
     protected fun isValidStringInput(input: String): Boolean {
