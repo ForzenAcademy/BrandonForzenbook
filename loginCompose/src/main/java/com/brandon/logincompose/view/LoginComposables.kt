@@ -13,14 +13,13 @@ import com.brandon.composecore.composables.*
 import com.brandon.composecore.constants.ComposableConstants.EMAIL_CHAR_LIMIT
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
+import com.brandon.logincore.viewmodel.LoginViewModel
+import com.brandon.logincore.viewmodel.LoginViewModel.LoginUiState.*
 import com.brandon.uicore.R as uiR
-import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState
-import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState.*
-import com.example.logincompose.R
 
 @Composable
 fun LoginContent(
-    state: LoginUiState,
+    state: LoginViewModel.LoginUiState,
     onCheckConnection: () -> Boolean,
     onGetCode: (String) -> Unit,
     onLogin: (String, String) -> Unit,
@@ -77,7 +76,7 @@ fun LoginScreen(
         if (state.isCodeSent) {
             var codeError by rememberSaveable { mutableStateOf(false) }
             InputInfoTextField(
-                hint = resources.getString(R.string.login_code_hint),
+                hint = resources.getString(uiR.string.login_code_hint),
                 onTextChange = { code = it },
                 currentText = code,
                 onMaxCharacterLength = { codeError = it },
@@ -89,7 +88,7 @@ fun LoginScreen(
             if (codeError) TextFieldErrorText(text = resources.getString(uiR.string.core_char_length_limit))
         }
         BlackButton(
-            text = if (state.isCodeSent) resources.getString(R.string.login_button_text) else resources.getString(
+            text = if (state.isCodeSent) resources.getString(uiR.string.login_button_text) else resources.getString(
                 uiR.string.core_get_code_text
             )
         ) {
@@ -138,7 +137,7 @@ fun LoadingLoginScreen(
         )
         if (state.isCodeSent) {
             InputInfoTextField(
-                hint = resources.getString(R.string.login_code_hint),
+                hint = resources.getString(uiR.string.login_code_hint),
                 isEnabled = false,
             )
         }

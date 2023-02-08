@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="primary" format="color"/>
+    <attr name="onPrimary" format="color"/>
+    <attr name="primaryContainer" format="color"/>
+    <attr name="onPrimaryContainer" format="color"/>
+    <attr name="inversePrimary" format="color"/>
+    <attr name="secondary" format="color"/>
+    <attr name="onSecondary" format="color"/>
+    <attr name="secondaryContainer" format="color"/>
+    <attr name="onSecondaryContainer" format="color"/>
+    <attr name="tertiary" format="color"/>
+    <attr name="onTertiary" format="color"/>
+    <attr name="tertiaryContainer" format="color"/>
+    <attr name="onTertiaryContainer" format="color"/>
+    <attr name="errorColor" format="color"/>
+    <attr name="onSurfaceVariant" format="color"/>
+    <attr name="surfaceTint" format="color"/>
+    <attr name="inverseSurface" format="color" />
+
+    <attr name="fontWeightLight" format="reference"/>
+    <attr name="fontWeightMedium" format="reference"/>
+    <attr name="fontWeightNormal" format="reference"/>
+    <attr name="fontWeightSemiBold" format="reference"/>
+    <attr name="fontWeightBold" format="reference"/>
+    <attr name="fontWeightItalic" format="reference"/>
+
+
+</resources>

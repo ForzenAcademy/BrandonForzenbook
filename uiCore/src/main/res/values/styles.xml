@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="fieldErrorText">
+        <item name="android:layout_margin">@dimen/paddingSmall</item>
+        <item name="android:textColor">?attr/errorColor</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:textSize">@dimen/labelMedium</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="yellowColumnCentered">
+        <item name="android:background">?tertiary</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="hintText">
+        <item name="android:layout_margin">@dimen/paddingSmall</item>
+        <item name="android:textColor">?attr/onTertiary</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:textSize">@dimen/labelMedium</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="blackButton">
+        <item name="android:layout_marginBottom">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:layout_marginStart">@dimen/paddingLarge</item>
+        <item name="android:layout_marginEnd">@dimen/paddingLarge</item>
+        <item name="android:layout_marginTop">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:height">@dimen/minimumTouchTarget</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/black_button</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">?attr/fontWeightMedium</item>
+        <item name="android:textSize">@dimen/bodyMedium</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">?secondary</item>
+    </style>
+
+    <style name="blackButtonText">
+        <item name="android:padding">@dimen/paddingMedium</item>
+        <item name="fontFamily">?attr/fontWeightMedium</item>
+        <item name="android:textColor">?secondary</item>
+        <item name="android:textSize">@dimen/bodyLarge</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="blackButtonLoadingIndicator">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTint">?secondary</item>
+    </style>
+
+    <style name="editTextField">
+        <item name="android:maxLines">@integer/edit_text_max_lines</item>
+        <item name="android:lines">@integer/edit_text_max_lines</item>
+        <item name="android:maxLength">@integer/email_edit_text_max_length</item>
+        <item name="android:layout_marginTop">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:layout_marginStart">@dimen/paddingLarge</item>
+        <item name="android:layout_marginEnd">@dimen/paddingLarge</item>
+        <item name="android:layout_marginBottom">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:padding">@dimen/paddingExtraLarge</item>
+        <item name="android:textColor">?attr/onTertiary</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:textSize">@dimen/labelLarge</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:textColorHint">?attr/onTertiary</item>
+        <item name="android:background">?attr/inversePrimary</item>
+    </style>
+
+    <style name="editTextFieldOnlyNumbers">
+        <item name="android:maxLines">@integer/edit_text_max_lines</item>
+        <item name="android:lines">@integer/edit_text_max_lines</item>
+        <item name="android:maxLength">@integer/code_edit_text_max_length</item>
+        <item name="android:inputType">number</item>
+        <item name="android:layout_marginTop">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:layout_marginStart">@dimen/paddingLarge</item>
+        <item name="android:layout_marginEnd">@dimen/paddingLarge</item>
+        <item name="android:layout_marginBottom">@dimen/minimumTouchTargetPadding</item>
+        <item name="android:padding">@dimen/paddingMedium</item>
+        <item name="android:textColor">?attr/onTertiary</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:textSize">@dimen/labelMedium</item>
+        <item name="android:textColorHint">?attr/onTertiary</item>
+        <item name="android:background">?attr/inversePrimary</item>
+    </style>
+
+    <style name="redirectText">
+        <item name="android:padding">@dimen/minimumTouchTargetPadding</item>
+        <item name="fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:textSize">@dimen/titleMedium</item>
+        <item name="android:textColor">?attr/onSecondary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="titleImage">
+        <item name="android:padding">@dimen/paddingLarge</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/paddingLarge</item>
+    </style>
+
+    <style name="loginTitleText">
+        <item name="android:padding">@dimen/paddingMedium</item>
+        <item name="fontFamily">?attr/fontWeightLight</item>
+        <item name="android:textColor">?attr/onSecondary</item>
+        <item name="android:textSize">@dimen/displayMedium</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="alertDialogBodyText">
+        <item name="android:textColor">?attr/onSecondaryContainer</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/labelSmall</item>
+        <item name="android:fontFamily">?attr/fontWeightBold</item>
+        <item name="android:padding">@dimen/paddingSmall</item>
+    </style>
+
+    <style name="alertDialogTitleText">
+        <item name="android:textColor">?attr/onSecondaryContainer</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/titleMedium</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
+        <item name="android:padding">@dimen/paddingSmall</item>
+        <item name="android:layout_marginBottom">@dimen/paddingMedium</item>
+    </style>
+
+    <style name="alertDialogConfirmation">
+        <item name="android:textColor">?attr/onSurfaceVariant</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/bodyMedium</item>
+        <item name="android:fontFamily">?attr/fontWeightMedium</item>
+        <item name="android:layout_marginTop">@dimen/paddingSmall</item>
+    </style>
+
+</resources>

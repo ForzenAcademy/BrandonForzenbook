@@ -40,6 +40,8 @@ android {
 
 dependencies {
 
+    implementation project(':uiCore')
+    
     // Compose Bill Of Materials
     def composeBom = platform('androidx.compose:compose-bom:2022.12.00')
     implementation composeBom
