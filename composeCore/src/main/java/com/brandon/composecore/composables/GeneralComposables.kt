@@ -30,7 +30,6 @@ import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_MAX_LINE
 import com.brandon.composecore.theme.LocalDimens
 import com.example.composecore.R
 
-
 @Composable
 fun TextFieldErrorText(
     text: String,
@@ -162,21 +161,19 @@ fun InputInfoTextField(
             if (it.length >= characterLimit) {
                 onMaxCharacterLength(true)
             } else {
-                onTextChange(it)
                 onMaxCharacterLength(false)
             }
+            onTextChange(it)
         },
         enabled = isEnabled,
         textStyle = MaterialTheme.typography.labelMedium,
         singleLine = true,
-        placeholder = {
-            HintText(text = hint)
-        },
+        placeholder = { HintText(text = hint) },
         visualTransformation = visualTransformation,
         keyboardOptions = keyboardOptions,
         colors = TextFieldDefaults.textFieldColors(
             textColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.inversePrimary,
         ),
     )
 }
@@ -210,9 +207,8 @@ fun ReadOnlyDateTextField(
                 .fillMaxWidth()
                 .imePadding(),
             onValueChange = {
-                if (currentText.length == characterLimit) {
-                    onMaxCharacterLength(true)
-                } else {
+                if (currentText.length == characterLimit) onMaxCharacterLength(true)
+                else {
                     onTextChange(it)
                     onMaxCharacterLength(false)
                 }
@@ -227,7 +223,7 @@ fun ReadOnlyDateTextField(
             keyboardOptions = keyboardOptions,
             colors = TextFieldDefaults.textFieldColors(
                 textColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                containerColor = MaterialTheme.colorScheme.inversePrimary,
             ),
         )
         Box(
@@ -306,8 +302,7 @@ fun AlertDialog(
         ) {
             Text(
                 text = title,
-                modifier = Modifier
-                    .padding(dimens.paddingSmall),
+                modifier = Modifier.padding(dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.titleSmall,
@@ -315,8 +310,7 @@ fun AlertDialog(
             )
             Text(
                 text = body,
-                modifier = Modifier
-                    .padding(dimens.paddingSmall),
+                modifier = Modifier.padding(dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 overflow = TextOverflow.Ellipsis,
@@ -362,8 +356,7 @@ fun SuccessDialog(
         ) {
             Text(
                 text = title,
-                modifier = Modifier
-                    .padding(dimens.paddingSmall),
+                modifier = Modifier.padding(dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.titleSmall,
@@ -371,21 +364,25 @@ fun SuccessDialog(
             )
             Text(
                 text = body,
-                modifier = Modifier
-                    .padding(dimens.paddingSmall),
+                modifier = Modifier.padding(dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.labelSmall,
             )
-            Row {
-                Spacer(modifier = Modifier.weight(DEFAULT_WEIGHT))
+            Row(
+                modifier = Modifier
+                    .padding(dimens.paddingSmall)
+                    .height(dimens.minimumTouchTarget)
+                    .clickable { onDismissRequest() },
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
                 Text(
                     text = buttonText,
                     modifier = Modifier
                         .padding(dimens.minimumTouchTargetPadding)
-                        .weight(DEFAULT_WEIGHT)
-                        .clickable { onDismissRequest() },
+                        .weight(DEFAULT_WEIGHT),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Magenta,
                     textAlign = TextAlign.Center,

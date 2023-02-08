@@ -3,6 +3,8 @@ package com.brandon.logincore.di
 import com.brandon.data.ForzenDao
 import com.brandon.logincore.data.LoginRepository
 import com.brandon.logincore.data.LoginRepositoryImpl
+import com.brandon.logincore.usecase.LoginUseCase
+import com.brandon.logincore.usecase.LoginUseCaseImpl
 import com.brandon.network.ForzenApiService
 import dagger.Module
 import dagger.Provides
@@ -24,9 +26,8 @@ object LoginModule {
     @Provides
     fun providesForzenLoginUseCase(
         repository: LoginRepository
-    ): com.brandon.logincore.usecase.LoginUseCase {
-        return com.brandon.logincore.usecase.LoginUseCaseImpl(repository)
+    ): LoginUseCase {
+        return LoginUseCaseImpl(repository)
     }
-
 
 }

@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.createaccount.core.usecase.CreateUserUseCase
-import com.brandon.utilities.CreateAccountValidationState
+import com.brandon.utilities.CreateAccountValidationState.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +30,8 @@ class CreateAccountViewModel @Inject constructor(
             val lastName: String = "",
             val location: String = "",
             val dateOfBirth: String = "",
+            val isFirstNameError: Boolean = false,
+            val isLastNameError: Boolean = false,
             val isEmailError: Boolean = false,
             val isLocationError: Boolean = false,
             val isDateError: Boolean = false,
@@ -71,7 +73,7 @@ class CreateAccountViewModel @Inject constructor(
             )
             Log.e(VIEWMODEL_ERROR_TAG, "$outcome")
             createAccountState.value = when (outcome) {
-                is CreateAccountValidationState.CreateAccountError -> {
+                is CreateAccountError -> {
                     CreateAccountUiState.Idle(
                         email = email,
                         firstName = firstName,
@@ -81,9 +83,11 @@ class CreateAccountViewModel @Inject constructor(
                         isEmailError = outcome.emailError,
                         isLocationError = outcome.locationError,
                         isDateError = outcome.dateOfBirthError,
+                        isFirstNameError = outcome.firstNameError,
+                        isLastNameError = outcome.lastNameError
                     )
                 }
-                is CreateAccountValidationState.CreateAccountDuplicateError -> {
+                is CreateAccountDuplicateError -> {
                     CreateAccountUiState.Idle(
                         email = email,
                         firstName = firstName,
@@ -93,7 +97,7 @@ class CreateAccountViewModel @Inject constructor(
                         isDuplicateUser = true,
                     )
                 }
-                is CreateAccountValidationState.Success -> {
+                is Success -> {
                     CreateAccountUiState.Loaded
                 }
             }

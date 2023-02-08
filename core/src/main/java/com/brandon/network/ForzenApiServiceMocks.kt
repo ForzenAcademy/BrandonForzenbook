@@ -3,6 +3,7 @@ package com.brandon.network
 import android.util.Log
 import com.brandon.network.login.LoginResponse
 import com.brandon.network.ForzenApiServiceAlwaysSuccessMock.Companion.NETWORK_MOCK_TAG
+import com.brandon.network.createuser.CreateUserResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
 import java.sql.Date
@@ -24,7 +25,7 @@ class ForzenApiServiceAlwaysSuccessMock : ForzenApiService {
         dateOfBirth: Date,
         location: String,
         email: String
-    ): Response<Void> {
+    ): Response<CreateUserResponse> {
         Log.v(NETWORK_MOCK_TAG, SUCCESS_MOCK_MESSAGE)
         return Response.success(null)
     }
@@ -54,7 +55,7 @@ class ForzenApiServiceAlwaysFailsMock : ForzenApiService {
         dateOfBirth: Date,
         location: String,
         email: String
-    ): Response<Void> {
+    ): Response<CreateUserResponse> {
         Log.v(NETWORK_MOCK_TAG, FAILURE_MOCK_MESSAGE)
         return Response.error(404, ResponseBody.create(null, FAILURE_MOCK_MESSAGE))
     }
@@ -81,7 +82,7 @@ class ForzenApiServiceAlwaysThrowsMock : ForzenApiService {
         dateOfBirth: Date,
         location: String,
         email: String
-    ): Response<Void> {
+    ): Response<CreateUserResponse> {
         Log.v(NETWORK_MOCK_TAG, ALWAYS_THROWS_MOCK_MESSAGE)
         throw Exception(ALWAYS_THROWS_MOCK_MESSAGE)
     }
@@ -108,7 +109,7 @@ class ForzenApiServiceDuplicateUserMock : ForzenApiService {
         dateOfBirth: Date,
         location: String,
         email: String
-    ): Response<Void> {
+    ): Response<CreateUserResponse> {
         Log.v(NETWORK_MOCK_TAG, USER_DUPLICATE_ERROR_LOG_MESSAGE)
         return Response.error(USER_DUPLICATE_CODE, ResponseBody.create(null, ""))
     }

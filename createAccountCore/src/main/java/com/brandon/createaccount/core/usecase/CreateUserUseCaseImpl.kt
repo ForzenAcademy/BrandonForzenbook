@@ -1,10 +1,9 @@
 package com.brandon.createaccount.core.usecase
 
-import com.brandon.createaccount.core.data.CreateUserData
-import com.brandon.createaccount.core.data.CreateUserRepository
-import com.brandon.createaccount.core.data.UserAlreadyExistsException
+import com.brandon.createaccount.core.data.*
 import com.brandon.utilities.AccountValidation
 import com.brandon.utilities.CreateAccountValidationState
+import com.brandon.utilities.CreateAccountValidationState.*
 
 class CreateUserUseCaseImpl(
     private val repository: CreateUserRepository,
@@ -20,7 +19,9 @@ class CreateUserUseCaseImpl(
         val formattedDate = isValidDateOfBirth(date)
         val validEmail = isValidEmail(email)
         val validLocation = isValidStringInput(location)
-        return if (validEmail && validLocation && formattedDate != null) {
+        val validFirstName = isValidName(firstName)
+        val validLastName = isValidName(lastName)
+        return if (validEmail && validLocation && formattedDate != null && validFirstName && validLastName) {
             try {
                 val createUserData = CreateUserData(
                     firstName = firstName,
@@ -30,17 +31,29 @@ class CreateUserUseCaseImpl(
                     location = location
                 )
                 repository.createUser(createUserData)
-                CreateAccountValidationState.Success
+                Success
             } catch (e: UserAlreadyExistsException) {
-                CreateAccountValidationState.CreateAccountDuplicateError
+                CreateAccountDuplicateError
+            } catch (e: InvalidFirstNameException) {
+                CreateAccountError(firstNameError = true)
+            } catch (e: InvalidLastNameException) {
+                CreateAccountError(lastNameError = true)
+            } catch (e: InvalidEmailException) {
+                CreateAccountError(emailError = true)
+            } catch (e: InvalidLocationException) {
+                CreateAccountError(locationError = true)
+            } catch (e: InvalidBirthDateException) {
+                CreateAccountError(dateOfBirthError = true)
             } catch (e: Exception) {
-                CreateAccountValidationState.CreateAccountError(genericError = true)
+                CreateAccountError(genericError = true)
             }
         } else {
-            CreateAccountValidationState.CreateAccountError(
+            CreateAccountError(
                 emailError = !validEmail,
                 locationError = !validLocation,
                 dateOfBirthError = formattedDate == null,
+                firstNameError = !validFirstName,
+                lastNameError = !validLastName
             )
         }
     }

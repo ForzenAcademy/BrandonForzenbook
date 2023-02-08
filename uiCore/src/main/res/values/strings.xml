@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">ForzenBook</string>
 
+    <string name="core_login_title">forzenbook</string>
+    <string name="core_get_code_text">Send Code</string>
+    <string name="core_create_account">Create Account</string>
     <string name="core_logo_image_description">Forzen Lion Logo</string>
     <string name="core_email_hint">Email</string>
     <string name="core_email_error">Please Enter a Valid Email</string>

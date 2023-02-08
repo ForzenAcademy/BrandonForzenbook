@@ -9,11 +9,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69c270eb-a81f-4f68-b34c-3f55707f835a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/androidTest/java/com/brandon/createaccount/compose/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/test/java/com/brandon/createaccount/compose/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/androidTest/java/com/brandon/logincompose/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/test/java/com/brandon/logincompose/ExampleUnitTest.kt" beforeDir="false" />
+    <list default="true" id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,21 +4,15 @@
     <string name="create_account_last_name_hint">Last Name</string>
     <string name="create_account_birth_date_hint">Date of Birth</string>
     <string name="create_account_birth_date_format_hint">MM/DD/YYYY</string>
-    <string name="create_account_email_hint">Email</string>
     <string name="create_account_location_hint">Location</string>
     <string name="create_account_create_button_text">Create Account</string>
     <string name="create_account_title_text">Create Account</string>
-    <string name="create_account_success">Success</string>
     <string name="create_account_success_body">Account Created Successfully</string>
     <string name="create_account_to_login">To Login</string>
-    <string name="create_account_location_error">Invalid Location</string>
-    <string name="create_account_email_error">Please Enter a Valid Email</string>
+    <string name="create_account_location_error">limit of 64 Characters</string>
+    <string name="create_account_name_error">limit of 20 Characters</string>
     <string name="create_account_duplicate_user_error">Email already in use</string>
     <string name="create_account_date_error">Invalid Date of Birth</string>
     <string name="create_account_back_arrow">Login Screen</string>
-    <string name="required_fields_error">All Fields Required</string>
-    <string name="error_no_internet_connection">No Internet Connection</string>
-    <string name="error_dismiss">Dismiss</string>
-    <string name="error_connect_and_try_again">Check Connection and Try Again</string>
 
 </resources>
