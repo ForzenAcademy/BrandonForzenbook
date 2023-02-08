@@ -13,10 +13,10 @@ import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.composecore.navigation.NavDestinations.CREATE_ACCOUNT
 import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
 import com.brandon.composecore.theme.ForzenBookTheme
-import com.brandon.forzenbook.view.composables.CreateAccountContent
+import com.brandon.createaccount.viewmodel.CreateAccountViewModel
+import com.brandon.createaccount.compose.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LandingScreen
 import com.brandon.logincompose.view.LoginContent
-import com.brandon.forzenbook.viewmodels.CreateAccountViewModel
 import com.brandon.logincompose.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -77,6 +77,5 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         const val VIEW_LOG_TAG = "Brandon_Test_View"
-        const val KEYBOARD_ERROR = "Error Hiding Keyboard"
     }
 }

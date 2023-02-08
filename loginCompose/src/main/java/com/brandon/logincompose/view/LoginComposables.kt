@@ -13,9 +13,9 @@ import com.brandon.composecore.composables.*
 import com.brandon.composecore.constants.ComposableConstants.EMAIL_CHAR_LIMIT
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
+import com.brandon.uicore.R as uiR
 import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState
 import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState.*
-import com.brandon.uicore.R as uiR
 import com.example.logincompose.R
 
 @Composable
