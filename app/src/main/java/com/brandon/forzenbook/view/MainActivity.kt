@@ -15,9 +15,9 @@ import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
 import com.brandon.composecore.theme.ForzenBookTheme
 import com.brandon.forzenbook.view.composables.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LandingScreen
+import com.brandon.logincompose.view.LoginContent
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel
-import com.brandon.forzenbook.view.composables.LoginContent
-import com.brandon.forzenbook.viewmodels.LoginViewModel
+import com.brandon.logincompose.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

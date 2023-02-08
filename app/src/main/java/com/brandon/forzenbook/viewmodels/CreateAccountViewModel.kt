@@ -69,7 +69,7 @@ class CreateAccountViewModel @Inject constructor(
                 date = date,
                 location = location
             )
-            Log.e(LoginViewModel.VIEWMODEL_ERROR_TAG, "$outcome")
+            Log.e(VIEWMODEL_ERROR_TAG, "$outcome")
             createAccountState.value = when (outcome) {
                 is CreateAccountValidationState.CreateAccountError -> {
                     CreateAccountUiState.Idle(
@@ -98,6 +98,10 @@ class CreateAccountViewModel @Inject constructor(
                 }
             }
         }
-        Log.e(LoginViewModel.VIEWMODEL_ERROR_TAG, "${createAccountState.value}")
+        Log.e(VIEWMODEL_ERROR_TAG, "${createAccountState.value}")
+    }
+
+    companion object {
+        const val VIEWMODEL_ERROR_TAG = "Brandon_Test_ViewModel"
     }
 }

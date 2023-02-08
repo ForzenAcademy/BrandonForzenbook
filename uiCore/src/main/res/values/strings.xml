@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">ForzenBook</string>
 
     <string name="core_logo_image_description">Forzen Lion Logo</string>
     <string name="core_email_hint">Email</string>
