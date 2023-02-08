@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/yellow_column_centered">
+
+    <ImageView
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        style="@style/title_image"
+        android:src="@drawable/forzenlogo"
+        android:contentDescription="@string/core_logo_image_description" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/login_title_text"
+        android:text="@string/login_title" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        style="@style/edit_text_field"
+        android:hint="@string/core_email_hint" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/core_get_code_text"
+        style="@style/black_button"
+        android:background="@drawable/black_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/redirect_text"
+        android:text="@string/core_create_account" />
+
+</LinearLayout>

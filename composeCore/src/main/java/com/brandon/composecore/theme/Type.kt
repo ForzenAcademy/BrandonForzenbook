@@ -7,15 +7,15 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.composecore.R
+import com.brandon.uicore.R as uiR
 
 val MontserratFontFamily = FontFamily(
-    Font(R.font.montserrat_light, FontWeight.Light),
-    Font(R.font.montserrat_regular, FontWeight.Normal),
-    Font(R.font.montserrat_italic, FontWeight.Normal, FontStyle.Italic),
-    Font(R.font.montserrat_medium, FontWeight.Medium),
-    Font(R.font.montserrat_semibold, FontWeight.SemiBold),
-    Font(R.font.montserrat_bold, FontWeight.Bold),
+    Font(uiR.font.montserrat_light, FontWeight.Light),
+    Font(uiR.font.montserrat_regular, FontWeight.Normal),
+    Font(uiR.font.montserrat_italic, FontWeight.Normal, FontStyle.Italic),
+    Font(uiR.font.montserrat_medium, FontWeight.Medium),
+    Font(uiR.font.montserrat_semibold, FontWeight.SemiBold),
+    Font(uiR.font.montserrat_bold, FontWeight.Bold),
 )
 
 val largeTypography = Typography(

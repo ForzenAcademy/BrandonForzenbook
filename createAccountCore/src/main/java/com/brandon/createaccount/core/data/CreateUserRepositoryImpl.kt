@@ -5,6 +5,7 @@ import com.brandon.network.ForzenApiService
 import com.brandon.network.createuser.CreateUserResponse
 import com.google.gson.Gson
 import retrofit2.Response
+import retrofit2.converter.gson.GsonConverterFactory
 
 class CreateUserRepositoryImpl(
     private val forzenApiService: ForzenApiService,

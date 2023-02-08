@@ -5,11 +5,24 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_disabled.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_enabled.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_focused.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_pressed.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/attrs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/themes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -17,17 +30,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Color.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCore/src/main/java/com/brandon/createaccount/core/data/CreateUserRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_light.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_medium.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_semibold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_semibold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_thin.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginLegacy/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginLegacy/src/main/res/layout/layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginLegacy/src/main/res/layout/layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +68,26 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="Kotlin Class" />
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,10 +103,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/EditText.java_SELECTED" value="EditText" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -136,7 +187,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c9cc98ce-b817-4b37-8b22-24508459a056" name="Changes" comment="" />
+      <changelist id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

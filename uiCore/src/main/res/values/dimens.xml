@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="padding_extra_small">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">12dp</dimen>
+    <dimen name="padding_extra_large">16dp</dimen>
+    <dimen name="circular_loading_indicator">100dp</dimen>
+    <dimen name="notification_dialog_height">160dp</dimen>
+    <dimen name="notification_dialog_width">240dp</dimen>
+    <dimen name="notification_dialog_image_size">150dp</dimen>
+    <dimen name="notification_dialog_padding">12dp</dimen>
+    <dimen name="large_icon">200dp</dimen>
+    <dimen name="minimum_touch_target_padding">8dp</dimen>
+    <dimen name="minimum_touch_target">48dp</dimen>
+
+    <dimen name="display_large">52sp</dimen>
+    <dimen name="display_medium">46sp</dimen>
+    <dimen name="display_small">32sp</dimen>
+    <dimen name="headline_large">28sp</dimen>
+    <dimen name="headline_medium">24sp</dimen>
+    <dimen name="headline_small">22sp</dimen>
+    <dimen name="title_large">20sp</dimen>
+    <dimen name="title_medium">16sp</dimen>
+    <dimen name="title_small">12sp</dimen>
+    <dimen name="body_large">14sp</dimen>
+    <dimen name="body_medium">12sp</dimen>
+    <dimen name="body_small">12sp</dimen>
+    <dimen name="label_large">14sp</dimen>
+    <dimen name="label_medium">12sp</dimen>
+    <dimen name="label_small">11sp</dimen>
+
+    <dimen name="rounded_corner_shape_large_size">12dp</dimen>
+    <dimen name="rounded_corner_shape_medium_size">8dp</dimen>
+    <dimen name="rounded_corner_shape_small_size">4dp</dimen>
+    <dimen name="rounded_corner_shape_extra_large_size">16dp</dimen>
+    <dimen name="shape_border_stroke">1dp</dimen>
+    
+</resources>

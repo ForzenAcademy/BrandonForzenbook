@@ -7,6 +7,7 @@ import com.brandon.data.ForzenDao
 import com.brandon.data.ForzenDatabase
 import com.brandon.network.ForzenApiService
 import com.brandon.network.ForzenApiService.Companion.FORZEN_BASE_URL
+import com.brandon.network.ForzenApiServiceAlwaysFailsMock
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
