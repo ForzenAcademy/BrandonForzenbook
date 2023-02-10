@@ -9,9 +9,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.brandon.forzenbook.view.composables.ComposableConstants.EMAIL_CHAR_LIMIT
-import com.brandon.forzenbook.view.navigation.LocalNavController
-import com.brandon.forzenbook.view.navigation.NavDestinations
+import com.brandon.composecore.composables.*
+import com.brandon.composecore.constants.ComposableConstants.EMAIL_CHAR_LIMIT
+import com.brandon.composecore.navigation.LocalNavController
+import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState.*
 import com.example.forzenbook.R

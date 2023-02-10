@@ -1,0 +1,7 @@
+<resources>
+    <string name="required_fields_error">All Fields Required</string>
+    <string name="default_image_description">Image</string>
+    <string name="error_no_internet_connection">No Internet Connection</string>
+    <string name="error_dismiss">Dismiss</string>
+    <string name="error_connect_and_try_again">Check Connection and Try Again</string>
+</resources>

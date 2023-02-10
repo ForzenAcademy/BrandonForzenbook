@@ -8,13 +8,15 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.brandon.composecore.navigation.LocalNavController
+import com.brandon.composecore.navigation.NavDestinations
+import com.brandon.composecore.navigation.NavDestinations.CREATE_ACCOUNT
+import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
+import com.brandon.composecore.theme.ForzenBookTheme
 import com.brandon.forzenbook.view.composables.CreateAccountContent
 import com.brandon.forzenbook.view.composables.LandingScreen
-import com.brandon.forzenbook.view.composables.LoginContent
-import com.brandon.forzenbook.view.navigation.LocalNavController
-import com.brandon.forzenbook.view.navigation.NavDestinations
-import com.brandon.forzenbook.view.theme.ForzenBookTheme
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel
+import com.brandon.forzenbook.view.composables.LoginContent
 import com.brandon.forzenbook.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,13 +45,13 @@ class MainActivity : ComponentActivity() {
                                 },
                                 onCheckConnection = { loginViewModel.checkInternetConnection() },
                                 onLoggedIn = {
-                                    navController.navigate(NavDestinations.LANDING_SCREEN) {
-                                        popUpTo(NavDestinations.LANDING_SCREEN) { inclusive = true }
+                                    navController.navigate(LANDING_SCREEN) {
+                                        popUpTo(LANDING_SCREEN) { inclusive = true }
                                     }
                                 }
                             )
                         }
-                        composable(NavDestinations.CREATE_ACCOUNT) {
+                        composable(CREATE_ACCOUNT) {
                             CreateAccountContent(
                                 state = createViewModel.createAccountState.value,
                                 onSubmit = { firstName, lastName, dateOfBirth, email, location ->
@@ -64,7 +66,7 @@ class MainActivity : ComponentActivity() {
                                 onCheckConnection = { loginViewModel.checkInternetConnection() }
                             )
                         }
-                        composable(NavDestinations.LANDING_SCREEN) {
+                        composable(LANDING_SCREEN) {
                             LandingScreen()
                         }
                     }
