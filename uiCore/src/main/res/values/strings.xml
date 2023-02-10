@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="core_logo_image_description">Forzen Lion Logo</string>
+    <string name="core_email_hint">Email</string>
+    <string name="core_email_error">Please Enter a Valid Email</string>
+    <string name="core_char_length_limit">Max Character Limit Reached</string>
+    <string name="core_success">Success</string>
+    <string name="core_required_fields_error">All Fields Required</string>
+    <string name="core_error_no_internet_connection">No Internet Connection</string>
+    <string name="core_error_dismiss">Dismiss</string>
+    <string name="core_error_connect_and_try_again">Check Connection and Try Again</string>
+
+</resources>

@@ -36,6 +36,7 @@ import com.brandon.forzenbook.view.MainActivity.Companion.VIEW_LOG_TAG
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState
 import com.brandon.forzenbook.viewmodels.CreateAccountViewModel.CreateAccountUiState.*
 import com.example.forzenbook.R
+import com.brandon.uicore.R as uiR
 import java.util.*
 
 
@@ -63,7 +64,7 @@ fun CreateSuccess() {
     val navController = LocalNavController.current
     val resources = LocalContext.current.resources
     SuccessDialog(
-        title = resources.getString(R.string.create_account_success),
+        title = resources.getString(uiR.string.core_success),
         body = resources.getString(R.string.create_account_success_body),
         buttonText = resources.getString(R.string.create_account_to_login)
     ) {
@@ -118,13 +119,13 @@ fun CreateAccount(
                 )
                 if (state.isDateError) TextFieldErrorText(text = resources.getString(R.string.create_account_date_error))
                 InputInfoTextField(
-                    hint = resources.getString(R.string.create_account_email_hint),
+                    hint = resources.getString(uiR.string.core_email_hint),
                     onTextChange = { email = it },
                     currentText = email,
                     characterLimit = EMAIL_CHAR_LIMIT,
                     onMaxCharacterLength = { emailError = it },
                 )
-                if (state.isEmailError) TextFieldErrorText(text = resources.getString(R.string.create_account_email_error))
+                if (state.isEmailError) TextFieldErrorText(text = resources.getString(uiR.string.core_email_error))
                 if (state.isDuplicateUser) TextFieldErrorText(text = resources.getString(R.string.create_account_duplicate_user_error))
                 InputInfoTextField(
                     hint = resources.getString(R.string.create_account_location_hint),
@@ -146,14 +147,14 @@ fun CreateAccount(
                         } else emptyFieldError = true
                     } else isDialogOpen = true
                 }
-                if (emptyFieldError) TextFieldErrorText(text = resources.getString(R.string.required_fields_error))
+                if (emptyFieldError) TextFieldErrorText(text = resources.getString(uiR.string.core_required_fields_error))
             }
         }
     )
     if (isDialogOpen) {
         AlertDialog(
-            title = resources.getString(R.string.error_no_internet_connection),
-            body = resources.getString(R.string.error_connect_and_try_again),
+            title = resources.getString(uiR.string.core_error_no_internet_connection),
+            body = resources.getString(uiR.string.core_error_connect_and_try_again),
             onDismissRequest = {
                 isDialogOpen = false
             },
@@ -198,7 +199,7 @@ fun CreateAccountLoading(
                     currentText = state.dateOfBirth,
                 )
                 InputInfoTextField(
-                    hint = resources.getString(R.string.create_account_email_hint),
+                    hint = resources.getString(uiR.string.core_email_hint),
                     isEnabled = false,
                     currentText = state.email
                 )

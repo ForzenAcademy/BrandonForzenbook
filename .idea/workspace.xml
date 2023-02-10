@@ -13,10 +13,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7754fbee-128d-40bf-8c4b-cecff4063bce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/composeCore/src/androidTest/java/com/brandon/composecore/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/androidTest/java/com/brandon/network/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountCore/src/androidTest/java/com/brandon/createaccount/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCore/src/androidTest/java/com/brandon/logincore/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/androidTest/java/com/brandon/uicore/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/forzenlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/test/java/com/brandon/uicore/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/composables/CreateUserComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/composables/CreateUserComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/composables/LoginComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/composables/LoginComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,18 +96,18 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/composeCore/src/main/res" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/uiCore/src/main" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uiCore/src/main" />
       <recent name="$PROJECT_DIR$/composeCore/src/main/res" />
       <recent name="$PROJECT_DIR$/composeCore/src/main" />
       <recent name="$PROJECT_DIR$/composeCore/src/main/java" />
       <recent name="$PROJECT_DIR$/core/src/main/java/com/brandon/navigation" />
-      <recent name="$PROJECT_DIR$/loginCompose/src/main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/composeCore/src/main" />
