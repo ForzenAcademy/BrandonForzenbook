@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9cc98ce-b817-4b37-8b22-24508459a056" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/viewmodels/CreateAccountViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_semibold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/font/montserrat_thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" afterDir="false" />
+    <list default="true" id="69c270eb-a81f-4f68-b34c-3f55707f835a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/androidTest/java/com/brandon/createaccount/compose/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/test/java/com/brandon/createaccount/compose/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/androidTest/java/com/brandon/logincompose/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/test/java/com/brandon/logincompose/ExampleUnitTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
