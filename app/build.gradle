@@ -57,6 +57,7 @@ dependencies {
 
     // TODO remove Temporary Dependencies in FA-95
     implementation project(path: ':composeCore')
+    implementation project(path: ':uiCore')
     // Compose Bill Of Materials
     def composeBom = platform('androidx.compose:compose-bom:2022.12.00')
     implementation composeBom

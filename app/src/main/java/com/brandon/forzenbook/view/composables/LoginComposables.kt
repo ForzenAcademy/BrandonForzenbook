@@ -15,6 +15,7 @@ import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState
 import com.brandon.forzenbook.viewmodels.LoginViewModel.LoginUiState.*
+import com.brandon.uicore.R as uiR
 import com.example.forzenbook.R
 
 @Composable
@@ -61,18 +62,18 @@ fun LoginScreen(
     val keyboardController = LocalSoftwareKeyboardController.current
     YellowColumn {
         ImageTitle(
-            imageId = R.drawable.forzenlogo,
+            imageId = uiR.drawable.forzenlogo,
             text = resources.getString(R.string.login_title),
         )
         InputInfoTextField(
-            hint = resources.getString(R.string.login_email_hint),
+            hint = resources.getString(uiR.string.core_email_hint),
             currentText = email,
             onTextChange = { email = it },
             characterLimit = EMAIL_CHAR_LIMIT,
             onMaxCharacterLength = { emailError = it },
         )
-        if (emailError) TextFieldErrorText(text = resources.getString(R.string.login_char_length_limit))
-        if (state.isEmailError) TextFieldErrorText(text = resources.getString(R.string.login_email_error))
+        if (emailError) TextFieldErrorText(text = resources.getString(uiR.string.core_char_length_limit))
+        if (state.isEmailError) TextFieldErrorText(text = resources.getString(uiR.string.core_email_error))
         if (state.isCodeSent) {
             var codeError by rememberSaveable { mutableStateOf(false) }
             InputInfoTextField(
@@ -85,7 +86,7 @@ fun LoginScreen(
                     keyboardType = KeyboardType.Number
                 )
             )
-            if (codeError) TextFieldErrorText(text = resources.getString(R.string.login_char_length_limit))
+            if (codeError) TextFieldErrorText(text = resources.getString(uiR.string.core_char_length_limit))
         }
         BlackButton(
             text = if (state.isCodeSent) resources.getString(R.string.login_button_text) else resources.getString(
@@ -104,7 +105,7 @@ fun LoginScreen(
                 }
             } else isDialogOpen = true
         }
-        if (emptyFieldError) TextFieldErrorText(text = resources.getString(R.string.required_fields_error))
+        if (emptyFieldError) TextFieldErrorText(text = resources.getString(uiR.string.core_required_fields_error))
         RedirectText(text = resources.getString(R.string.login_create_account)) {
             navController?.navigate(NavDestinations.CREATE_ACCOUNT) {
                 popUpTo(NavDestinations.CREATE_ACCOUNT) { inclusive = true }
@@ -113,8 +114,8 @@ fun LoginScreen(
     }
     if (isDialogOpen) {
         AlertDialog(
-            title = resources.getString(R.string.error_no_internet_connection),
-            body = resources.getString(R.string.error_connect_and_try_again),
+            title = resources.getString(uiR.string.core_error_no_internet_connection),
+            body = resources.getString(uiR.string.core_error_connect_and_try_again),
             onDismissRequest = { isDialogOpen = false },
         )
     }
@@ -127,11 +128,11 @@ fun LoadingLoginScreen(
     val resources = LocalContext.current.resources
     YellowColumn {
         ImageTitle(
-            imageId = R.drawable.forzenlogo,
+            imageId = uiR.drawable.forzenlogo,
             text = resources.getString(R.string.login_title),
         )
         InputInfoTextField(
-            hint = resources.getString(R.string.login_email_hint),
+            hint = resources.getString(uiR.string.core_email_hint),
             currentText = state.email,
             isEnabled = false,
         )
