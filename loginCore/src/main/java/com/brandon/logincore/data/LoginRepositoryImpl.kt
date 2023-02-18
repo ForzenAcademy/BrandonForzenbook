@@ -20,9 +20,8 @@ class LoginRepositoryImpl(
             Log.e(DATA_ERROR_TAG, "$API_CALL_FAILED $e")
             throw Exception(API_CALL_FAILED)
         }
-        if (response.isSuccessful) {
-            return
-        } else {
+        if (response.isSuccessful) return
+        else {
             Log.e(DATA_ERROR_TAG, "$RESPONSE_CODE_ERROR $response")
             throw Exception(RESPONSE_CODE_ERROR)
         }

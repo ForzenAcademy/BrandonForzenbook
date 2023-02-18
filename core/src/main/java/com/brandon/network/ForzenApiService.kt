@@ -1,5 +1,6 @@
 package com.brandon.network
 
+import com.brandon.network.createuser.CreateUserResponse
 import com.brandon.network.login.LoginResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -27,7 +28,7 @@ interface ForzenApiService {
         @Field(BIRTH_DATE) dateOfBirth: Date,
         @Field(LOCATION) location: String,
         @Field(EMAIL) email: String,
-    ): Response<Void>
+    ): Response<CreateUserResponse>
 
     companion object {
         const val FORZEN_BASE_URL = "https://forzen.dev/api/"

@@ -24,16 +24,17 @@ import com.brandon.composecore.composables.*
 import com.brandon.composecore.constants.ComposableConstants.CREATE_ACCOUNT_TITLE_WEIGHT
 import com.brandon.composecore.constants.ComposableConstants.DEFAULT_WEIGHT
 import com.brandon.composecore.constants.ComposableConstants.EMAIL_CHAR_LIMIT
+import com.brandon.composecore.constants.ComposableConstants.NAME_CHAR_LIMIT
 import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_MAX_LINES
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
+import com.brandon.composecore.theme.LocalDimens
 import com.brandon.uicore.R as uiR
 import com.brandon.createaccount.viewmodel.CreateAccountViewModel.Companion.KEYBOARD_ERROR
 import com.brandon.createaccount.viewmodel.CreateAccountViewModel.Companion.VIEW_ERROR_TAG
 import com.brandon.createaccount.viewmodel.CreateAccountViewModel.CreateAccountUiState
 import com.brandon.createaccount.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
 import java.util.*
-
 
 @Composable
 fun CreateAccountContent(
@@ -58,6 +59,7 @@ fun CreateAccountContent(
 fun CreateSuccess() {
     val navController = LocalNavController.current
     val resources = LocalContext.current.resources
+    FakeLoginScreen()
     SuccessDialog(
         title = resources.getString(uiR.string.core_success),
         body = resources.getString(R.string.create_account_success_body),
@@ -82,11 +84,13 @@ fun CreateAccount(
     var email by rememberSaveable { mutableStateOf(state.email) }
     var location by rememberSaveable { mutableStateOf(state.location) }
     var isDialogOpen by rememberSaveable { mutableStateOf(false) }
+    var fNameError by rememberSaveable { mutableStateOf(false) }
+    var lNameError by rememberSaveable { mutableStateOf(false) }
     var emailError by rememberSaveable { mutableStateOf(false) }
     var locationError by rememberSaveable { mutableStateOf(false) }
     var emptyFieldError by rememberSaveable { mutableStateOf(false) }
     var datePickerOpen by rememberSaveable { mutableStateOf(false) }
-    val resources = LocalContext.current.resources
+    val res = LocalContext.current.resources
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
     Scaffold(
@@ -97,40 +101,50 @@ fun CreateAccount(
                 modifier = Modifier.padding(padding)
             ) {
                 InputInfoTextField(
-                    hint = resources.getString(R.string.create_account_first_name_hint),
+                    hint = res.getString(R.string.create_account_first_name_hint),
                     currentText = firstName,
                     onTextChange = { firstName = it },
+                    onMaxCharacterLength = { fNameError = it },
+                    characterLimit = NAME_CHAR_LIMIT
                 )
+                if (state.isFirstNameError || fNameError) TextFieldErrorText(text = res.getString(R.string.create_account_name_error))
                 InputInfoTextField(
-                    hint = resources.getString(R.string.create_account_last_name_hint),
+                    hint = res.getString(R.string.create_account_last_name_hint),
                     currentText = lastName,
                     onTextChange = { lastName = it },
+                    onMaxCharacterLength = { lNameError = it },
+                    characterLimit = NAME_CHAR_LIMIT
                 )
+                if (state.isLastNameError || lNameError) TextFieldErrorText(text = res.getString(R.string.create_account_name_error))
                 ReadOnlyDateTextField(
-                    hint = resources.getString(R.string.create_account_birth_date_format_hint),
+                    hint = res.getString(R.string.create_account_birth_date_format_hint),
                     currentText = dateOfBirth,
                     onTextChange = { dateOfBirth = it },
                     onClickEvent = { datePickerOpen = true }
                 )
-                if (state.isDateError) TextFieldErrorText(text = resources.getString(R.string.create_account_date_error))
+                if (state.isDateError) TextFieldErrorText(text = res.getString(R.string.create_account_date_error))
                 InputInfoTextField(
-                    hint = resources.getString(uiR.string.core_email_hint),
+                    hint = res.getString(uiR.string.core_email_hint),
                     onTextChange = { email = it },
                     currentText = email,
                     characterLimit = EMAIL_CHAR_LIMIT,
                     onMaxCharacterLength = { emailError = it },
                 )
-                if (state.isEmailError) TextFieldErrorText(text = resources.getString(uiR.string.core_email_error))
-                if (state.isDuplicateUser) TextFieldErrorText(text = resources.getString(R.string.create_account_duplicate_user_error))
+                if (state.isEmailError || emailError) TextFieldErrorText(text = res.getString(uiR.string.core_email_error))
+                if (state.isDuplicateUser) TextFieldErrorText(text = res.getString(R.string.create_account_duplicate_user_error))
                 InputInfoTextField(
-                    hint = resources.getString(R.string.create_account_location_hint),
+                    hint = res.getString(R.string.create_account_location_hint),
                     onTextChange = { location = it },
                     currentText = location,
                     onMaxCharacterLength = { locationError = it },
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Go)
                 )
-                if (state.isLocationError) TextFieldErrorText(text = resources.getString(R.string.create_account_location_error))
-                BlackButton(text = resources.getString(R.string.create_account_create_button_text)) {
+                if (state.isLocationError || locationError) TextFieldErrorText(
+                    text = res.getString(
+                        R.string.create_account_location_error
+                    )
+                )
+                BlackButton(text = res.getString(R.string.create_account_create_button_text)) {
                     try {
                         keyboardController?.hide()
                     } catch (_: Exception) {
@@ -138,21 +152,21 @@ fun CreateAccount(
                     }
                     if (onCheckConnection()) {
                         if (firstName.isNotEmpty() && lastName.isNotEmpty() && dateOfBirth.isNotEmpty() && email.isNotEmpty() && location.isNotEmpty()) {
-                            onSubmit(firstName, lastName, dateOfBirth, email, location)
+                            if (!fNameError && !lNameError && !emailError && !locationError) {
+                                onSubmit(firstName, lastName, dateOfBirth, email, location)
+                            }
                         } else emptyFieldError = true
                     } else isDialogOpen = true
                 }
-                if (emptyFieldError) TextFieldErrorText(text = resources.getString(uiR.string.core_required_fields_error))
+                if (emptyFieldError) TextFieldErrorText(text = res.getString(uiR.string.core_required_fields_error))
             }
         }
     )
     if (isDialogOpen) {
         AlertDialog(
-            title = resources.getString(uiR.string.core_error_no_internet_connection),
-            body = resources.getString(uiR.string.core_error_connect_and_try_again),
-            onDismissRequest = {
-                isDialogOpen = false
-            },
+            title = res.getString(uiR.string.core_error_no_internet_connection),
+            body = res.getString(uiR.string.core_error_connect_and_try_again),
+            onDismissRequest = { isDialogOpen = false },
         )
     }
     if (datePickerOpen) {
@@ -227,9 +241,7 @@ fun dateDialog(
             onDateChange("${month + 1}/$dayOfMonth/$year")
             hide()
         }
-        setOnDismissListener {
-            onDismiss()
-        }
+        setOnDismissListener { onDismiss() }
     }.show()
 }
 
@@ -238,7 +250,9 @@ fun CreateAccountTopBar() {
     val navController = LocalNavController.current
     val resources = LocalContext.current.resources
     Row(
-        modifier = Modifier.background(color = MaterialTheme.colorScheme.tertiary),
+        modifier = Modifier
+            .background(color = MaterialTheme.colorScheme.tertiary)
+            .padding(LocalDimens.current.paddingMedium),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start,
     ) {
@@ -252,11 +266,10 @@ fun CreateAccountTopBar() {
                 },
             imageVector = Icons.Filled.ArrowBack,
             contentDescription = resources.getString(R.string.create_account_back_arrow),
-            tint = MaterialTheme.colorScheme.primary,
+            tint = MaterialTheme.colorScheme.onSecondary,
         )
         Text(
-            modifier = Modifier
-                .weight(CREATE_ACCOUNT_TITLE_WEIGHT),
+            modifier = Modifier.weight(CREATE_ACCOUNT_TITLE_WEIGHT),
             text = resources.getString(R.string.create_account_title_text),
             style = MaterialTheme.typography.titleMedium,
             color = Color.Black,
@@ -264,5 +277,19 @@ fun CreateAccountTopBar() {
             overflow = TextOverflow.Ellipsis,
         )
         Spacer(modifier = Modifier.weight(DEFAULT_WEIGHT))
+    }
+}
+
+@Composable
+fun FakeLoginScreen() {
+    val resources = LocalContext.current.resources
+    YellowColumn {
+        ImageTitle(
+            imageId = uiR.drawable.forzenlogo,
+            text = resources.getString(uiR.string.core_login_title),
+        )
+        InputInfoTextField(hint = resources.getString(uiR.string.core_email_hint),)
+        BlackButton(text = resources.getString(uiR.string.core_get_code_text))
+        RedirectText(text = resources.getString(uiR.string.core_create_account))
     }
 }

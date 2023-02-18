@@ -3,7 +3,8 @@ package com.brandon.composecore.constants
 object ComposableConstants {
     const val SCREEN_SIZE_THRESHOLD = 320
     const val TEXT_FIELD_DEFAULT_INPUT_LIMIT = 64
-    const val EMAIL_CHAR_LIMIT = 20
+    const val EMAIL_CHAR_LIMIT = 64
+    const val NAME_CHAR_LIMIT = 20
     const val TEXT_FIELD_DEFAULT_TEXT = ""
     const val TEXT_FIELD_DEFAULT_ENABLED = true
     const val TEXT_FIELD_MAX_LINES = 1

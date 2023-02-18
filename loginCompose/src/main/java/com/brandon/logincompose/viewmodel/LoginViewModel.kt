@@ -38,7 +38,6 @@ class LoginViewModel @Inject constructor(
             val isCodeSent: Boolean = false,
         ) : LoginUiState
 
-        // TODO remove this once we have another screen FA-83
         object LoggedIn : LoginUiState
 
     }

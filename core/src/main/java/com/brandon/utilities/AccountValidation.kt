@@ -6,25 +6,20 @@ import java.text.SimpleDateFormat
 
 abstract class AccountValidation {
 
-    protected fun isValidEmail(email: String): Boolean {
-        return PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
-    }
+    protected fun isValidName(name: String): Boolean = name.length <= NAME_CHAR_LIMIT
 
-    protected fun isValidCode(code: String): Boolean {
-        return code.isNumeric() && code.length == CODE_CHAR_LIMIT
-    }
+    protected fun isValidEmail(email: String): Boolean =
+        PatternsCompat.EMAIL_ADDRESS.matcher(email).matches() && email.length <= EMAIL_CHAR_LIMIT
 
-    protected fun isValidStringInput(input: String): Boolean {
-        return input.length <= LOCATION_CHAR_LIMIT && input.isNotEmpty()
-    }
+    protected fun isValidCode(code: String): Boolean =
+        code.isNumeric() && code.length == CODE_CHAR_LIMIT
+
+    protected fun isValidStringInput(input: String): Boolean =
+        input.length <= LOCATION_CHAR_LIMIT && input.isNotEmpty()
 
     protected fun isValidDateOfBirth(dob: String): Date? {
         val date = dob.filter { it != '/' && it != '-' }
-        date.forEach {
-            if (!it.isDigit()) {
-                return null
-            }
-        }
+        date.forEach { if (!it.isDigit()) return null }
         return try {
             val inputFormat = SimpleDateFormat(INCOMING_DATE_FORMAT)
             val tempDate = inputFormat.parse(date)
@@ -39,6 +34,8 @@ abstract class AccountValidation {
     companion object {
         const val CODE_CHAR_LIMIT = 6
         const val LOCATION_CHAR_LIMIT = 64
+        const val EMAIL_CHAR_LIMIT = 64
+        const val NAME_CHAR_LIMIT = 20
         const val INCOMING_DATE_FORMAT = "MMddyyyy"
         const val OUTGOING_DATE_FORMAT = "yyyy-MM-dd"
     }
@@ -47,6 +44,8 @@ abstract class AccountValidation {
 sealed interface CreateAccountValidationState {
 
     data class CreateAccountError(
+        val firstNameError: Boolean = false,
+        val lastNameError: Boolean = false,
         val emailError: Boolean = false,
         val locationError: Boolean = false,
         val dateOfBirthError: Boolean = false,

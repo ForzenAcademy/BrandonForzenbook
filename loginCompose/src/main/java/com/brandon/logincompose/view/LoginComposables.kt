@@ -63,7 +63,7 @@ fun LoginScreen(
     YellowColumn {
         ImageTitle(
             imageId = uiR.drawable.forzenlogo,
-            text = resources.getString(R.string.login_title),
+            text = resources.getString(uiR.string.core_login_title),
         )
         InputInfoTextField(
             hint = resources.getString(uiR.string.core_email_hint),
@@ -90,7 +90,7 @@ fun LoginScreen(
         }
         BlackButton(
             text = if (state.isCodeSent) resources.getString(R.string.login_button_text) else resources.getString(
-                R.string.login_get_code_text
+                uiR.string.core_get_code_text
             )
         ) {
             keyboardController?.hide()
@@ -106,7 +106,7 @@ fun LoginScreen(
             } else isDialogOpen = true
         }
         if (emptyFieldError) TextFieldErrorText(text = resources.getString(uiR.string.core_required_fields_error))
-        RedirectText(text = resources.getString(R.string.login_create_account)) {
+        RedirectText(text = resources.getString(uiR.string.core_create_account)) {
             navController?.navigate(NavDestinations.CREATE_ACCOUNT) {
                 popUpTo(NavDestinations.CREATE_ACCOUNT) { inclusive = true }
             }
@@ -129,7 +129,7 @@ fun LoadingLoginScreen(
     YellowColumn {
         ImageTitle(
             imageId = uiR.drawable.forzenlogo,
-            text = resources.getString(R.string.login_title),
+            text = resources.getString(uiR.string.core_login_title),
         )
         InputInfoTextField(
             hint = resources.getString(uiR.string.core_email_hint),
@@ -143,6 +143,6 @@ fun LoadingLoginScreen(
             )
         }
         LoadingBlackButton()
-        RedirectText(text = resources.getString(R.string.login_create_account))
+        RedirectText(text = resources.getString(uiR.string.core_create_account))
     }
 }
