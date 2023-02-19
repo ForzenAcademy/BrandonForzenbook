@@ -174,6 +174,9 @@ fun InputInfoTextField(
         colors = TextFieldDefaults.textFieldColors(
             textColor = MaterialTheme.colorScheme.onPrimaryContainer,
             containerColor = MaterialTheme.colorScheme.inversePrimary,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent
         ),
     )
 }
@@ -224,6 +227,9 @@ fun ReadOnlyDateTextField(
             colors = TextFieldDefaults.textFieldColors(
                 textColor = MaterialTheme.colorScheme.onPrimaryContainer,
                 containerColor = MaterialTheme.colorScheme.inversePrimary,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                disabledIndicatorColor = Color.Transparent
             ),
         )
         Box(

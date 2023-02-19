@@ -1,40 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="padding_extra_small">2dp</dimen>
-    <dimen name="padding_small">4dp</dimen>
-    <dimen name="padding_medium">8dp</dimen>
-    <dimen name="padding_large">12dp</dimen>
-    <dimen name="padding_extra_large">16dp</dimen>
-    <dimen name="circular_loading_indicator">100dp</dimen>
-    <dimen name="notification_dialog_height">160dp</dimen>
-    <dimen name="notification_dialog_width">240dp</dimen>
-    <dimen name="notification_dialog_image_size">150dp</dimen>
-    <dimen name="notification_dialog_padding">12dp</dimen>
-    <dimen name="large_icon">200dp</dimen>
-    <dimen name="minimum_touch_target_padding">8dp</dimen>
-    <dimen name="minimum_touch_target">48dp</dimen>
+    <dimen name="textFieldHeight">55dp</dimen>
+    <dimen name="textFieldWidth">350dp</dimen>
 
-    <dimen name="display_large">52sp</dimen>
-    <dimen name="display_medium">46sp</dimen>
-    <dimen name="display_small">32sp</dimen>
-    <dimen name="headline_large">28sp</dimen>
-    <dimen name="headline_medium">24sp</dimen>
-    <dimen name="headline_small">22sp</dimen>
-    <dimen name="title_large">20sp</dimen>
-    <dimen name="title_medium">16sp</dimen>
-    <dimen name="title_small">12sp</dimen>
-    <dimen name="body_large">14sp</dimen>
-    <dimen name="body_medium">12sp</dimen>
-    <dimen name="body_small">12sp</dimen>
-    <dimen name="label_large">14sp</dimen>
-    <dimen name="label_medium">12sp</dimen>
-    <dimen name="label_small">11sp</dimen>
+    <dimen name="paddingExtraSmall">4dp</dimen>
+    <dimen name="paddingSmall">8dp</dimen>
+    <dimen name="paddingMedium">12dp</dimen>
+    <dimen name="paddingLarge">16dp</dimen>
+    <dimen name="paddingExtraLarge">20dp</dimen>
+    <dimen name="circularLoadingIndicator">200dp</dimen>
+    <dimen name="notificationDialogHeight">200dp</dimen>
+    <dimen name="notificationDialogWidth">280dp</dimen>
+    <dimen name="notificationDialogImageSize">200dp</dimen>
+    <dimen name="notificationDialogPadding">12dp</dimen>
+    <dimen name="largeIcon">250dp</dimen>
+    <dimen name="minimumTouchTargetPadding">8dp</dimen>
+    <dimen name="minimumTouchTarget">48dp</dimen>
 
-    <dimen name="rounded_corner_shape_large_size">12dp</dimen>
-    <dimen name="rounded_corner_shape_medium_size">8dp</dimen>
-    <dimen name="rounded_corner_shape_small_size">4dp</dimen>
-    <dimen name="rounded_corner_shape_extra_large_size">16dp</dimen>
-    <dimen name="shape_border_stroke">1dp</dimen>
+    <dimen name="displayLarge">64sp</dimen>
+    <dimen name="displayMedium">60sp</dimen>
+    <dimen name="displaySmall">36sp</dimen>
+    <dimen name="headlineLarge">32sp</dimen>
+    <dimen name="headlineMedium">28sp</dimen>
+    <dimen name="headlineSmall">24sp</dimen>
+    <dimen name="titleLarge">22sp</dimen>
+    <dimen name="titleMedium">18sp</dimen>
+    <dimen name="titleSmall">14sp</dimen>
+    <dimen name="bodyLarge">16sp</dimen>
+    <dimen name="bodyMedium">20sp</dimen>
+    <dimen name="bodySmall">12sp</dimen>
+    <dimen name="labelLarge">20sp</dimen>
+    <dimen name="labelMedium">18sp</dimen>
+    <dimen name="labelSmall">12sp</dimen>
+
+    <dimen name="roundedCornerShapeLarge">12dp</dimen>
+    <dimen name="rounderCornerShapeMedium">8dp</dimen>
+    <dimen name="roundedCornerShapeSmall">4dp</dimen>
+    <dimen name="roundedCornerShapeExtraLarge">16dp</dimen>
+    <dimen name="shapeBorderStroke">1dp</dimen>
     
 </resources>

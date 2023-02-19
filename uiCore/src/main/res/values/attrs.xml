@@ -2,29 +2,29 @@
 <resources>
 
     <attr name="primary" format="color"/>
-    <attr name="on_primary" format="color"/>
-    <attr name="primary_container" format="color"/>
-    <attr name="on_primary_container" format="color"/>
-    <attr name="inverse_primary" format="color"/>
+    <attr name="onPrimary" format="color"/>
+    <attr name="primaryContainer" format="color"/>
+    <attr name="onPrimaryContainer" format="color"/>
+    <attr name="inversePrimary" format="color"/>
     <attr name="secondary" format="color"/>
-    <attr name="on_secondary" format="color"/>
-    <attr name="secondary_container" format="color"/>
-    <attr name="on_secondary_container" format="color"/>
+    <attr name="onSecondary" format="color"/>
+    <attr name="secondaryContainer" format="color"/>
+    <attr name="onSecondaryContainer" format="color"/>
     <attr name="tertiary" format="color"/>
-    <attr name="on_tertiary" format="color"/>
-    <attr name="tertiary_container" format="color"/>
-    <attr name="on_tertiary_container" format="color"/>
-    <attr name="error_color" format="color"/>
-    <attr name="on_surface_variant" format="color"/>
-    <attr name="surface_tint" format="color"/>
-    <attr name="inverse_surface" format="color" />
+    <attr name="onTertiary" format="color"/>
+    <attr name="tertiaryContainer" format="color"/>
+    <attr name="onTertiaryContainer" format="color"/>
+    <attr name="errorColor" format="color"/>
+    <attr name="onSurfaceVariant" format="color"/>
+    <attr name="surfaceTint" format="color"/>
+    <attr name="inverseSurface" format="color" />
 
-    <attr name="font_weight_light" format="reference"/>
-    <attr name="font_weight_medium" format="reference"/>
-    <attr name="font_weight_normal" format="reference"/>
-    <attr name="font_weight_semibold" format="reference"/>
-    <attr name="font_weight_bold" format="reference"/>
-    <attr name="font_weight_italic" format="reference"/>
+    <attr name="fontWeightLight" format="reference"/>
+    <attr name="fontWeightMedium" format="reference"/>
+    <attr name="fontWeightNormal" format="reference"/>
+    <attr name="fontWeightSemiBold" format="reference"/>
+    <attr name="fontWeightBold" format="reference"/>
+    <attr name="fontWeightItalic" format="reference"/>
 
 
 </resources>
