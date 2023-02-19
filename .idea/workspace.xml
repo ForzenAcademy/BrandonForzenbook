@@ -6,7 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Brandon_Test" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -14,38 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_disabled.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_enabled.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_focused.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/black_button_pressed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/attrs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Type.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_semibold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_semibold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeCore/src/main/res/font/montserrat_thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/font/montserrat_thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginLegacy/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginLegacy/src/main/res/layout/layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginLegacy/src/main/res/layout/layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/viewmodel/LegacyLoginViewmodel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/viewmodel/LegacyLoginViewmodel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +44,9 @@
       <list>
         <option value="valueResourceFile" />
         <option value="layoutResourceFile_vertical" />
-        <option value="Kotlin Class" />
         <option value="resourceFile" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -118,9 +90,16 @@
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
     </key>
+    <key name="android.template.-1341461989">
+      <recent name="com.brandon.loginlegacy.view" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.brandon.logincore.viewmodel" />
+      <recent name="com.brandon.viewmodel" />
     </key>
   </component>
   <component name="RunManager">

@@ -17,13 +17,13 @@ import com.brandon.createaccount.compose.CreateAccountContent
 import com.brandon.createaccount.viewmodel.CreateAccountViewModel
 import com.brandon.forzenbook.view.composables.LandingScreen
 import com.brandon.logincompose.view.LoginContent
-import com.brandon.logincompose.viewmodel.LoginViewModel
+import com.brandon.logincompose.viewmodel.ComposeLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val loginViewModel: LoginViewModel by viewModels()
+    private val composeLoginViewModel: ComposeLoginViewModel by viewModels()
     private val createViewModel: CreateAccountViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +38,12 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(NavDestinations.LOGIN_INPUT) {
                             LoginContent(
-                                state = loginViewModel.uiState.value,
-                                onGetCode = { loginViewModel.loginClicked(it) },
+                                state = composeLoginViewModel.uiState.value,
+                                onGetCode = { composeLoginViewModel.loginClicked(it) },
                                 onLogin = { email, code ->
-                                    loginViewModel.loginClicked(email, code)
+                                    composeLoginViewModel.loginClicked(email, code)
                                 },
-                                onCheckConnection = { loginViewModel.checkInternetConnection() },
+                                onCheckConnection = { composeLoginViewModel.checkInternetConnection() },
                                 onLoggedIn = {
                                     navController.navigate(LANDING_SCREEN) {
                                         popUpTo(LANDING_SCREEN) { inclusive = true }
@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
                                         location = location,
                                     )
                                 },
-                                onCheckConnection = { loginViewModel.checkInternetConnection() }
+                                onCheckConnection = { composeLoginViewModel.checkInternetConnection() }
                             )
                         }
                         composable(LANDING_SCREEN) {

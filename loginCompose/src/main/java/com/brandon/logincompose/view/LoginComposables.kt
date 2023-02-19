@@ -13,14 +13,14 @@ import com.brandon.composecore.composables.*
 import com.brandon.composecore.constants.ComposableConstants.EMAIL_CHAR_LIMIT
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
-import com.brandon.uicore.R as uiR
-import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState
-import com.brandon.logincompose.viewmodel.LoginViewModel.LoginUiState.*
+import com.brandon.logincore.viewmodel.LoginViewModel.LoginUiState.*
+import com.brandon.logincore.viewmodel.LoginViewModel
 import com.example.logincompose.R
+import com.brandon.uicore.R as uiR
 
 @Composable
 fun LoginContent(
-    state: LoginUiState,
+    state: LoginViewModel.LoginUiState,
     onCheckConnection: () -> Boolean,
     onGetCode: (String) -> Unit,
     onLogin: (String, String) -> Unit,
