@@ -15,21 +15,38 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d18e843f-0459-4ecd-b33a-a887a818da30" name="Changes" comment="">
+    <list default="true" id="923a5bc7-dafd-4ee6-9d86-966edca42871" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/NavigationModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/utilities/CommonActivityFunctions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/navigation/LegacyNavigationImplJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/navigation/LegacyNavigationJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/res/layout-land/create_account_screen.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appJava/src/main/res/layout/create_account_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/java/com/brandon/navigation/LegacyNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/java/com/brandon/navigation/LegacyNavigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_pressed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_pressed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values-land/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values-land/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values-w320dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values-w320dp/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/CreateUserModuleJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/CreateUserModuleJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/LoginModuleJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/LoginModuleJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/NetworkModuleJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/di/NetworkModuleJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/domain/user/CreateAccountValidationStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/domain/user/CreateAccountValidationStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/domain/user/CreateUserUseCaseImplJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/domain/user/CreateUserUseCaseImplJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/CreateAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/CreateAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/LandingPageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/LandingPageActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/view/NotificationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/utilities/NotificationDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountUiStateJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountUiStateJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountUiStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountUiStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/CreateAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/LegacyCreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/createaccount/LegacyCreateAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/login/LegacyLoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/login/LegacyLoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/java/com/brandon/appjava/viewmodel/login/LoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appJava/src/main/res/layout/connection_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appJava/src/main/res/layout/notification_dialog.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +90,8 @@
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -111,7 +130,8 @@
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/ProgressBar.java_SELECTED" value="ProgressBar" />
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/createAccountLegacy/src/main/res/layout-land" />
+    <property name="com.android.tools.idea.emulator.zoom.toolbar.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/appJava/src/main/res/layout" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -120,11 +140,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/appJava/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/appJava/src/main/res/layout-land" />
       <recent name="$PROJECT_DIR$/createAccountLegacy/src/main/res/layout-land" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
       <recent name="$PROJECT_DIR$/createAccountLegacy/src/main/res" />
-      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-w320dp" />
-      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-land" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />
@@ -152,9 +172,68 @@
       <recent name="com.brandon.viewmodel" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.appLegacy">
+  <component name="RunManager" selected="Android App.appJava">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="ForzenBook.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="appJava" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="ForzenBook.appJava.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -287,6 +366,7 @@
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.appLegacy" />
+      <item itemvalue="Android App.appJava" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
