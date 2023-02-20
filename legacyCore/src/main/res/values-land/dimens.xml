@@ -4,11 +4,11 @@
     <dimen name="textFieldHeight">55dp</dimen>
     <dimen name="textFieldWidth">350dp</dimen>
 
-    <dimen name="paddingExtraSmall">2dp</dimen>
-    <dimen name="paddingSmall">4dp</dimen>
-    <dimen name="paddingMedium">8dp</dimen>
-    <dimen name="paddingLarge">12dp</dimen>
-    <dimen name="paddingExtraLarge">16dp</dimen>
+    <dimen name="grid_x1">2dp</dimen>
+    <dimen name="grid_x2">4dp</dimen>
+    <dimen name="grid_x3">8dp</dimen>
+    <dimen name="grid_x4">12dp</dimen>
+    <dimen name="grid_x5">16dp</dimen>
     <dimen name="circularLoadingIndicator">100dp</dimen>
     <dimen name="notificationDialogHeight">160dp</dimen>
     <dimen name="notificationDialogWidth">240dp</dimen>
@@ -34,10 +34,6 @@
     <dimen name="labelMedium">12sp</dimen>
     <dimen name="labelSmall">11sp</dimen>
 
-    <dimen name="roundedCornerShapeLarge">12dp</dimen>
-    <dimen name="rounderCornerShapeMedium">8dp</dimen>
-    <dimen name="roundedCornerShapeSmall">4dp</dimen>
-    <dimen name="roundedCornerShapeExtraLarge">16dp</dimen>
     <dimen name="shapeBorderStroke">1dp</dimen>
     
 </resources>

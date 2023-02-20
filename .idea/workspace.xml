@@ -18,14 +18,16 @@
     <list default="true" id="d18e843f-0459-4ecd-b33a-a887a818da30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appLegacy/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/viewmodel/ComposeLoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/viewmodel/ComposeLoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/viewmodel/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/viewmodel/LoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/view/LoginScreenActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/view/LoginScreenActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_pressed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_pressed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values-land/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values-land/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values-w320dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values-w320dp/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +46,31 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ForzenBook" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Interface" />
         <option value="resourceFile" />
-        <option value="Kotlin File" />
         <option value="layoutResourceFile_vertical" />
         <option value="valueResourceFile" />
+        <option value="navigationResourceFile" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -85,15 +99,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-view/Users/brandon/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.8.0/60ab9cfeed56173f0fb0c798009d91e049bbbba1/material-1.8.0-sources.jar!/com/google/android/material/appbar/MaterialToolbar.java_SELECTED" value="MaterialToolbar" />
     <property name="android-custom-view/Users/brandon/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.8.0/60ab9cfeed56173f0fb0c798009d91e049bbbba1/material-1.8.0-sources.jar!/com/google/android/material/textfield/TextInputEditText.java_SELECTED" value="TextInputEditText" />
     <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/loginLegacy/src/main/java/com/brandon/loginlegacy/view/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
     <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/uiCore/src/main/java/com/brandon/uicore/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/EditText.java_SELECTED" value="EditText" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/LinearLayout.java_SELECTED" value="LinearLayout" />
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/ProgressBar.java_SELECTED" value="ProgressBar" />
     <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/legacyCore/src/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/createAccountLegacy/src/main/res/layout-land" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -102,22 +118,29 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/legacyCore/src/main" />
+      <recent name="$PROJECT_DIR$/createAccountLegacy/src/main/res/layout-land" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/createAccountLegacy/src/main/res" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-w320dp" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-land" />
-      <recent name="$PROJECT_DIR$/uiCore/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />
     </key>
+    <key name="android.template.1414588356">
+      <recent name="com.brandon.applegacy" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/appLegacy/src/main/res/navigation" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.brandon.createaccount.core.viewmodel" />
       <recent name="com.brandon.uicore" />
+      <recent name="com.brandon.loginlegacy.view" />
+      <recent name="com.brandon.applegacy" />
+      <recent name="com.brandon.navigation" />
+      <recent name="com.brandon.createaccount.core.viewmodel" />
     </key>
     <key name="android.template.1552927843">
       <recent name="com.brandon.createaccountlegacy.view" />
@@ -267,7 +290,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="" />
+      <changelist id="d18e843f-0459-4ecd-b33a-a887a818da30" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

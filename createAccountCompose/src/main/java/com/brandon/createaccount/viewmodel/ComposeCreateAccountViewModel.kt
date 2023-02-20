@@ -19,7 +19,7 @@ class ComposeCreateAccountViewModel @Inject constructor(
         set(value) {
             _state = value
             _uiState.value = state
-            Log.e(VIEWMODEL_ERROR_TAG, "$state")
+            Log.e(VIEWMODEL_TAG, "$state")
         }
 
     private val _uiState: MutableState<CreateAccountUiState> =

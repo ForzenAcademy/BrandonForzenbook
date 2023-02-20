@@ -7,6 +7,7 @@ import com.brandon.data.ForzenDao
 import com.brandon.data.ForzenDatabase
 import com.brandon.network.ForzenApiService
 import com.brandon.network.ForzenApiService.Companion.FORZEN_BASE_URL
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,7 @@ object NetworkModule {
     fun providesRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()
     }
 
