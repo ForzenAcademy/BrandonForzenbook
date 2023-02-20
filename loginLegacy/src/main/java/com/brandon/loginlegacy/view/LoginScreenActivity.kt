@@ -1,20 +1,21 @@
 package com.brandon.loginlegacy.view
 
 import android.os.Bundle
-import android.text.InputType
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.lifecycle.viewModelScope
+import com.brandon.logincore.viewmodel.LoginViewModel
 import com.brandon.logincore.viewmodel.LoginViewModel.LoginUiState.*
 import com.brandon.loginlegacy.databinding.LoginScreenBinding
 import com.brandon.loginlegacy.viewmodel.LegacyLoginViewmodel
+import com.brandon.uicore.R
 import com.brandon.uicore.connectionDialog
-import com.brandon.utilities.disable
-import com.brandon.utilities.enable
-import com.brandon.utilities.toEditable
-import com.brandon.uicore.R as uiR
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginScreenActivity : AppCompatActivity() {
 
     private val loginViewModel: LegacyLoginViewmodel by viewModels()
@@ -25,64 +26,72 @@ class LoginScreenActivity : AppCompatActivity() {
         binding = LoginScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val emailField = binding.loginEmailField
-        val emailError = binding.loginEmailError
-        val codeField = binding.loginCodeField
-        val fieldsError = binding.loginRequiredFieldsError
-        val buttonSpinner = binding.progressSpinner
-        val buttonText = binding.buttonText
-        val loginButton = binding.loginButton
+        loginViewModel.viewModelScope.launch {
+            loginViewModel.uiState.collect {
+                updateUi(it)
+                Log.e(LoginViewModel.VIEWMODEL_TAG, "${loginViewModel.uiState}")
+            }
+        }
 
         binding.loginButton.setOnClickListener {
-            fieldsError.visibility = GONE
-            val email = binding.loginEmailField.text.toString()
-            val code = binding.loginCodeField.text.toString()
+            val emailField = binding.loginEmailField
+            val codeField = binding.loginCodeField
+            val fieldsError = binding.loginRequiredFieldsError
+            fieldsError.isVisible = true
+            emailField.clearFocus()
+            emailField.isSelected = false
+            val email = emailField.text.toString()
+            val code = codeField.text.toString()
             if (email.isNotEmpty()) {
                 if (code.isNotEmpty()) loginViewModel.loginClicked(email, code)
                 else loginViewModel.loginClicked(email)
-            } else fieldsError.visibility = VISIBLE
+            } else fieldsError.isVisible = true
         }
 
         binding.createAccountRedirect.setOnClickListener {
             // TODO FA-101 Navigate to Create Account Page
         }
+    }
 
-        loginViewModel.onUpdate = {
-            when (it) {
+    private fun updateUi(uiState: LoginViewModel.LoginUiState) {
+        binding.apply {
+            when (uiState) {
                 is Idle -> {
-                    buttonSpinner.visibility = GONE
-                    buttonText.visibility = VISIBLE
-                    codeField.visibility = if (it.isCodeSent) VISIBLE else GONE
-                    emailError.visibility = if (it.isEmailError) VISIBLE else GONE
-
+                    progressSpinner.isVisible = false
+                    buttonText.isVisible = true
+                    loginCodeField.apply {
+                        isVisible = uiState.isCodeSent
+                        isEnabled = true
+                    }
+                    loginEmailError.isVisible = uiState.isEmailError
                     loginButton.isEnabled = true
-                    emailField.enable(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
-                    codeField.enable(InputType.TYPE_CLASS_NUMBER)
-
-                    emailField.text = it.email.toEditable()
+                    loginEmailField.apply {
+                        isEnabled = true
+                        setText(uiState.email)
+                    }
                     buttonText.text =
-                        if (it.isCodeSent) getString(uiR.string.core_get_code_text)
-                        else getString(uiR.string.login_button_text)
+                        if (uiState.isCodeSent) getString(R.string.core_get_code_text)
+                        else getString(R.string.login_button_text)
 
-                    if (it.isGenericError) connectionDialog(this)
+                    if (uiState.isGenericError) connectionDialog(this@LoginScreenActivity)
                 }
                 is Loading -> {
-                    buttonText.visibility = GONE
-                    buttonSpinner.visibility = VISIBLE
-                    codeField.visibility = if (it.isCodeSent) VISIBLE else GONE
-
+                    buttonText.isVisible = false
+                    progressSpinner.isVisible = true
+                    loginCodeField.apply {
+                        isVisible = uiState.isCodeSent
+                        isEnabled = false
+                    }
                     loginButton.isEnabled = false
-                    emailField.disable()
-                    codeField.disable()
-
-                    emailField.text = it.email.toEditable()
+                    loginEmailField.apply {
+                        isEnabled = false
+                        setText(uiState.email)
+                    }
                 }
                 is LoggedIn -> {
                     // TODO FA-103 Navigate to a Landing Page
                 }
             }
         }
-        // TODO
-        // Dialog for connection error
     }
 }

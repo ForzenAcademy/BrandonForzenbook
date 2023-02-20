@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="@string/core_login_title" />
 
-        <com.brandon.uicore.ForcibleEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email_field"
             style="@style/editTextField"
             android:layout_width="@dimen/textFieldWidth"
@@ -33,10 +33,11 @@
         <TextView
             android:id="@+id/login_email_error"
             style="@style/fieldErrorText"
+            android:text="@string/core_email_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.brandon.uicore.ForcibleEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_code_field"
             style="@style/editTextField"
             android:layout_width="@dimen/textFieldWidth"
@@ -72,6 +73,7 @@
         <TextView
             android:id="@+id/login_required_fields_error"
             style="@style/fieldErrorText"
+            android:text="@string/core_required_fields_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

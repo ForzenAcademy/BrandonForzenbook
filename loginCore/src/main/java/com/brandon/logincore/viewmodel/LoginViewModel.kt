@@ -1,7 +1,6 @@
 package com.brandon.logincore.viewmodel
 
 import android.net.ConnectivityManager
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.logincore.usecase.LoginUseCase
@@ -60,6 +59,6 @@ abstract class LoginViewModel : ViewModel() {
     }
 
     companion object {
-        const val VIEWMODEL_ERROR_TAG = "Brandon_Test_ViewModel"
+        const val VIEWMODEL_TAG = "Brandon_Test_ViewModel"
     }
 }

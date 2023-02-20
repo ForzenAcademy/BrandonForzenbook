@@ -2,18 +2,30 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <option name="nonWearDeviceLastStateName" value="Landscape" />
+      </config>
     </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d18e843f-0459-4ecd-b33a-a887a818da30" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/appLegacy/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appLegacy/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appLegacy/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/utilities/Extensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/viewmodel/ComposeLoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/viewmodel/ComposeLoginViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/viewmodel/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCore/src/main/java/com/brandon/logincore/viewmodel/LoginViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/view/LoginScreenActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginLegacy/src/main/java/com/brandon/loginlegacy/view/LoginScreenActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +48,28 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Interface" />
+        <option value="resourceFile" />
+        <option value="Kotlin File" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,21 +85,46 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-view/Users/brandon/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.8.0/60ab9cfeed56173f0fb0c798009d91e049bbbba1/material-1.8.0-sources.jar!/com/google/android/material/textfield/TextInputEditText.java_SELECTED" value="TextInputEditText" />
+    <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/loginLegacy/src/main/java/com/brandon/loginlegacy/view/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
+    <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/uiCore/src/main/java/com/brandon/uicore/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/EditText.java_SELECTED" value="EditText" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/ProgressBar.java_SELECTED" value="ProgressBar" />
+    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/appLegacy/src/main/res" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/legacyCore/src/main" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/appLegacy/src/main/res" />
+      <recent name="$PROJECT_DIR$/legacyCore/src/main" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-w320dp" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values-land" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+    </key>
+    <key name="android.template.-1341461989">
+      <recent name="com.brandon.loginlegacy.view" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.brandon.createaccount.core.viewmodel" />
+      <recent name="com.brandon.uicore" />
     </key>
     <key name="android.template.1552927843">
-      <recent name="com.brandon.applegacy" />
+      <recent name="com.brandon.createaccountlegacy.view" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="com.brandon.di" />
+      <recent name="com.brandon.logincore.viewmodel" />
+      <recent name="com.brandon.viewmodel" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.appLegacy">
@@ -142,7 +199,7 @@
       <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="do_nothing" />
+      <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
@@ -189,6 +246,19 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ForzenBook.legacyCore" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ForzenBook.legacyCore" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.appLegacy" />
@@ -197,7 +267,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c9cc98ce-b817-4b37-8b22-24508459a056" name="Changes" comment="" />
+      <changelist id="e0326023-6233-4e2e-b668-3eef043511b9" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
