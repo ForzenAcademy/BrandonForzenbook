@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        style="@style/yellowColumnCentered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/titleImage"
+            android:layout_width="@dimen/largeIcon"
+            android:layout_height="@dimen/largeIcon"
+            android:contentDescription="@string/core_logo_image_description"
+            android:src="@drawable/forzenlogo" />
+
+        <TextView
+            style="@style/loginTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/core_login_title" />
+
+        <com.brandon.uicore.ForcibleEditText
+            android:id="@+id/login_email_field"
+            style="@style/editTextField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textFieldHeight"
+            android:hint="@string/core_email_hint"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/login_email_error"
+            style="@style/fieldErrorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.brandon.uicore.ForcibleEditText
+            android:id="@+id/login_code_field"
+            style="@style/editTextField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textFieldHeight"
+            android:hint="@string/login_code_hint"
+            android:visibility="gone"
+            tools:ignore="TextContrastCheck" />
+
+        <FrameLayout
+            android:id="@+id/login_button"
+            style="@style/blackButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textFieldHeight"
+            android:background="@drawable/black_button">
+
+            <TextView
+                android:id="@+id/button_text"
+                style="@style/blackButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/core_get_code_text"
+                android:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progress_spinner"
+                style="@style/blackButtonLoadingIndicator"
+                android:layout_width="60dp"
+                android:layout_height="@dimen/textFieldHeight"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/login_required_fields_error"
+            style="@style/fieldErrorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/create_account_redirect"
+            style="@style/redirectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/core_create_account" />
+
+    </LinearLayout>
+
+</ScrollView>

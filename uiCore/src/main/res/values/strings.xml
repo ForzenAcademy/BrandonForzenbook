@@ -14,4 +14,11 @@
     <string name="core_error_dismiss">Dismiss</string>
     <string name="core_error_connect_and_try_again">Check Connection and Try Again</string>
 
+    <string name="login_image_description">Forzen Lion Logo</string>
+    <string name="login_button_text">Login</string>
+    <string name="login_code_hint">Code</string>
+    <string name="login_code_error">Please Enter Code</string>
+    <string name="login_char_length_limit">Max Character Limit Reached</string>
+    <string name="login_invalid_credentials">Invalid Credentials</string>
+
 </resources>

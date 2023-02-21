@@ -13,17 +13,17 @@ import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.composecore.navigation.NavDestinations.CREATE_ACCOUNT
 import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
 import com.brandon.composecore.theme.ForzenBookTheme
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel
 import com.brandon.createaccount.compose.CreateAccountContent
+import com.brandon.createaccount.viewmodel.CreateAccountViewModel
 import com.brandon.forzenbook.view.composables.LandingScreen
 import com.brandon.logincompose.view.LoginContent
-import com.brandon.logincompose.viewmodel.LoginViewModel
+import com.brandon.logincompose.viewmodel.ComposeLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val loginViewModel: LoginViewModel by viewModels()
+    private val loginViewModel: ComposeLoginViewModel by viewModels()
     private val createViewModel: CreateAccountViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.composecore.R
+import com.brandon.uicore.R
 
 val MontserratFontFamily = FontFamily(
     Font(R.font.montserrat_light, FontWeight.Light),
