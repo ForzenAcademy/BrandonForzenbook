@@ -4,12 +4,9 @@ import android.net.ConnectivityManager
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.viewModelScope
 import com.brandon.logincore.usecase.LoginUseCase
 import com.brandon.logincore.viewmodel.LoginViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,7 +21,7 @@ class ComposeLoginViewModel @Inject constructor(
         set(value) {
             _state = value
             _uiState.value = state
-            Log.e(VIEWMODEL_ERROR_TAG, "$state")
+            Log.e(VIEWMODEL_TAG, "$state")
         }
 
     private var _uiState: MutableState<LoginUiState> = mutableStateOf(state)

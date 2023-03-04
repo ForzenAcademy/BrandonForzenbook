@@ -14,7 +14,8 @@ import com.brandon.composecore.navigation.NavDestinations.CREATE_ACCOUNT
 import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
 import com.brandon.composecore.theme.ForzenBookTheme
 import com.brandon.createaccount.compose.CreateAccountContent
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel
+import com.brandon.createaccount.viewmodel.ComposeCreateAccountViewModel
 import com.brandon.forzenbook.view.composables.LandingScreen
 import com.brandon.logincompose.view.LoginContent
 import com.brandon.logincompose.viewmodel.ComposeLoginViewModel
@@ -24,7 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val loginViewModel: ComposeLoginViewModel by viewModels()
-    private val createViewModel: CreateAccountViewModel by viewModels()
+    private val createViewModel: ComposeCreateAccountViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(CREATE_ACCOUNT) {
                             CreateAccountContent(
-                                state = createViewModel.createAccountState.value,
+                                state = createViewModel.uiState.value,
                                 onSubmit = { firstName, lastName, dateOfBirth, email, location ->
                                     createViewModel.createAccountClicked(
                                         firstName = firstName,

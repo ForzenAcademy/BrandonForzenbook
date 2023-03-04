@@ -39,6 +39,7 @@ android {
 dependencies {
 
     implementation project(':uiCore')
+    implementation project(':legacyCore')
     implementation project(':loginCore')
     implementation project(':core')
 

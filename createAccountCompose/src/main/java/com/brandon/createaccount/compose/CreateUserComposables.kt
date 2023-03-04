@@ -29,11 +29,11 @@ import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_MAX_LINE
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.composecore.theme.LocalDimens
-import com.brandon.uicore.R as uiR
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel.Companion.KEYBOARD_ERROR
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel.Companion.VIEW_ERROR_TAG
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel.CreateAccountUiState
-import com.brandon.createaccount.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
+import com.brandon.uicore.R
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.Companion.KEYBOARD_ERROR
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.Companion.VIEW_ERROR_TAG
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
 import java.util.*
 
 @Composable
@@ -61,7 +61,7 @@ fun CreateSuccess() {
     val resources = LocalContext.current.resources
     FakeLoginScreen()
     SuccessDialog(
-        title = resources.getString(uiR.string.core_success),
+        title = resources.getString(R.string.core_success),
         body = resources.getString(R.string.create_account_success_body),
         buttonText = resources.getString(R.string.create_account_to_login)
     ) {
@@ -124,13 +124,13 @@ fun CreateAccount(
                 )
                 if (state.isDateError) TextFieldErrorText(text = res.getString(R.string.create_account_date_error))
                 InputInfoTextField(
-                    hint = res.getString(uiR.string.core_email_hint),
+                    hint = res.getString(R.string.core_email_hint),
                     onTextChange = { email = it },
                     currentText = email,
                     characterLimit = EMAIL_CHAR_LIMIT,
                     onMaxCharacterLength = { emailError = it },
                 )
-                if (state.isEmailError || emailError) TextFieldErrorText(text = res.getString(uiR.string.core_email_error))
+                if (state.isEmailError || emailError) TextFieldErrorText(text = res.getString(R.string.core_email_error))
                 if (state.isDuplicateUser) TextFieldErrorText(text = res.getString(R.string.create_account_duplicate_user_error))
                 InputInfoTextField(
                     hint = res.getString(R.string.create_account_location_hint),
@@ -158,14 +158,14 @@ fun CreateAccount(
                         } else emptyFieldError = true
                     } else isDialogOpen = true
                 }
-                if (emptyFieldError) TextFieldErrorText(text = res.getString(uiR.string.core_required_fields_error))
+                if (emptyFieldError) TextFieldErrorText(text = res.getString(R.string.core_required_fields_error))
             }
         }
     )
     if (isDialogOpen) {
         AlertDialog(
-            title = res.getString(uiR.string.core_error_no_internet_connection),
-            body = res.getString(uiR.string.core_error_connect_and_try_again),
+            title = res.getString(R.string.core_error_no_internet_connection),
+            body = res.getString(R.string.core_error_connect_and_try_again),
             onDismissRequest = { isDialogOpen = false },
         )
     }
@@ -208,7 +208,7 @@ fun CreateAccountLoading(
                     currentText = state.dateOfBirth,
                 )
                 InputInfoTextField(
-                    hint = resources.getString(uiR.string.core_email_hint),
+                    hint = resources.getString(R.string.core_email_hint),
                     isEnabled = false,
                     currentText = state.email
                 )
@@ -285,11 +285,11 @@ fun FakeLoginScreen() {
     val resources = LocalContext.current.resources
     YellowColumn {
         ImageTitle(
-            imageId = uiR.drawable.forzenlogo,
-            text = resources.getString(uiR.string.core_login_title),
+            imageId = R.drawable.forzenlogo,
+            text = resources.getString(R.string.core_login_title),
         )
-        InputInfoTextField(hint = resources.getString(uiR.string.core_email_hint),)
-        BlackButton(text = resources.getString(uiR.string.core_get_code_text))
-        RedirectText(text = resources.getString(uiR.string.core_create_account))
+        InputInfoTextField(hint = resources.getString(R.string.core_email_hint),)
+        BlackButton(text = resources.getString(R.string.core_get_code_text))
+        RedirectText(text = resources.getString(R.string.core_create_account))
     }
 }
