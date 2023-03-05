@@ -16,6 +16,7 @@ import android.net.ConnectivityManager;
 
 import androidx.lifecycle.ViewModel;
 
+import com.brandon.corejava.navigation.LegacyNavigationJava;
 import com.brandon.createaccountjava.domain.CreateUserUseCaseJava;
 
 import io.reactivex.rxjava3.core.Single;
@@ -23,6 +24,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public abstract class CreateAccountViewModel extends ViewModel {
     private final String VIEWMODEL_ERROR_TAG = "Brandon_Test ViewModel";
+
+    protected abstract void navigateToLogin(Context context);
 
     protected abstract CreateUserUseCaseJava createUserUseCaseJava();
 

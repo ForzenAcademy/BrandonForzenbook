@@ -16,14 +16,12 @@
         android:id="@+id/body_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/core_error_connect_and_try_again"
         style="@style/alertDialogBodyText"/>
 
     <TextView
         android:id="@+id/dialog_dismiss_button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/minimumTouchTarget"
-        android:text="@string/core_error_dismiss"
         style="@style/alertDialogConfirmation"/>
 
 </LinearLayout>

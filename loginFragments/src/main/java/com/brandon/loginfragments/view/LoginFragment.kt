@@ -1,39 +1,39 @@
-package com.brandon.loginlegacy.view
+package com.brandon.loginfragments.view
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewModelScope
+import com.brandon.fragmentcore.NotificationDialogFragment
 import com.brandon.logincore.viewmodel.LoginViewModel
-import com.brandon.logincore.viewmodel.LoginViewModel.Companion.VIEWMODEL_TAG
-import com.brandon.logincore.viewmodel.LoginViewModel.LoginUiState.*
-import com.brandon.loginlegacy.databinding.LoginScreenBinding
-import com.brandon.loginlegacy.viewmodel.LegacyLoginViewmodel
+import com.brandon.loginfragments.databinding.LoginScreenBinding
+import com.brandon.loginfragments.viewmodel.FragmentLoginViewmodel
 import com.brandon.uicore.R
-import com.brandon.uicore.connectionDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LoginScreenActivity : AppCompatActivity() {
+class LoginFragment : Fragment() {
 
-    private val loginViewModel: LegacyLoginViewmodel by viewModels()
+    private val loginViewModel: FragmentLoginViewmodel by activityViewModels()
+
     private lateinit var binding: LoginScreenBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = LoginScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        return binding.root
+    }
 
-        loginViewModel.viewModelScope.launch {
-            loginViewModel.uiState.collect {
-                updateUi(it)
-                Log.e(VIEWMODEL_TAG, "${loginViewModel.uiState}")
-            }
-        }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.loginButton.setOnClickListener {
             val emailField = binding.loginEmailField
             val codeField = binding.loginCodeField
@@ -50,14 +50,21 @@ class LoginScreenActivity : AppCompatActivity() {
         }
 
         binding.createAccountRedirect.setOnClickListener {
-            loginViewModel.createAccountClicked(this)
+            // TODO FA-125 Add Navigation Between Fragments
+        }
+
+        loginViewModel.viewModelScope.launch {
+            loginViewModel.uiState.collect {
+                updateUi(it)
+                Log.e(LoginViewModel.VIEWMODEL_TAG, "${loginViewModel.uiState}")
+            }
         }
     }
 
     private fun updateUi(uiState: LoginViewModel.LoginUiState) {
         binding.apply {
             when (uiState) {
-                is Idle -> {
+                is LoginViewModel.LoginUiState.Idle -> {
                     progressSpinner.isVisible = false
                     buttonText.isVisible = true
                     loginCodeField.apply {
@@ -74,13 +81,14 @@ class LoginScreenActivity : AppCompatActivity() {
                         if (uiState.isCodeSent) getString(R.string.core_get_code_text)
                         else getString(R.string.login_button_text)
 
-                    if (uiState.isGenericError) connectionDialog(
-                        this@LoginScreenActivity,
-                        titleText = getString(R.string.core_error_no_internet_connection),
-                        bodyText = getString(R.string.core_error_connect_and_try_again)
-                    )
+                    if (uiState.isGenericError) {
+                        NotificationDialogFragment(
+                            title = getString(R.string.core_error_no_internet_connection),
+                            body = getString(R.string.core_error_connect_and_try_again),
+                        ).show(childFragmentManager, null)
+                    }
                 }
-                is Loading -> {
+                is LoginViewModel.LoginUiState.Loading -> {
                     buttonText.isVisible = false
                     progressSpinner.isVisible = true
                     loginCodeField.apply {
@@ -93,8 +101,8 @@ class LoginScreenActivity : AppCompatActivity() {
                         setText(uiState.email)
                     }
                 }
-                is LoggedIn -> {
-                    loginViewModel.loginButtonClicked(this@LoginScreenActivity)
+                is LoginViewModel.LoginUiState.LoggedIn -> {
+                    // TODO FA-125 Add Navigation Between Fragments
                 }
             }
         }
