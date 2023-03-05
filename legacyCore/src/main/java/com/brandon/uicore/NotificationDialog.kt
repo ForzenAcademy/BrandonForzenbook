@@ -16,4 +16,5 @@ fun connectionDialog(context: Context, titleText: String, bodyText: String, onDi
         dialog.dismiss()
         onDismiss()
     }
+    dialog.show()
 }
