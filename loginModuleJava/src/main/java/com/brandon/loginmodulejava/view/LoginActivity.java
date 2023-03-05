@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.loginButton.setOnClickListener(v -> {
             final TextView fieldsError = binding.loginRequiredFieldsError;
             fieldsError.setVisibility(View.GONE);
-            String email = Objects.requireNonNull(emailField.getText()).toString();
-            String code = Objects.requireNonNull(codeField.getText()).toString();
+            String email = emailField.getText() != null ? emailField.getText().toString() : "";
+            String code = codeField.getText() != null ? codeField.getText().toString() : "";
             if (viewModel.checkInternetConnection()) {
                 if (!email.isEmpty()) {
                     if (!code.isEmpty()) {
@@ -60,15 +60,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             } else {
                 new NotificationDialog().createNotification(
-                        this,
-                        getString(R.string.core_error_no_internet_connection),
+                        this, getString(R.string.core_error_no_internet_connection),
                         getString(R.string.core_error_connect_and_try_again),
-                        null);
+                        () -> viewModel.notificationDialogOpened(false),
+                        () -> viewModel.notificationDialogOpened(true)
+                );
             }
         });
 
         binding.createAccountRedirect.setOnClickListener(v -> {
-            // TODO FA-115 Navigate to Create Account
+            // TODO FA-117 Navigate to Create Account
         });
 
         uiStateSubscription = viewModel.getState()
@@ -115,9 +116,10 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if (it.isGenericError()) {
                             new NotificationDialog().createNotification(
-                                    this,
-                                    getString(R.string.core_error_no_internet_connection),
-                                    getString(R.string.core_error_connect_and_try_again), null
+                                    this, getString(R.string.core_error_no_internet_connection),
+                                    getString(R.string.core_error_connect_and_try_again),
+                                    () -> viewModel.notificationDialogOpened(false),
+                                    () -> viewModel.notificationDialogOpened(true)
                             );
                         }
                     }

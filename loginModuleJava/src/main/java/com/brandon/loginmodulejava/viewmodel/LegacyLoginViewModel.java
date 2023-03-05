@@ -1,10 +1,6 @@
 package com.brandon.loginmodulejava.viewmodel;
 
 
-import static com.brandon.corejava.utilities.ConnectionErrors.NO_CONNECTION_ERROR;
-import static com.brandon.corejava.utilities.UserInputErrors.NO_INPUT_ERROR;
-import static com.brandon.loginmodulejava.viewmodel.LoginUiStates.IDLE;
-
 import android.net.ConnectivityManager;
 
 import com.brandon.loginmodulejava.domain.LoginUseCaseJava;
@@ -22,9 +18,7 @@ public class LegacyLoginViewModel extends LoginViewModel {
     private final LoginUseCaseJava loginUseCaseJava;
     private final ConnectivityManager connectivityManager;
 
-    private final BehaviorSubject<LoginUiStateJava> uiState = BehaviorSubject.createDefault(
-            new LoginUiStateJava("", NO_INPUT_ERROR, NO_CONNECTION_ERROR, false, IDLE)
-    );
+    private final BehaviorSubject<LoginUiStateJava> uiState = BehaviorSubject.createDefault(new LoginUiStateJava());
 
     public @NonNull Flowable<LoginUiStateJava> getState() {
         return uiState.toFlowable(BackpressureStrategy.LATEST);
@@ -38,6 +32,10 @@ public class LegacyLoginViewModel extends LoginViewModel {
 
     public void emailChanged(String email) {
         uiState.getValue().setEmail(email);
+    }
+
+    public void notificationDialogOpened(boolean isOpen) {
+        uiState.getValue().setConnectionDialogOpen(isOpen);
     }
 
     @Override

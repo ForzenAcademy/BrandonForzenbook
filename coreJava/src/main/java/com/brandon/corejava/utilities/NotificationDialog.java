@@ -15,7 +15,14 @@ import javax.annotation.Nullable;
 
 public class NotificationDialog {
 
-    public void createNotification(Context context, String title, String body, @Nullable Runnable runnable) {
+    public void createNotification(
+            Context context,
+            String title,
+            String body,
+            @Nullable Runnable onDismiss,
+            @Nullable Runnable onOpen
+    ) {
+        Objects.requireNonNull(onOpen).run();
         final LayoutInflater inflater = LayoutInflater.from(context);
         final View view = inflater.inflate(R.layout.notification_dialog, null);
         final AlertDialog dialog = new AlertDialog.Builder(context).create();
@@ -25,7 +32,11 @@ public class NotificationDialog {
         bodyText.setText(body);
         view.findViewById(R.id.dialog_dismiss_button).setOnClickListener(v -> {
             dialog.dismiss();
-            Objects.requireNonNull(runnable).run();
+            Objects.requireNonNull(onDismiss).run();
+        });
+        dialog.setOnDismissListener(v -> {
+            dialog.dismiss();
+            Objects.requireNonNull(onDismiss).run();
         });
         dialog.show();
     }

@@ -16,9 +16,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38aabc93-ccb3-4a07-be0f-0b342117c18a" name="Changes" comment="">
+    <list default="true" id="94d02f94-84e0-4413-9fb3-f28dc5bf3149" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coreJava/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/coreJava/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountJava/src/main/java/com/brandon/createaccountjava/viewmodel/LegacyCreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountJava/src/main/java/com/brandon/createaccountjava/viewmodel/LegacyCreateAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LegacyLoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LegacyLoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LoginUiStateJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LoginUiStateJava.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +66,9 @@
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Interface" />
         <option value="layoutResourceFile" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -88,35 +93,19 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="android-custom-view/Users/brandon/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.8.0/60ab9cfeed56173f0fb0c798009d91e049bbbba1/material-1.8.0-sources.jar!/com/google/android/material/appbar/MaterialToolbar.java_SELECTED" value="MaterialToolbar" />
-    <property name="android-custom-view/Users/brandon/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.8.0/60ab9cfeed56173f0fb0c798009d91e049bbbba1/material-1.8.0-sources.jar!/com/google/android/material/textfield/TextInputEditText.java_SELECTED" value="TextInputEditText" />
-    <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/loginLegacy/src/main/java/com/brandon/loginlegacy/view/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
-    <property name="android-custom-view/Users/brandon/AndroidStudioProjects/BrandonForzenbook/uiCore/src/main/java/com/brandon/uicore/ForcibleEditText.kt_SELECTED" value="ForcibleEditText" />
-    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/view/View.java_SELECTED" value="View" />
-    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/EditText.java_SELECTED" value="EditText" />
-    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/LinearLayout.java_SELECTED" value="LinearLayout" />
-    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/ProgressBar.java_SELECTED" value="ProgressBar" />
-    <property name="android-custom-view/Users/brandon/Library/Android/sdk/sources/android-33/android/widget/TextView.java_SELECTED" value="TextView" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="com.android.tools.idea.emulator.zoom.toolbar.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/loginModuleJava/src/main" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/createAccountJava/src/main" />
+      <recent name="$PROJECT_DIR$/coreJava/src/main/java/com/brandon/corejava/network/user" />
       <recent name="$PROJECT_DIR$/loginModuleJava/src/main" />
       <recent name="$PROJECT_DIR$/coreJava/src/main" />
       <recent name="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel" />
-      <recent name="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/domain" />
-      <recent name="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/data" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />
@@ -200,7 +189,6 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -259,7 +247,6 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -318,7 +305,6 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -350,7 +336,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="38aabc93-ccb3-4a07-be0f-0b342117c18a" name="Changes" comment="" />
+      <changelist id="94d02f94-84e0-4413-9fb3-f28dc5bf3149" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
