@@ -11,6 +11,14 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <style name="DatePickerStyle" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+    <style name="MySpinnerStyle" parent="android:Theme.Material.Dialog">
+        <item name="android:datePickerStyle">@style/MySpinnerStyle</item>
+    </style>
+
     <style name="yellowColumnCentered">
         <item name="android:background">?tertiary</item>
         <item name="android:orientation">vertical</item>
@@ -144,8 +152,8 @@
     <style name="alertDialogConfirmation">
         <item name="android:textColor">?attr/onSurfaceVariant</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/bodyMedium</item>
-        <item name="android:fontFamily">?attr/fontWeightMedium</item>
+        <item name="android:textSize">@dimen/headlineSmall</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
         <item name="android:layout_marginTop">@dimen/grid_x2</item>
     </style>
 

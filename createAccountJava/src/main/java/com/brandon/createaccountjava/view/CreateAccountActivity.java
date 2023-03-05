@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.brandon.corejava.utilities.CustomDatePicker;
 import com.brandon.corejava.utilities.NotificationDialog;
@@ -20,8 +21,6 @@ import com.brandon.createaccountjava.viewmodel.LegacyCreateAccountViewModel;
 import com.brandon.uicore.R;
 import com.google.android.material.textfield.TextInputEditText;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -29,14 +28,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @AndroidEntryPoint
 public class CreateAccountActivity extends AppCompatActivity {
-    @Inject
-    LegacyCreateAccountViewModel viewModel;
+    private LegacyCreateAccountViewModel viewModel;
     private Disposable disposable;
     private CreateAccountScreenBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(LegacyCreateAccountViewModel.class);
         binding = CreateAccountScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -69,8 +68,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         if (binding.backArrow != null) {
-            binding.backArrow.setOnClickListener(v -> {
-            } /* TODO FA-117 Navigate to Login */);
+            binding.backArrow.setOnClickListener(v -> viewModel.navigateToLogin(this));
         }
 
         binding.createButton.setOnClickListener(v -> {
@@ -111,7 +109,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                 this, getString(R.string.create_account_duplicate_user_error),
                                 getString(R.string.create_account_to_login),
                                 () -> {
-                                    /* TODO FA-117 Navigate to Login */
+                                    viewModel.navigateToLogin(this);
                                     viewModel.notificationDialogOpened(false);
                                 },
                                 () -> viewModel.notificationDialogOpened(true)
@@ -121,7 +119,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                 this, getString(R.string.create_account_duplicate_user_error),
                                 getString(R.string.create_account_to_login),
                                 () -> {
-                                    /* TODO FA-117 Navigate to Login */
+                                    viewModel.navigateToLogin(this);
                                     viewModel.notificationDialogOpened(false);
                                 },
                                 () -> viewModel.notificationDialogOpened(true)

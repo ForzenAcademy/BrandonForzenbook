@@ -12,13 +12,12 @@ import com.brandon.corejava.network.ForzenApiServiceJava;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ActivityComponent;
 import dagger.hilt.android.components.ViewModelComponent;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@InstallIn({ViewModelComponent.class, ActivityComponent.class})
+@InstallIn(ViewModelComponent.class)
 @Module
 public class NetworkModuleJava {
 

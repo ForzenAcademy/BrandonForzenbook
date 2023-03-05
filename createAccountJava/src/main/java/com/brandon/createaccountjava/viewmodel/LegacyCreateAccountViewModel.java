@@ -1,8 +1,10 @@
 package com.brandon.createaccountjava.viewmodel;
 
 
+import android.content.Context;
 import android.net.ConnectivityManager;
 
+import com.brandon.corejava.navigation.LegacyNavigationJava;
 import com.brandon.createaccountjava.domain.CreateUserUseCaseJava;
 
 import javax.inject.Inject;
@@ -17,6 +19,7 @@ import io.reactivex.rxjava3.subjects.BehaviorSubject;
 public class LegacyCreateAccountViewModel extends CreateAccountViewModel {
     private final CreateUserUseCaseJava createUserUseCaseJava;
     private final ConnectivityManager connectivityManager;
+    private final LegacyNavigationJava navigation;
 
     private final BehaviorSubject<CreateAccountUiStateJava> uiState
             = BehaviorSubject.createDefault(new CreateAccountUiStateJava());
@@ -26,9 +29,14 @@ public class LegacyCreateAccountViewModel extends CreateAccountViewModel {
     }
 
     @Inject
-    public LegacyCreateAccountViewModel(CreateUserUseCaseJava createUserUseCaseJava, ConnectivityManager connectivityManager) {
+    public LegacyCreateAccountViewModel(
+            CreateUserUseCaseJava createUserUseCaseJava,
+            ConnectivityManager connectivityManager,
+            LegacyNavigationJava navigation
+    ) {
         this.createUserUseCaseJava = createUserUseCaseJava;
         this.connectivityManager = connectivityManager;
+        this.navigation = navigation;
     }
 
     public void firstNameChanged(String name) {
@@ -63,6 +71,11 @@ public class LegacyCreateAccountViewModel extends CreateAccountViewModel {
     @Override
     protected CreateUserUseCaseJava createUserUseCaseJava() {
         return createUserUseCaseJava;
+    }
+
+    @Override
+    public void navigateToLogin(Context context) {
+        navigation.navigateToLogin(context);
     }
 
     @Override
