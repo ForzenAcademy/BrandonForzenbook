@@ -1,11 +1,10 @@
 package com.brandon.createaccount.core.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.brandon.createaccount.core.usecase.CreateUserUseCase
-import com.brandon.utilities.CreateAccountValidationState.*
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
+import com.brandon.utilities.CreateAccountValidationState.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -65,17 +64,17 @@ abstract class CreateAccountViewModel : ViewModel() {
             )
             state = when (outcome) {
                 is CreateAccountError -> Idle(
-                        email = email,
-                        firstName = firstName,
-                        lastName = lastName,
-                        location = location,
-                        dateOfBirth = date,
-                        isEmailError = outcome.emailError,
-                        isLocationError = outcome.locationError,
-                        isDateError = outcome.dateOfBirthError,
-                        isFirstNameError = outcome.firstNameError,
-                        isLastNameError = outcome.lastNameError
-                    )
+                    email = email,
+                    firstName = firstName,
+                    lastName = lastName,
+                    location = location,
+                    dateOfBirth = date,
+                    isEmailError = outcome.emailError,
+                    isLocationError = outcome.locationError,
+                    isDateError = outcome.dateOfBirthError,
+                    isFirstNameError = outcome.firstNameError,
+                    isLastNameError = outcome.lastNameError
+                )
                 is CreateAccountDuplicateError -> {
                     Idle(
                         email = email,
@@ -92,7 +91,7 @@ abstract class CreateAccountViewModel : ViewModel() {
     }
 
     companion object {
-        const val VIEWMODEL_ERROR_TAG = "Brandon_Test_ViewModel"
+        const val VIEWMODEL_TAG = "Brandon_Test_ViewModel"
         const val VIEW_ERROR_TAG = "Brandon_Test_View"
         const val KEYBOARD_ERROR = "Error Hiding Keyboard"
     }

@@ -7,19 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.viewModelScope
 import com.brandon.logincore.viewmodel.LoginViewModel
+import com.brandon.logincore.viewmodel.LoginViewModel.Companion.VIEWMODEL_TAG
 import com.brandon.logincore.viewmodel.LoginViewModel.LoginUiState.*
 import com.brandon.loginlegacy.databinding.LoginScreenBinding
 import com.brandon.loginlegacy.viewmodel.LegacyLoginViewmodel
+import com.brandon.navigation.LegacyNavigation
 import com.brandon.uicore.R
 import com.brandon.uicore.connectionDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginScreenActivity : AppCompatActivity() {
 
     private val loginViewModel: LegacyLoginViewmodel by viewModels()
     private lateinit var binding: LoginScreenBinding
+    @Inject
+    lateinit var legacyNavigation: LegacyNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +34,7 @@ class LoginScreenActivity : AppCompatActivity() {
         loginViewModel.viewModelScope.launch {
             loginViewModel.uiState.collect {
                 updateUi(it)
-                Log.e(LoginViewModel.VIEWMODEL_TAG, "${loginViewModel.uiState}")
+                Log.e(VIEWMODEL_TAG, "${loginViewModel.uiState}")
             }
         }
 
@@ -49,7 +54,7 @@ class LoginScreenActivity : AppCompatActivity() {
         }
 
         binding.createAccountRedirect.setOnClickListener {
-            // TODO FA-101 Navigate to Create Account Page
+            legacyNavigation.navigateToCreateAccount()
         }
     }
 
@@ -73,7 +78,11 @@ class LoginScreenActivity : AppCompatActivity() {
                         if (uiState.isCodeSent) getString(R.string.core_get_code_text)
                         else getString(R.string.login_button_text)
 
-                    if (uiState.isGenericError) connectionDialog(this@LoginScreenActivity)
+                    if (uiState.isGenericError) connectionDialog(
+                        this@LoginScreenActivity,
+                        titleText = getString(R.string.core_error_no_internet_connection),
+                        bodyText = getString(R.string.core_error_connect_and_try_again)
+                    )
                 }
                 is Loading -> {
                     buttonText.isVisible = false
@@ -89,7 +98,7 @@ class LoginScreenActivity : AppCompatActivity() {
                     }
                 }
                 is LoggedIn -> {
-                    // TODO FA-103 Navigate to a Landing Page
+                    legacyNavigation.navigateToLandingPage()
                 }
             }
         }
