@@ -35,6 +35,7 @@ dependencies {
     implementation project(':uiCore')
     implementation project(':loginFragments')
     implementation project(':createAccountFragment')
+    implementation project(path: ':fragmentCore')
 
     // Fragments
     def fragment_version = "1.5.5"

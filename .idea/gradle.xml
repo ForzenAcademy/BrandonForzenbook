@@ -10,7 +10,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/FragmentCore" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/appFragments" />
             <option value="$PROJECT_DIR$/appJava" />
@@ -23,6 +22,7 @@
             <option value="$PROJECT_DIR$/createAccountFragment" />
             <option value="$PROJECT_DIR$/createAccountJava" />
             <option value="$PROJECT_DIR$/createAccountLegacy" />
+            <option value="$PROJECT_DIR$/fragmentCore" />
             <option value="$PROJECT_DIR$/legacyCore" />
             <option value="$PROJECT_DIR$/loginCompose" />
             <option value="$PROJECT_DIR$/loginCore" />

@@ -43,7 +43,7 @@ class CreateAccountFragment : Fragment() {
 
         binding?.apply {
             backArrow.setOnClickListener {
-                // TODO FA-125 Add Navigation Between Fragments
+                viewModel.loginRedirectClicked(parentFragmentManager)
             }
             dateField.setOnClickListener {
                 DatePickerDialogFragment(
@@ -123,7 +123,7 @@ class CreateAccountFragment : Fragment() {
                         title = getString(R.string.core_success),
                         body = getString(R.string.create_account_success_body),
                         onDismiss = {
-                            // TODO FA-125 Add Navigation Between Fragments
+                            viewModel.loginRedirectClicked(parentFragmentManager)
                         }).show(childFragmentManager, null)
                 }
             }
