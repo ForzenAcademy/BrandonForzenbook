@@ -1,64 +1,59 @@
-package com.brandon.createaccountlegacy.view
+package com.brandon.createaccountfragment.view
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewModelScope
-import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.Companion.VIEWMODEL_TAG
-import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState
-import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
-import com.brandon.createaccountlegacy.databinding.CreateAccountScreenBinding
-import com.brandon.createaccountlegacy.viewmodel.LegacyCreateAccountViewModel
+import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel
+import com.brandon.createaccountfragment.databinding.CreateAccountScreenBinding
+import com.brandon.createaccountfragment.viewmodel.FragmentCreateAccountViewModel
+import com.brandon.fragmentcore.DatePickerDialogFragment
+import com.brandon.fragmentcore.NotificationDialogFragment
 import com.brandon.uicore.R
-import com.brandon.uicore.connectionDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.*
 
 @AndroidEntryPoint
-class CreateAccountActivity : AppCompatActivity() {
+class CreateAccountFragment : Fragment() {
 
-    private val viewModel: LegacyCreateAccountViewModel by viewModels()
-    private lateinit var binding: CreateAccountScreenBinding
+    private var binding: CreateAccountScreenBinding? = null
+    private val viewModel: FragmentCreateAccountViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = CreateAccountScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return CreateAccountScreenBinding.inflate(layoutInflater).also { binding = it }.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.viewModelScope.launch {
             viewModel.uiState.collect {
                 updateState(it)
-                Log.e(VIEWMODEL_TAG, it.toString())
+                Log.e(CreateAccountViewModel.VIEWMODEL_TAG, it.toString())
             }
         }
 
-        binding.apply {
-            backArrow?.setOnClickListener {
-                viewModel.loginRedirectClicked(this@CreateAccountActivity)
+        binding?.apply {
+            backArrow.setOnClickListener {
+                // TODO FA-125 Add Navigation Between Fragments
             }
             dateField.setOnClickListener {
-                val calendar = Calendar.getInstance()
-                DatePickerDialog(
-                    this@CreateAccountActivity,
-                    R.style.MySpinnerStyle,
-                    null,
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)
-                ).apply {
-                    setOnDateSetListener { _, year, month, dayOfMonth ->
+                DatePickerDialogFragment(
+                    onDatePicked = { year, month, dayOfMonth ->
                         dateField.setText("${month + 1}/$dayOfMonth/$year")
-                        hide()
                     }
-                    setOnDismissListener { hide() }
-                }.show()
+                ).show(childFragmentManager, null)
             }
             createButton.setOnClickListener {
-                fieldsError?.isVisible = false
+                fieldsError.isVisible = false
                 val fields = listOf(
                     firstNameField,
                     lastNameField,
@@ -79,15 +74,20 @@ class CreateAccountActivity : AppCompatActivity() {
                         textList[3],
                         textList[4]
                     )
-                } else fieldsError?.isVisible = true
+                } else fieldsError.isVisible = true
             }
         }
     }
 
-    private fun updateState(uiState: CreateAccountUiState) {
-        binding.apply {
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
+    private fun updateState(uiState: CreateAccountViewModel.CreateAccountUiState) {
+        binding?.apply {
             when (uiState) {
-                is Idle -> {
+                is CreateAccountViewModel.CreateAccountUiState.Idle -> {
                     progressSpinner.isVisible = false
                     buttonText.isVisible = true
                     firstNameField.setText(uiState.firstName)
@@ -101,7 +101,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     dateError.isVisible = uiState.isDateError
                     locationError.isVisible = uiState.isLocationError
                 }
-                is Loading -> {
+                is CreateAccountViewModel.CreateAccountUiState.Loading -> {
                     progressSpinner.isVisible = true
                     buttonText.isVisible = false
                     firstNameField.setText(uiState.firstName)
@@ -116,16 +116,15 @@ class CreateAccountActivity : AppCompatActivity() {
                         emailError,
                         locationError,
                         fieldsError
-                    ).forEach { it?.isVisible = false }
+                    ).forEach { it.isVisible = false }
                 }
-                is Loaded -> {
-                    connectionDialog(
-                        this@CreateAccountActivity,
-                        titleText = getString(R.string.core_success),
-                        bodyText = getString(R.string.create_account_success_body)
-                    ) {
-                        viewModel.loginRedirectClicked(this@CreateAccountActivity)
-                    }
+                is CreateAccountViewModel.CreateAccountUiState.Loaded -> {
+                    NotificationDialogFragment(
+                        title = getString(R.string.core_success),
+                        body = getString(R.string.create_account_success_body),
+                        onDismiss = {
+                            // TODO FA-125 Add Navigation Between Fragments
+                        }).show(childFragmentManager, null)
                 }
             }
         }

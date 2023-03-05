@@ -22,34 +22,33 @@ class LoginFragment : Fragment() {
 
     private val loginViewModel: FragmentLoginViewmodel by activityViewModels()
 
-    private lateinit var binding: LoginScreenBinding
+    private var binding: LoginScreenBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = LoginScreenBinding.inflate(layoutInflater)
-        return binding.root
+        return LoginScreenBinding.inflate(layoutInflater).also { binding = it }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.loginButton.setOnClickListener {
-            val emailField = binding.loginEmailField
-            val codeField = binding.loginCodeField
-            val fieldsError = binding.loginRequiredFieldsError
-            fieldsError.isVisible = true
-            emailField.clearFocus()
-            emailField.isSelected = false
-            val email = emailField.text.toString()
-            val code = codeField.text.toString()
+        binding?.loginButton?.setOnClickListener {
+            val emailField = binding?.loginEmailField
+            val codeField = binding?.loginCodeField
+            val fieldsError = binding?.loginRequiredFieldsError
+            fieldsError?.isVisible = true
+            emailField?.clearFocus()
+            emailField?.isSelected = false
+            val email = emailField?.text.toString()
+            val code = codeField?.text.toString()
             if (email.isNotEmpty()) {
                 if (code.isNotEmpty()) loginViewModel.loginClicked(email, code)
                 else loginViewModel.loginClicked(email)
-            } else fieldsError.isVisible = true
+            } else fieldsError?.isVisible = true
         }
 
-        binding.createAccountRedirect.setOnClickListener {
+        binding?.createAccountRedirect?.setOnClickListener {
             // TODO FA-125 Add Navigation Between Fragments
         }
 
@@ -61,8 +60,13 @@ class LoginFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
     private fun updateUi(uiState: LoginViewModel.LoginUiState) {
-        binding.apply {
+        binding?.apply {
             when (uiState) {
                 is LoginViewModel.LoginUiState.Idle -> {
                     progressSpinner.isVisible = false

@@ -16,16 +16,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="574903bc-4f8d-43bb-99dc-9bb7b8fffce4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FragmentCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FragmentCore/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FragmentCore/src/main/java/com/brandon/fragmentcore/NotificationDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/FragmentCore/src/main/java/com/brandon/fragmentcore/NotificationDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/layout/notification_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/layout/notification_dialog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginFragments/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginFragments/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginActivity.kt" afterDir="false" />
+    <list default="true" id="053dc2f4-81ec-4e27-b348-826c75ee0dac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/appFragments/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountFragment/src/main/java/com/brandon/createaccountfragment/view/CreateAccountFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountFragment/src/main/java/com/brandon/createaccountfragment/view/CreateAccountFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,19 +93,25 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/brandon/AndroidStudioProjects/BrandonForzenbook/loginFragments/src/main/res/layout-land&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/brandon/AndroidStudioProjects/BrandonForzenbook/createAccountFragment/src/main/res/layout-land&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="android.template.-904453653">
+      <recent name="com.brandon.createaccountfragment.view" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/createAccountFragment/src/main/res/layout-land" />
+      <recent name="$PROJECT_DIR$/createAccountFragment/src/main" />
       <recent name="$PROJECT_DIR$/loginFragments/src/main/res/layout-land" />
       <recent name="$PROJECT_DIR$/loginFragments/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
-      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
+    </key>
+    <key name="android.template.-2026795132">
+      <recent name="com.brandon.appfragments.view" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />
@@ -121,6 +120,8 @@
       <recent name="com.brandon.applegacy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/appFragments/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/appLegacy/src/main/res/navigation" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
@@ -136,11 +137,11 @@
       <recent name="com.brandon.createaccountlegacy.view" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.brandon.createaccountfragment.viewmodel" />
       <recent name="com.brandon.loginfragments.viewmodel" />
       <recent name="com.brandon.loginlegacy.viewmodel" />
       <recent name="com.brandon.appfragments.di" />
       <recent name="com.brandon.logincore.viewmodel" />
-      <recent name="com.brandon.viewmodel" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.brandon.corejava.utilities" />
