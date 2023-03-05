@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.brandon.corejava.navigation.LegacyNavigationJava;
 import com.brandon.corejava.utilities.CustomDatePicker;
 import com.brandon.corejava.utilities.NotificationDialog;
 import com.brandon.createaccountjava.databinding.CreateAccountScreenBinding;
@@ -33,6 +34,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     LegacyCreateAccountViewModel viewModel;
     private Disposable disposable;
     private CreateAccountScreenBinding binding;
+    @Inject
+    LegacyNavigationJava navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +72,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         if (binding.backArrow != null) {
-            binding.backArrow.setOnClickListener(v -> {
-            } /* TODO FA-117 Navigate to Login */);
+            binding.backArrow.setOnClickListener(v -> navigation.navigateToLogin(this));
         }
 
         binding.createButton.setOnClickListener(v -> {
@@ -111,7 +113,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                 this, getString(R.string.create_account_duplicate_user_error),
                                 getString(R.string.create_account_to_login),
                                 () -> {
-                                    /* TODO FA-117 Navigate to Login */
+                                    navigation.navigateToLogin(this);
                                     viewModel.notificationDialogOpened(false);
                                 },
                                 () -> viewModel.notificationDialogOpened(true)
@@ -121,7 +123,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                 this, getString(R.string.create_account_duplicate_user_error),
                                 getString(R.string.create_account_to_login),
                                 () -> {
-                                    /* TODO FA-117 Navigate to Login */
+                                    navigation.navigateToLogin(this);
                                     viewModel.notificationDialogOpened(false);
                                 },
                                 () -> viewModel.notificationDialogOpened(true)

@@ -15,6 +15,10 @@
         android:theme="@style/Theme.ForzenBook.DayNight"
         tools:targetApi="31">
         <activity
+            android:name=".LandingPageActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name="com.brandon.loginmodulejava.view.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.ForzenBook.DayNight"

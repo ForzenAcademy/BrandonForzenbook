@@ -144,8 +144,8 @@
     <style name="alertDialogConfirmation">
         <item name="android:textColor">?attr/onSurfaceVariant</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/bodyMedium</item>
-        <item name="android:fontFamily">?attr/fontWeightMedium</item>
+        <item name="android:textSize">@dimen/headlineSmall</item>
+        <item name="android:fontFamily">?attr/fontWeightSemiBold</item>
         <item name="android:layout_marginTop">@dimen/grid_x2</item>
     </style>
 
