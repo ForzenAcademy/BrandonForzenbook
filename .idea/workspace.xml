@@ -21,6 +21,8 @@
       <change beforePath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appLegacy/src/main/java/com/brandon/navigation/LegacyNavigationImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appLegacy/src/main/res/values/strings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/brandon/network/ForzenApiServiceMocks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/java/com/brandon/navigation/LegacyNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/java/com/brandon/navigation/LegacyNavigation.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_disabled.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_enabled.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/drawable/black_button_focused.xml" afterDir="false" />

@@ -30,7 +30,3 @@ fun LoginResponse.toForzenEntity(): ForzenEntity {
         token = token
     )
 }
-
-// We don't need the id to increase or auto generate
-// because we should only have one entry.
-// If this ever is invalid, we toss the old one and cache the new one instead.

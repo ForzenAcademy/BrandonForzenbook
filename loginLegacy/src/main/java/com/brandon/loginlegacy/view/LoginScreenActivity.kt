@@ -24,7 +24,7 @@ class LoginScreenActivity : AppCompatActivity() {
     private val loginViewModel: LegacyLoginViewmodel by viewModels()
     private lateinit var binding: LoginScreenBinding
     @Inject
-    lateinit var legacyNavigation: LegacyNavigation
+    lateinit var navigation: LegacyNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class LoginScreenActivity : AppCompatActivity() {
         }
 
         binding.createAccountRedirect.setOnClickListener {
-            legacyNavigation.navigateToCreateAccount()
+            navigation.navigateToCreateAccount()
         }
     }
 
@@ -98,7 +98,7 @@ class LoginScreenActivity : AppCompatActivity() {
                     }
                 }
                 is LoggedIn -> {
-                    legacyNavigation.navigateToLandingPage()
+                    navigation.navigateToLandingPage()
                 }
             }
         }
