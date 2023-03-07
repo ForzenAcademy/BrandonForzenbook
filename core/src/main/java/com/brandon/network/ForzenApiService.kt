@@ -10,7 +10,7 @@ interface ForzenApiService {
 
     @GET(LOGIN_ENDPOINT)
     suspend fun requestEmailCode(
-        @Query("email") email: String
+        @Query(EMAIL) email: String
     ): Response<Unit>
 
     @FormUrlEncoded
