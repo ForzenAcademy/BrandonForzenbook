@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/coreJava" />
             <option value="$PROJECT_DIR$/createAccountCompose" />
             <option value="$PROJECT_DIR$/createAccountCore" />
+            <option value="$PROJECT_DIR$/createAccountJava" />
             <option value="$PROJECT_DIR$/createAccountLegacy" />
             <option value="$PROJECT_DIR$/legacyCore" />
             <option value="$PROJECT_DIR$/loginCompose" />
