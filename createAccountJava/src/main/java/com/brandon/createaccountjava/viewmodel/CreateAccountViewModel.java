@@ -64,7 +64,7 @@ public abstract class CreateAccountViewModel extends ViewModel {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
-                .doOnSuccess(result -> {
+                .subscribe(result -> {
                     if (result.getState() == ACCOUNT_CREATED) {
                         setState(new CreateAccountUiStateJava(
                                 IDLE,
@@ -121,26 +121,6 @@ public abstract class CreateAccountViewModel extends ViewModel {
                                 false)
                         );
                     }
-                })
-                .doOnError(e -> {
-                    Log.e(VIEWMODEL_ERROR_TAG, e.toString());
-                    setState(new CreateAccountUiStateJava(
-                            IDLE,
-                            CONNECTION_ERROR,
-                            firstName,
-                            lastName,
-                            email,
-                            date,
-                            location,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            false,
-                            false,
-                            false)
-                    );
                 });
     }
 }

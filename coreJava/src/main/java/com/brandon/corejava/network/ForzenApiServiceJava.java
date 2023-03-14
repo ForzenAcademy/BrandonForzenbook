@@ -1,7 +1,6 @@
 package com.brandon.corejava.network;
 
 
-
 import com.brandon.corejava.network.login.LoginResponseJava;
 import com.brandon.corejava.network.user.CreateUserResponseJava;
 

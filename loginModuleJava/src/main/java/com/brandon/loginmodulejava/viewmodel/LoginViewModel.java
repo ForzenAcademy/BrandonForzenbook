@@ -1,8 +1,6 @@
 package com.brandon.loginmodulejava.viewmodel;
 
 
-
-import static com.brandon.corejava.utilities.ConnectionErrors.CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.ConnectionErrors.NO_CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.UserInputErrors.NO_INPUT_ERROR;
 import static com.brandon.loginmodulejava.domain.LoginValidationStates.CODE_SENT;
@@ -14,10 +12,8 @@ import static com.brandon.loginmodulejava.viewmodel.LoginUiStates.LOGGED_IN;
 
 import android.annotation.SuppressLint;
 import android.net.ConnectivityManager;
-import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
-
 
 import com.brandon.loginmodulejava.domain.LoginUseCaseJava;
 
@@ -54,7 +50,7 @@ public abstract class LoginViewModel extends ViewModel {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
-                .doOnSuccess(result -> {
+                .subscribe(result -> {
                     if (result.getState() == LOGIN_SUCCESS) {
                         setState(new LoginUiStateJava(
                                 email,
@@ -83,17 +79,6 @@ public abstract class LoginViewModel extends ViewModel {
                                 false)
                         );
                     }
-                })
-                .doOnError(e -> {
-                    Log.e(VIEWMODEL_ERROR_TAG, e.toString());
-                    setState(new LoginUiStateJava(
-                            email,
-                            NO_INPUT_ERROR,
-                            CONNECTION_ERROR,
-                            false,
-                            IDLE,
-                            false)
-                    );
                 });
     }
 }
