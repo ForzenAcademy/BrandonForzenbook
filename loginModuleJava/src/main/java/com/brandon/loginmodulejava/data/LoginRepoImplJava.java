@@ -56,10 +56,8 @@ public class LoginRepoImplJava implements LoginRepoJava {
                     final ForzenEntityJava entity = new ForzenEntityJava(
                             response.body().getToken(), System.currentTimeMillis()
                     );
-                    Log.e(DATA_ERROR_TAG, "Putting In Database");
                     forzenDaoJava.insert(entity);
                 } catch (Exception e) {
-                    Log.e(DATA_ERROR_TAG, "Failed Putting In Database");
                     Log.e(DATA_ERROR_TAG, FAILED_ENTITY_CONVERT);
                     throw new Exception(FAILED_ENTITY_CONVERT);
                 }

@@ -1,7 +1,6 @@
 package com.brandon.loginmodulejava.domain;
 
 
-
 import static com.brandon.corejava.utilities.ConnectionErrors.CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.ConnectionErrors.NO_CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.UserInputErrors.INVALID_INPUT_ERROR;
@@ -10,10 +9,7 @@ import static com.brandon.loginmodulejava.domain.LoginValidationStates.CODE_SENT
 import static com.brandon.loginmodulejava.domain.LoginValidationStates.GET_CODE;
 import static com.brandon.loginmodulejava.domain.LoginValidationStates.LOGIN_SUCCESS;
 
-import android.util.Log;
-
 import androidx.annotation.Nullable;
-
 
 import com.brandon.corejava.utilities.AccountValidationJava;
 import com.brandon.corejava.utilities.UserInputErrors;
@@ -45,12 +41,10 @@ public class LoginUseCaseImplJava extends AccountValidationJava implements Login
                 return new LoginValidationStateJava(INVALID_INPUT_ERROR, NO_INPUT_ERROR, NO_CONNECTION_ERROR, GET_CODE);
             }
         } else {
-            Log.e("Brandon_Test", "Getting Token");
             final UserInputErrors validCode = isValidCode(code);
             if (validEmail == NO_INPUT_ERROR && validCode == NO_INPUT_ERROR) {
                 try {
                     loginRepoJava.getToken(email, code);
-                    Log.e("Brandon_Test", "Got Token");
                     return new LoginValidationStateJava(NO_INPUT_ERROR, NO_INPUT_ERROR, NO_CONNECTION_ERROR, LOGIN_SUCCESS);
                 } catch (Exception e) {
                     e.printStackTrace();

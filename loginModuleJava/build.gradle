@@ -32,7 +32,6 @@ android {
 dependencies {
 
     implementation project(':uiCore')
-    implementation project(':legacyCore')
     implementation project(':coreJava')
 
     implementation 'androidx.appcompat:appcompat:1.6.1'

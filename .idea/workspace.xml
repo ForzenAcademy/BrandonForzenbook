@@ -16,15 +16,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d02f94-84e0-4413-9fb3-f28dc5bf3149" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccountJava/src/main/java/com/brandon/createaccountjava/viewmodel/LegacyCreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountJava/src/main/java/com/brandon/createaccountjava/viewmodel/LegacyCreateAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LegacyLoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LegacyLoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LoginUiStateJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel/LoginUiStateJava.java" afterDir="false" />
-    </list>
+    <list default="true" id="94d02f94-84e0-4413-9fb3-f28dc5bf3149" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,16 +88,17 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/brandon/AndroidStudioProjects/BrandonForzenbook/uiCore/src/main/res/drawable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
+      <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
       <recent name="$PROJECT_DIR$/createAccountJava/src/main" />
       <recent name="$PROJECT_DIR$/coreJava/src/main/java/com/brandon/corejava/network/user" />
-      <recent name="$PROJECT_DIR$/loginModuleJava/src/main" />
-      <recent name="$PROJECT_DIR$/coreJava/src/main" />
-      <recent name="$PROJECT_DIR$/loginModuleJava/src/main/java/com/brandon/loginmodulejava/viewmodel" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />

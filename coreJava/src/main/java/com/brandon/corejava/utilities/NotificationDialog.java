@@ -2,43 +2,35 @@ package com.brandon.corejava.utilities;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
+import android.content.DialogInterface;
 
-
-import com.brandon.corejava.R;
-
-import java.util.Objects;
+import com.brandon.uicore.R;
 
 import javax.annotation.Nullable;
 
 public class NotificationDialog {
 
-    public void createNotification(
-            Context context,
-            String title,
-            String body,
-            @Nullable Runnable onDismiss,
-            @Nullable Runnable onOpen
-    ) {
-        Objects.requireNonNull(onOpen).run();
-        final LayoutInflater inflater = LayoutInflater.from(context);
-        final View view = inflater.inflate(R.layout.notification_dialog, null);
+    public void createNotification(Context context, String title, String body, @Nullable Runnable onDismiss, @Nullable Runnable onOpen) {
+        if (onOpen != null) {
+            onOpen.run();
+        }
         final AlertDialog dialog = new AlertDialog.Builder(context).create();
-        TextView titleText = view.findViewById(R.id.title_text);
-        titleText.setText(title);
-        TextView bodyText = view.findViewById(R.id.body_text);
-        bodyText.setText(body);
-        view.findViewById(R.id.dialog_dismiss_button).setOnClickListener(v -> {
-            dialog.dismiss();
-            Objects.requireNonNull(onDismiss).run();
-        });
+        dialog.setTitle(title);
+        dialog.setMessage(body);
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE,
+                context.getString(R.string.core_error_dismiss),
+                (dialog1, which) -> {
+                    dialog.dismiss();
+                    if (onDismiss != null) {
+                        onDismiss.run();
+                    }
+                });
         dialog.setOnDismissListener(v -> {
             dialog.dismiss();
-            Objects.requireNonNull(onDismiss).run();
+            if (onDismiss != null) {
+                onDismiss.run();
+            }
         });
         dialog.show();
     }
-
 }

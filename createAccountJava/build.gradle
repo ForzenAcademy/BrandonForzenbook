@@ -35,13 +35,10 @@ dependencies {
 
 
     implementation project(':uiCore')
-    implementation project(':legacyCore')
     implementation project(':coreJava')
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
 
     // Compose Bill Of Materials
     def composeBom = platform('androidx.compose:compose-bom:2022.12.00')

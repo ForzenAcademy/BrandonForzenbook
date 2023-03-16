@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="textFieldHeight">55dp</dimen>
+    <dimen name="textFieldWidth">350dp</dimen>
+
+    <dimen name="grid_x1">2dp</dimen>
+    <dimen name="grid_x2">4dp</dimen>
+    <dimen name="grid_x3">8dp</dimen>
+    <dimen name="grid_x4">12dp</dimen>
+    <dimen name="grid_x5">16dp</dimen>
+    <dimen name="circularLoadingIndicator">100dp</dimen>
+    <dimen name="notificationDialogHeight">160dp</dimen>
+    <dimen name="notificationDialogWidth">240dp</dimen>
+    <dimen name="notificationDialogImageSize">150dp</dimen>
+    <dimen name="notificationDialogPadding">12dp</dimen>
+    <dimen name="largeIcon">200dp</dimen>
+    <dimen name="minimumTouchTargetPadding">8dp</dimen>
+    <dimen name="minimumTouchTarget">48dp</dimen>
+
+    <dimen name="displayLarge">52sp</dimen>
+    <dimen name="displayMedium">46sp</dimen>
+    <dimen name="displaySmall">32sp</dimen>
+    <dimen name="headlineLarge">28sp</dimen>
+    <dimen name="headlineMedium">24sp</dimen>
+    <dimen name="headlineSmall">22sp</dimen>
+    <dimen name="titleLarge">20sp</dimen>
+    <dimen name="titleMedium">16sp</dimen>
+    <dimen name="titleSmall">12sp</dimen>
+    <dimen name="bodyLarge">14sp</dimen>
+    <dimen name="bodyMedium">12sp</dimen>
+    <dimen name="bodySmall">12sp</dimen>
+    <dimen name="labelLarge">14sp</dimen>
+    <dimen name="labelMedium">12sp</dimen>
+    <dimen name="labelSmall">11sp</dimen>
+
+    <dimen name="shapeBorderStroke">1dp</dimen>
+    
+</resources>

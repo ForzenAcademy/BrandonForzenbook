@@ -1,7 +1,6 @@
 package com.brandon.createaccountjava.viewmodel;
 
 
-import static com.brandon.corejava.utilities.ConnectionErrors.CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.ConnectionErrors.NO_CONNECTION_ERROR;
 import static com.brandon.corejava.utilities.UserInputErrors.NO_INPUT_ERROR;
 import static com.brandon.createaccountjava.domain.CreateAccountValidationStates.ACCOUNT_CREATED;
@@ -12,8 +11,8 @@ import static com.brandon.createaccountjava.viewmodel.CreateAccountUiStates.IDLE
 import static com.brandon.createaccountjava.viewmodel.CreateAccountUiStates.LOADING;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.net.ConnectivityManager;
-import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
 
@@ -26,6 +25,8 @@ public abstract class CreateAccountViewModel extends ViewModel {
     private final String VIEWMODEL_ERROR_TAG = "Brandon_Test ViewModel";
 
     protected abstract CreateUserUseCaseJava createUserUseCaseJava();
+
+    protected abstract void navigateToLogin(Context context);
 
     protected abstract ConnectivityManager connectivityManager();
 
@@ -64,7 +65,7 @@ public abstract class CreateAccountViewModel extends ViewModel {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
-                .doOnSuccess(result -> {
+                .subscribe(result -> {
                     if (result.getState() == ACCOUNT_CREATED) {
                         setState(new CreateAccountUiStateJava(
                                 IDLE,
@@ -121,26 +122,6 @@ public abstract class CreateAccountViewModel extends ViewModel {
                                 false)
                         );
                     }
-                })
-                .doOnError(e -> {
-                    Log.e(VIEWMODEL_ERROR_TAG, e.toString());
-                    setState(new CreateAccountUiStateJava(
-                            IDLE,
-                            CONNECTION_ERROR,
-                            firstName,
-                            lastName,
-                            email,
-                            date,
-                            location,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            NO_INPUT_ERROR,
-                            false,
-                            false,
-                            false)
-                    );
                 });
     }
 }

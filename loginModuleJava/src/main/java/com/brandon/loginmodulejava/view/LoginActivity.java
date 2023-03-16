@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.brandon.corejava.navigation.LegacyNavigationJava;
 import com.brandon.corejava.utilities.NotificationDialog;
 import com.brandon.loginmodulejava.databinding.LoginScreenBinding;
 import com.brandon.loginmodulejava.viewmodel.LegacyLoginViewModel;
@@ -18,7 +19,7 @@ import com.brandon.loginmodulejava.viewmodel.LoginUiStates;
 import com.brandon.uicore.R;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.Objects;
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -68,9 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        binding.createAccountRedirect.setOnClickListener(v -> {
-            // TODO FA-117 Navigate to Create Account
-        });
+        binding.createAccountRedirect.setOnClickListener(v -> viewModel.navigateToCreateAccount(this));
 
         uiStateSubscription = viewModel.getState()
                 .subscribeOn(Schedulers.io())
@@ -78,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 .subscribe(it -> {
                     LoginUiStates state = it.getState();
                     if (state == LOGGED_IN) {
-                        // TODO FA - 117 Navigate to Landing Page
+                        viewModel.navigateToLandingScreen(this);
                     } else if (state == LOADING) {
                         binding.buttonText.setVisibility(View.GONE);
                         binding.progressSpinner.setVisibility(View.VISIBLE);
@@ -110,9 +109,9 @@ public class LoginActivity extends AppCompatActivity {
                             binding.loginEmailError.setVisibility(View.GONE);
                         }
                         if (it.isCodeSent()) {
-                            binding.buttonText.setText(com.brandon.uicore.R.string.core_get_code_text);
+                            binding.buttonText.setText(R.string.login_button_text);
                         } else {
-                            binding.buttonText.setText(com.brandon.uicore.R.string.login_button_text);
+                            binding.buttonText.setText(R.string.core_get_code_text);
                         }
                         if (it.isGenericError()) {
                             new NotificationDialog().createNotification(
