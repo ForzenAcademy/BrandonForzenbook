@@ -11,15 +11,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.brandon.corejava.navigation.LegacyNavigationJava;
 import com.brandon.corejava.utilities.NotificationDialog;
 import com.brandon.loginmodulejava.databinding.LoginScreenBinding;
 import com.brandon.loginmodulejava.viewmodel.LegacyLoginViewModel;
 import com.brandon.loginmodulejava.viewmodel.LoginUiStates;
 import com.brandon.uicore.R;
 import com.google.android.material.textfield.TextInputEditText;
-
-import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
