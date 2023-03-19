@@ -34,9 +34,6 @@ android {
 
 dependencies {
     implementation 'com.google.android.material:material:1.8.0'
-    testImplementation project(path: ':loginCore')
-    testImplementation project(path: ':app')
-    testImplementation project(path: ':createAccountCore')
 
     // Room
     def room_version = "2.4.3"

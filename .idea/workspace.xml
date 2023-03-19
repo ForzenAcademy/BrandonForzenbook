@@ -17,25 +17,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="574903bc-4f8d-43bb-99dc-9bb7b8fffce4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/appFragments/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appFragments/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FragmentCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FragmentCore/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FragmentCore/src/main/java/com/brandon/fragmentcore/NotificationDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/FragmentCore/src/main/java/com/brandon/fragmentcore/NotificationDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacyCore/src/main/res/layout/notification_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legacyCore/src/main/res/layout/notification_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginFragments/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginFragments/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginFragments/src/main/java/com/brandon/loginfragments/view/LoginFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,11 +67,11 @@
         <option value="valueResourceFile" />
         <option value="navigationResourceFile" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Interface" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -109,16 +100,19 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/brandon/AndroidStudioProjects/BrandonForzenbook/uiCore/src/main/res/drawable&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/brandon/AndroidStudioProjects/BrandonForzenbook/loginFragments/src/main/res/layout-land&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/loginFragments/src/main/res/layout-land" />
+      <recent name="$PROJECT_DIR$/loginFragments/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
       <recent name="$PROJECT_DIR$/uiCore/src/main/res/values" />
-      <recent name="$PROJECT_DIR$/createAccountJava/src/main" />
-      <recent name="$PROJECT_DIR$/coreJava/src/main/java/com/brandon/corejava/network/user" />
     </key>
     <key name="android.template.-1341461989">
       <recent name="com.brandon.loginlegacy.view" />
@@ -132,16 +126,19 @@
       <recent name="$PROJECT_DIR$/uiCore/src/main/res" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.brandon.loginfragments.view" />
       <recent name="com.brandon.uicore" />
       <recent name="com.brandon.loginlegacy.view" />
       <recent name="com.brandon.applegacy" />
       <recent name="com.brandon.navigation" />
-      <recent name="com.brandon.createaccount.core.viewmodel" />
     </key>
     <key name="android.template.1552927843">
       <recent name="com.brandon.createaccountlegacy.view" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.brandon.loginfragments.viewmodel" />
+      <recent name="com.brandon.loginlegacy.viewmodel" />
+      <recent name="com.brandon.appfragments.di" />
       <recent name="com.brandon.logincore.viewmodel" />
       <recent name="com.brandon.viewmodel" />
     </key>
@@ -152,9 +149,67 @@
       <recent name="com.brandon.loginmodulejava.di" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.appJava">
+  <component name="RunManager" selected="Android App.appFragments">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="ForzenBook.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="appFragments" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="ForzenBook.appFragments.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -341,6 +396,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Android App.appFragments" />
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.appLegacy" />
       <item itemvalue="Android App.appJava" />
@@ -349,7 +405,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="94d02f94-84e0-4413-9fb3-f28dc5bf3149" name="Changes" comment="" />
+      <changelist id="574903bc-4f8d-43bb-99dc-9bb7b8fffce4" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

@@ -42,7 +42,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         binding.apply {
             backArrow?.setOnClickListener {
-                legacyNavigation.navigateToLogin()
+                legacyNavigation.navigateToLogin(this@CreateAccountActivity)
             }
             dateField.setOnClickListener {
                 val calendar = Calendar.getInstance()
@@ -128,7 +128,7 @@ class CreateAccountActivity : AppCompatActivity() {
                         titleText = getString(R.string.core_success),
                         bodyText = getString(R.string.create_account_success_body)
                     ) {
-                        legacyNavigation.navigateToLogin()
+                        legacyNavigation.navigateToLogin(this@CreateAccountActivity)
                     }
                 }
             }
