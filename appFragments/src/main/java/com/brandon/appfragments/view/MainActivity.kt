@@ -1,12 +1,12 @@
-package com.brandon.loginfragments.view
+package com.brandon.appfragments.view
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.brandon.loginfragments.R
+import android.os.Bundle
+import com.brandon.appfragments.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_layout)

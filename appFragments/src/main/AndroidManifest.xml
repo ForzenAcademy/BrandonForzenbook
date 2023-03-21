@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ForzenBook.DayNight"
         tools:targetApi="31">
         <activity
-            android:name="com.brandon.loginfragments.view.LoginActivity"
+            android:name="com.brandon.appfragments.view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.ForzenBook.DayNight"
             android:windowSoftInputMode="adjustResize">
