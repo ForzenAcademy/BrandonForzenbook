@@ -37,7 +37,7 @@ dependencies {
 
     implementation project(':uiCore')
     implementation project(':loginCore')
-    implementation project(path: ':FragmentCore')
+    implementation project(':fragmentCore')
 
     // Core
     implementation 'androidx.core:core-ktx:1.9.0'

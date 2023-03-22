@@ -1,7 +1,9 @@
 package com.brandon.createaccountfragment.viewmodel
 
+import androidx.fragment.app.FragmentManager
 import com.brandon.createaccount.core.usecase.CreateUserUseCase
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel
+import com.brandon.navigation.FragmentNav
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,6 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FragmentCreateAccountViewModel @Inject constructor(
     override val createUserUseCase: CreateUserUseCase,
+    private val navigation: FragmentNav,
 ) : CreateAccountViewModel() {
 
     override var state: CreateAccountUiState
@@ -24,4 +27,5 @@ class FragmentCreateAccountViewModel @Inject constructor(
     val uiState: StateFlow<CreateAccountUiState>
         get() = _uiState.asStateFlow()
 
+    fun loginRedirectClicked(fragmentManager: FragmentManager) =  navigation.navigateToLogin(fragmentManager)
 }

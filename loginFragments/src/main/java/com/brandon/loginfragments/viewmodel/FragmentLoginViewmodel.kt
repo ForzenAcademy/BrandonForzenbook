@@ -1,8 +1,10 @@
 package com.brandon.loginfragments.viewmodel
 
 import android.net.ConnectivityManager
+import androidx.fragment.app.FragmentManager
 import com.brandon.logincore.usecase.LoginUseCase
 import com.brandon.logincore.viewmodel.LoginViewModel
+import com.brandon.navigation.FragmentNav
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,9 +15,8 @@ import javax.inject.Inject
 class FragmentLoginViewmodel @Inject constructor(
     override val loginUseCase: LoginUseCase,
     override val connectivityManager: ConnectivityManager,
+    private val navigation: FragmentNav,
 ) : LoginViewModel() {
-
-    // TODO FA-125 Handle Any Navigation
 
     override var state: LoginUiState
         get() = _uiState.value
@@ -26,4 +27,9 @@ class FragmentLoginViewmodel @Inject constructor(
     private var _uiState: MutableStateFlow<LoginUiState> = MutableStateFlow(LoginUiState.Idle())
     val uiState: StateFlow<LoginUiState>
         get() = _uiState.asStateFlow()
+
+    fun loginButtonClicked(fragmentManager: FragmentManager) = navigation.navigateToLandingPage(fragmentManager)
+
+    fun createAccountClicked(fragmentManager: FragmentManager) = navigation.navigateToCreateAccount(fragmentManager)
+
 }

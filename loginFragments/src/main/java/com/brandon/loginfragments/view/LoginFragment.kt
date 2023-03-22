@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
             val emailField = binding?.loginEmailField
             val codeField = binding?.loginCodeField
             val fieldsError = binding?.loginRequiredFieldsError
-            fieldsError?.isVisible = true
+            fieldsError?.isVisible = false
             emailField?.clearFocus()
             emailField?.isSelected = false
             val email = emailField?.text.toString()
@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
         }
 
         binding?.createAccountRedirect?.setOnClickListener {
-            // TODO FA-125 Add Navigation Between Fragments
+            loginViewModel.createAccountClicked(parentFragmentManager)
         }
 
         loginViewModel.viewModelScope.launch {
@@ -106,7 +106,7 @@ class LoginFragment : Fragment() {
                     }
                 }
                 is LoginViewModel.LoginUiState.LoggedIn -> {
-                    // TODO FA-125 Add Navigation Between Fragments
+                    loginViewModel.loginButtonClicked(parentFragmentManager)
                 }
             }
         }
