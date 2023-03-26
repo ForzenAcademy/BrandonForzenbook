@@ -28,12 +28,12 @@ import com.brandon.composecore.constants.ComposableConstants.NAME_CHAR_LIMIT
 import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_MAX_LINES
 import com.brandon.composecore.navigation.LocalNavController
 import com.brandon.composecore.navigation.NavDestinations
-import com.brandon.composecore.theme.LocalDimens
-import com.brandon.uicore.R
+import com.brandon.composecore.theme.dimens
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.Companion.KEYBOARD_ERROR
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.Companion.VIEW_ERROR_TAG
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState
 import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel.CreateAccountUiState.*
+import com.brandon.uicore.R
 import java.util.*
 
 @Composable
@@ -252,7 +252,7 @@ fun CreateAccountTopBar() {
     Row(
         modifier = Modifier
             .background(color = MaterialTheme.colorScheme.tertiary)
-            .padding(LocalDimens.current.paddingMedium),
+            .padding(MaterialTheme.dimens.paddingMedium),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start,
     ) {
@@ -288,7 +288,7 @@ fun FakeLoginScreen() {
             imageId = R.drawable.forzenlogo,
             text = resources.getString(R.string.core_login_title),
         )
-        InputInfoTextField(hint = resources.getString(R.string.core_email_hint),)
+        InputInfoTextField(hint = resources.getString(R.string.core_email_hint))
         BlackButton(text = resources.getString(R.string.core_get_code_text))
         RedirectText(text = resources.getString(R.string.core_create_account))
     }

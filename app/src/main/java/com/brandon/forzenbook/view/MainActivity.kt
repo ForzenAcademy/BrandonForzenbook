@@ -9,14 +9,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandon.composecore.navigation.LocalNavController
-import com.brandon.composecore.navigation.NavDestinations
 import com.brandon.composecore.navigation.NavDestinations.CREATE_ACCOUNT
-import com.brandon.composecore.navigation.NavDestinations.LANDING_SCREEN
+import com.brandon.composecore.navigation.NavDestinations.CREATE_POST_SCREEN
+import com.brandon.composecore.navigation.NavDestinations.FEED_SCREEN
+import com.brandon.composecore.navigation.NavDestinations.LOGIN_INPUT
 import com.brandon.composecore.theme.ForzenBookTheme
 import com.brandon.createaccount.compose.CreateAccountContent
-import com.brandon.createaccount.core.viewmodel.CreateAccountViewModel
 import com.brandon.createaccount.viewmodel.ComposeCreateAccountViewModel
-import com.brandon.forzenbook.view.composables.LandingScreen
+import com.brandon.feedcompose.CreatePostScreen
+import com.brandon.feedcompose.FeedScreen
 import com.brandon.logincompose.view.LoginContent
 import com.brandon.logincompose.viewmodel.ComposeLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,9 +36,9 @@ class MainActivity : ComponentActivity() {
                 CompositionLocalProvider(LocalNavController provides navController) {
                     NavHost(
                         navController = navController,
-                        startDestination = NavDestinations.LOGIN_INPUT
+                        startDestination = LOGIN_INPUT
                     ) {
-                        composable(NavDestinations.LOGIN_INPUT) {
+                        composable(LOGIN_INPUT) {
                             LoginContent(
                                 state = loginViewModel.uiState.value,
                                 onGetCode = { loginViewModel.loginClicked(it) },
@@ -46,8 +47,8 @@ class MainActivity : ComponentActivity() {
                                 },
                                 onCheckConnection = { loginViewModel.checkInternetConnection() },
                                 onLoggedIn = {
-                                    navController.navigate(LANDING_SCREEN) {
-                                        popUpTo(LANDING_SCREEN) { inclusive = true }
+                                    navController.navigate(FEED_SCREEN) {
+                                        popUpTo(FEED_SCREEN) { inclusive = true }
                                     }
                                 }
                             )
@@ -67,8 +68,17 @@ class MainActivity : ComponentActivity() {
                                 onCheckConnection = { loginViewModel.checkInternetConnection() }
                             )
                         }
-                        composable(LANDING_SCREEN) {
-                            LandingScreen()
+                        composable(FEED_SCREEN) {
+                            FeedScreen(
+                                onCreateFeedClicked = {
+                                    navController.navigate(CREATE_POST_SCREEN) {
+                                        popUpTo(FEED_SCREEN) { inclusive = true }
+                                    }
+                                }
+                            )
+                        }
+                        composable(CREATE_POST_SCREEN) {
+                            CreatePostScreen()
                         }
                     }
                 }

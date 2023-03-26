@@ -25,15 +25,14 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     buildFeatures {
         compose true
@@ -55,11 +54,12 @@ android {
 
 dependencies {
 
-    // TODO remove Temporary Dependencies in FA-95
     implementation project(path: ':composeCore')
     implementation project(path: ':loginCompose')
     implementation project(path: ':createAccountCompose')
     implementation project(path: ':uiCore')
+    implementation project(path: ':feedCompose')
+
     // Compose Bill Of Materials
     def composeBom = platform('androidx.compose:compose-bom:2022.12.00')
     implementation composeBom

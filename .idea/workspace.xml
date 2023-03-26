@@ -17,7 +17,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="053dc2f4-81ec-4e27-b348-826c75ee0dac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/appFragments/src/main/res/values/strings.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedCompose/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedCompose/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedCompose/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedCompose/src/main/java/com/brandon/feedcompose/FeedScreenComposables.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/baseline_image_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uiCore/src/main/res/drawable/baseline_text_fields_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brandon/forzenbook/view/composables/LandingScreenComposables.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/composables/GeneralComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/constants/ComposableConstants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/constants/ComposableConstants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/navigation/NavDestinations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/navigation/NavDestinations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Dimensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Dimensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeCore/src/main/java/com/brandon/composecore/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/createAccountCompose/src/main/java/com/brandon/createaccount/compose/CreateUserComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/loginCompose/src/main/java/com/brandon/logincompose/view/LoginComposables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uiCore/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +174,7 @@
       <recent name="com.brandon.loginmodulejava.di" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.appFragments">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="ForzenBook.app.main" />
       <option name="DEPLOY" value="true" />
@@ -404,7 +430,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="574903bc-4f8d-43bb-99dc-9bb7b8fffce4" name="Changes" comment="" />
+      <changelist id="053dc2f4-81ec-4e27-b348-826c75ee0dac" name="Changes" comment="" />
       <created>1676181818570</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

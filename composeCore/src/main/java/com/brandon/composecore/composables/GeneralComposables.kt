@@ -27,7 +27,7 @@ import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_DEFAULT_
 import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_DEFAULT_INPUT_LIMIT
 import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_DEFAULT_TEXT
 import com.brandon.composecore.constants.ComposableConstants.TEXT_FIELD_MAX_LINES
-import com.brandon.composecore.theme.LocalDimens
+import com.brandon.composecore.theme.dimens
 import com.example.composecore.R
 
 @Composable
@@ -35,7 +35,7 @@ fun TextFieldErrorText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(LocalDimens.current.paddingSmall),
+        modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
         text = text,
         style = MaterialTheme.typography.labelSmall,
         color = MaterialTheme.colorScheme.error,
@@ -45,7 +45,7 @@ fun TextFieldErrorText(
 @Composable
 fun YellowColumn(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -61,20 +61,50 @@ fun YellowColumn(
 
 @Composable
 fun BlackButton(
+    modifier: Modifier = Modifier,
     text: String,
     isEnabled: Boolean = BUTTON_DEFAULT_ENABLED,
     onClick: () -> Unit = {},
 ) {
-    val dimens = LocalDimens.current
     Box(
-        modifier = Modifier
+        modifier = modifier
             .padding(
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding,
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding,
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding
             )
-            .height(dimens.minimumTouchTarget)
+            .height(MaterialTheme.dimens.minimumTouchTarget)
+            .fillMaxWidth()
+            .alpha(if (isEnabled) ENABLED_ALPHA else DISABLED_ALPHA)
+            .background(
+                color = MaterialTheme.colorScheme.tertiaryContainer,
+                shape = MaterialTheme.shapes.large,
+            )
+            .clip(MaterialTheme.shapes.large)
+            .clickable { if (isEnabled) onClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            color = MaterialTheme.colorScheme.onTertiaryContainer,
+            maxLines = TEXT_FIELD_MAX_LINES,
+            style = MaterialTheme.typography.bodyMedium
+        )
+    }
+}
+
+@Composable
+fun SmallBlackButton(
+    modifier: Modifier = Modifier,
+    text: String,
+    isEnabled: Boolean = BUTTON_DEFAULT_ENABLED,
+    onClick: () -> Unit = {},
+) {
+    Box(
+        modifier = modifier
+            .padding(MaterialTheme.dimens.paddingSmall,)
+            .height(MaterialTheme.dimens.minimumTouchTarget)
             .fillMaxWidth()
             .alpha(if (isEnabled) ENABLED_ALPHA else DISABLED_ALPHA)
             .background(
@@ -96,16 +126,15 @@ fun BlackButton(
 
 @Composable
 fun LoadingBlackButton() {
-    val dimens = LocalDimens.current
     Box(
         modifier = Modifier
             .padding(
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding,
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding,
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding
             )
-            .height(dimens.minimumTouchTarget)
+            .height(MaterialTheme.dimens.minimumTouchTarget)
             .fillMaxWidth()
             .alpha(DISABLED_ALPHA)
             .background(
@@ -124,7 +153,7 @@ fun HintText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(LocalDimens.current.paddingSmall),
+        modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
         text = text,
         style = MaterialTheme.typography.labelMedium,
         color = MaterialTheme.colorScheme.onTertiary,
@@ -144,15 +173,14 @@ fun InputInfoTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
 ) {
-    val dimens = LocalDimens.current
     TextField(
         value = currentText,
         modifier = modifier
             .padding(
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding,
-                dimens.paddingLarge,
-                dimens.minimumTouchTargetPadding
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding,
+                MaterialTheme.dimens.paddingLarge,
+                MaterialTheme.dimens.minimumTouchTargetPadding
             )
             .alpha(if (isEnabled) ENABLED_ALPHA else DISABLED_ALPHA)
             .fillMaxWidth()
@@ -196,15 +224,14 @@ fun ReadOnlyDateTextField(
     onClickEvent: () -> Unit = {},
 ) {
     Box {
-        val dimens = LocalDimens.current
         TextField(
             value = currentText,
             modifier = modifier
                 .padding(
-                    dimens.paddingLarge,
-                    dimens.minimumTouchTargetPadding,
-                    dimens.paddingLarge,
-                    dimens.minimumTouchTargetPadding
+                    MaterialTheme.dimens.paddingLarge,
+                    MaterialTheme.dimens.minimumTouchTargetPadding,
+                    MaterialTheme.dimens.paddingLarge,
+                    MaterialTheme.dimens.minimumTouchTargetPadding
                 )
                 .alpha(if (isEnabled) ENABLED_ALPHA else DISABLED_ALPHA)
                 .fillMaxWidth()
@@ -250,7 +277,7 @@ fun RedirectText(
     Text(
         modifier = Modifier
             .clickable { if (isEnabled) onClick() }
-            .padding(LocalDimens.current.minimumTouchTargetPadding)
+            .padding(MaterialTheme.dimens.minimumTouchTargetPadding)
             .alpha(if (isEnabled) ENABLED_ALPHA else DISABLED_ALPHA),
         text = text,
         style = MaterialTheme.typography.labelLarge,
@@ -266,7 +293,7 @@ fun ImageTitle(
     Image(
         painter = painterResource(id = imageId),
         contentDescription = LocalContext.current.getString(R.string.default_image_description),
-        modifier = Modifier.size(LocalDimens.current.largeIcon)
+        modifier = Modifier.size(MaterialTheme.dimens.largeIcon)
     )
     TitleText(
         text = text
@@ -278,7 +305,7 @@ fun TitleText(
     text: String,
 ) {
     Text(
-        modifier = Modifier.padding(LocalDimens.current.paddingSmall),
+        modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
         text = text,
         style = MaterialTheme.typography.displayMedium,
         overflow = TextOverflow.Ellipsis,
@@ -292,13 +319,12 @@ fun AlertDialog(
     body: String,
     onDismissRequest: () -> Unit,
 ) {
-    val dimens = LocalDimens.current
     val resources = LocalContext.current.resources
     Dialog(onDismissRequest = { onDismissRequest() }) {
         Column(
             modifier = Modifier
-                .height(dimens.notificationDialogHeight)
-                .width(dimens.notificationDialogWidth)
+                .height(MaterialTheme.dimens.notificationDialogHeight)
+                .width(MaterialTheme.dimens.notificationDialogWidth)
                 .background(
                     color = MaterialTheme.colorScheme.secondaryContainer,
                     shape = MaterialTheme.shapes.medium
@@ -308,7 +334,7 @@ fun AlertDialog(
         ) {
             Text(
                 text = title,
-                modifier = Modifier.padding(dimens.paddingSmall),
+                modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.titleSmall,
@@ -316,7 +342,7 @@ fun AlertDialog(
             )
             Text(
                 text = body,
-                modifier = Modifier.padding(dimens.paddingSmall),
+                modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 overflow = TextOverflow.Ellipsis,
@@ -327,7 +353,7 @@ fun AlertDialog(
                 Text(
                     text = resources.getString(R.string.error_dismiss),
                     modifier = Modifier
-                        .padding(dimens.minimumTouchTargetPadding)
+                        .padding(MaterialTheme.dimens.minimumTouchTargetPadding)
                         .weight(DEFAULT_WEIGHT)
                         .clickable { onDismissRequest() },
                     style = MaterialTheme.typography.bodyMedium,
@@ -347,12 +373,11 @@ fun SuccessDialog(
     buttonText: String,
     onDismissRequest: () -> Unit,
 ) {
-    val dimens = LocalDimens.current
     Dialog(onDismissRequest = { onDismissRequest() }) {
         Column(
             modifier = Modifier
-                .height(dimens.notificationDialogHeight)
-                .width(dimens.notificationDialogWidth)
+                .height(MaterialTheme.dimens.notificationDialogHeight)
+                .width(MaterialTheme.dimens.notificationDialogWidth)
                 .background(
                     color = MaterialTheme.colorScheme.secondaryContainer,
                     shape = MaterialTheme.shapes.medium
@@ -362,7 +387,7 @@ fun SuccessDialog(
         ) {
             Text(
                 text = title,
-                modifier = Modifier.padding(dimens.paddingSmall),
+                modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.titleSmall,
@@ -370,7 +395,7 @@ fun SuccessDialog(
             )
             Text(
                 text = body,
-                modifier = Modifier.padding(dimens.paddingSmall),
+                modifier = Modifier.padding(MaterialTheme.dimens.paddingSmall),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 overflow = TextOverflow.Ellipsis,
@@ -378,8 +403,8 @@ fun SuccessDialog(
             )
             Row(
                 modifier = Modifier
-                    .padding(dimens.paddingSmall)
-                    .height(dimens.minimumTouchTarget)
+                    .padding(MaterialTheme.dimens.paddingSmall)
+                    .height(MaterialTheme.dimens.minimumTouchTarget)
                     .clickable { onDismissRequest() },
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
@@ -387,7 +412,7 @@ fun SuccessDialog(
                 Text(
                     text = buttonText,
                     modifier = Modifier
-                        .padding(dimens.minimumTouchTargetPadding)
+                        .padding(MaterialTheme.dimens.minimumTouchTargetPadding)
                         .weight(DEFAULT_WEIGHT),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Magenta,

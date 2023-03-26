@@ -6,6 +6,7 @@ object ComposableConstants {
     const val EMAIL_CHAR_LIMIT = 64
     const val NAME_CHAR_LIMIT = 20
     const val TEXT_FIELD_DEFAULT_TEXT = ""
+    const val IMAGE_NO_DESCRIPTION = ""
     const val TEXT_FIELD_DEFAULT_ENABLED = true
     const val TEXT_FIELD_MAX_LINES = 1
     const val DEFAULT_WEIGHT = 1f
@@ -14,4 +15,5 @@ object ComposableConstants {
     const val DISABLED_ALPHA = 0.5f
     const val ENABLED_ALPHA = 1f
     const val BUTTON_DEFAULT_ENABLED = true
+    const val POST_FIELD_TEXT_LIMIT = 256
 }

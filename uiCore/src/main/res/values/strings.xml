@@ -36,4 +36,12 @@
     <string name="create_account_date_error">Invalid Date of Birth</string>
     <string name="create_account_back_arrow">Login Screen</string>
 
+    <string name="feed_create_post">Create Post</string>
+
+    <string name="post_upload_image">Upload Image</string>
+    <string name="post_toggle_type_text">Text Post</string>
+    <string name="post_toggle_type_image">Image Post</string>
+    <string name="post_submit">Create Post</string>
+    <string name="post_text_hint">Start Typing Here…</string>
+
 </resources>

@@ -26,20 +26,14 @@ fun LoginContent(
     onLoggedIn: () -> Unit,
 ) {
     when (state) {
-        is Idle -> {
-            LoginScreen(
-                state = state,
-                onGetCode = onGetCode,
-                onLogin = onLogin,
-                onCheckConnection = onCheckConnection,
-            )
-        }
-        is Loading -> {
-            LoadingLoginScreen(state = state)
-        }
-        is LoggedIn -> {
-            onLoggedIn()
-        }
+        is Idle -> LoginScreen(
+            state = state,
+            onGetCode = onGetCode,
+            onLogin = onLogin,
+            onCheckConnection = onCheckConnection,
+        )
+        is Loading -> LoadingLoginScreen(state = state)
+        is LoggedIn -> LaunchedEffect(state) { onLoggedIn() }
     }
 }
 
