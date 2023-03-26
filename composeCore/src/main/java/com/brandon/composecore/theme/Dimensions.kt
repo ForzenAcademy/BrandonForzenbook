@@ -1,22 +1,7 @@
 package com.brandon.composecore.theme
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-
-@Composable
-fun ProvideDimens(
-    dimens: Dimensions,
-    content: @Composable () -> Unit,
-) {
-    val dimenSets = remember { dimens }
-    CompositionLocalProvider(LocalDimens provides dimenSets, content = content)
-}
-
-val LocalDimens = compositionLocalOf { LargeDimens }
 
 data class Dimensions(
     val paddingExtraSmall: Dp,
@@ -30,6 +15,8 @@ data class Dimensions(
     val notificationDialogPadding: Dp,
     val notificationDialogImageSize: Dp,
     val largeIcon: Dp,
+    val smallIcon: Dp,
+    val superSmallIcon: Dp,
     val minimumTouchTargetPadding: Dp = 8.dp,
     val minimumTouchTarget: Dp = 48.dp,
 )
@@ -46,6 +33,8 @@ val SmallDimens = Dimensions(
     notificationDialogImageSize = 150.dp,
     notificationDialogPadding = 12.dp,
     largeIcon = 200.dp,
+    smallIcon = 75.dp,
+    superSmallIcon = 50.dp,
 )
 
 val LargeDimens = Dimensions(
@@ -59,5 +48,7 @@ val LargeDimens = Dimensions(
     notificationDialogWidth = 280.dp,
     notificationDialogImageSize = 200.dp,
     notificationDialogPadding = 12.dp,
-    largeIcon = 250.dp
+    largeIcon = 250.dp,
+    smallIcon = 150.dp,
+    superSmallIcon = 75.dp,
 )
